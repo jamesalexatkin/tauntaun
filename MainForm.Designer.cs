@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "",
-            "sdfsd"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "",
-            "dsfdsfdsf"}, -1);
             this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
             this.matTabCtrl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPgInstalled = new System.Windows.Forms.TabPage();
@@ -110,15 +104,12 @@
             this.lstVwInstalledMaps.FullRowSelect = true;
             this.lstVwInstalledMaps.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstVwInstalledMaps.HideSelection = false;
-            this.lstVwInstalledMaps.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
             this.lstVwInstalledMaps.Location = new System.Drawing.Point(8, 3);
             this.lstVwInstalledMaps.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lstVwInstalledMaps.MouseState = MaterialSkin.MouseState.OUT;
             this.lstVwInstalledMaps.Name = "lstVwInstalledMaps";
             this.lstVwInstalledMaps.OwnerDraw = true;
-            this.lstVwInstalledMaps.Size = new System.Drawing.Size(572, 185);
+            this.lstVwInstalledMaps.Size = new System.Drawing.Size(768, 428);
             this.lstVwInstalledMaps.TabIndex = 0;
             this.lstVwInstalledMaps.UseCompatibleStateImageBehavior = false;
             this.lstVwInstalledMaps.View = System.Windows.Forms.View.Details;

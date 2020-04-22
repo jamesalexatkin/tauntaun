@@ -2,6 +2,7 @@
 using MaterialSkin.Controls;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml;
@@ -13,6 +14,7 @@ namespace WompRat
         const string SettingsFilename = "settings.json";
         const string MapsFilename = "maps.json";
         Settings settings;
+        KnownMaps knownMaps;
         MaterialSkinManager materialSkinManager;
 
         public MainForm()
@@ -33,12 +35,62 @@ namespace WompRat
                 writeSettings(settings, SettingsFilename);
             }
 
+            if (File.Exists(MapsFilename))
+            {
+                // Load known maps
+                string jsonString = File.ReadAllText(MapsFilename);
+                Console.WriteLine(jsonString);
+                knownMaps = JsonConvert.DeserializeObject<KnownMaps>(jsonString);
+                Console.WriteLine(knownMaps.Maps[0].Name);
+
+                string[] subdirs = getDirectoriesJustNames(settings.AddonLocation);
+                    
+                // Add installed ones to ListView
+                foreach(string subdir in subdirs)
+                {
+                    Map mapFound = findMapFromFolder(knownMaps.Maps, subdir);
+                    ListViewItem lvi = new ListViewItem();
+                    if (mapFound != null)
+                    {
+                        
+                        lvi.Text = mapFound.Name;
+                    }
+                    else
+                    {
+                        lvi.Text = "Unrecognised map";
+                    }
+                    lstVwInstalledMaps.Items.Add(lvi);
+                }
+            }
 
             // Create a material theme manager and add the form to manage (this)
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             updateTheme();
             
+        }
+
+        private string[] getDirectoriesJustNames(string root)
+        {
+            string[] dirs = Directory.GetDirectories(root);
+            for(int i = 0; i < dirs.Length; i++)
+            {
+                string dirName = new DirectoryInfo(dirs[i]).Name;
+                dirs[i] = dirName;
+            }
+            return dirs;
+        }
+
+        private Map findMapFromFolder(List<Map> maps, string subdir)
+        {
+            Console.WriteLine(subdir);
+            foreach(Map m in maps) {
+                if (m.Folder.Equals(subdir))
+                {
+                    return m;
+                }
+            }
+            return null;
         }
 
         private void updateTheme()
@@ -88,6 +140,8 @@ namespace WompRat
             {
                 string[] row = { "hello"};
                 ListViewItem lvi = new ListViewItem(row);
+                lvi.Text = "world";
+                lvi.SubItems.Add("hello");
                 lstVwInstalledMaps.Items.Add(lvi);
 
                 lstVwInstalledMaps.RedrawItems(0, lstVwInstalledMaps.Items.Count - 1, false);
