@@ -117,4 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTxtAbout.Text" xml:space="preserve">
+    <value>If you wish to contribute to the development of this tool, please visit the repo at: https://github.com/jamesalexatkin/womp-rat-swbfii.
+
+Womp Rat developed by James Atkin under the GNU General Public License v3: https://www.gnu.org/licenses/gpl-3.0.html.
+
+LucasArts, the LucasArts logo, STAR WARS and related properties are trademarks in the United States and/or in other countries of Lucasfilm Ltd. and/or its affiliates. 
+Star Wars Battlefront is a trademark of Lucasfilm Entertainment Company Ltd. 
+© 2004-2009 Lucasfilm Entertainment Company Ltd. or Lucasfilm Ltd. All rights reserved.
+
+</value>
+  </data>
 </root>
