@@ -59,6 +59,9 @@ namespace WompRat
                     }
                     lstVwInstalledMaps.Items.Add(lvi);
                 }
+
+                // Get and display number of maps installed
+                lblNumMapsInstalled.Text = lstVwInstalledMaps.Items.Count.ToString();
             }
 
             // Create a material theme manager and add the form to manage (this)

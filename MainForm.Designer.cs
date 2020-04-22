@@ -47,6 +47,9 @@
             this.btnSettingsSave = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tabPgAbout = new System.Windows.Forms.TabPage();
             this.matTabSel = new MaterialSkin.Controls.MaterialTabSelector();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.lblNumMapsInstalledHeader = new MaterialSkin.Controls.MaterialLabel();
+            this.lblNumMapsInstalled = new MaterialSkin.Controls.MaterialLabel();
             this.matTabCtrl.SuspendLayout();
             this.tabPgInstalled.SuspendLayout();
             this.tabPgSettings.SuspendLayout();
@@ -104,16 +107,15 @@
             this.colAuthor,
             this.colDownloadLink});
             this.lstVwInstalledMaps.Depth = 0;
-            this.lstVwInstalledMaps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstVwInstalledMaps.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
             this.lstVwInstalledMaps.FullRowSelect = true;
             this.lstVwInstalledMaps.HideSelection = false;
-            this.lstVwInstalledMaps.Location = new System.Drawing.Point(0, 0);
+            this.lstVwInstalledMaps.Location = new System.Drawing.Point(8, 3);
             this.lstVwInstalledMaps.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lstVwInstalledMaps.MouseState = MaterialSkin.MouseState.OUT;
             this.lstVwInstalledMaps.Name = "lstVwInstalledMaps";
             this.lstVwInstalledMaps.OwnerDraw = true;
-            this.lstVwInstalledMaps.Size = new System.Drawing.Size(1070, 507);
+            this.lstVwInstalledMaps.Size = new System.Drawing.Size(1305, 495);
             this.lstVwInstalledMaps.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lstVwInstalledMaps.TabIndex = 0;
             this.lstVwInstalledMaps.UseCompatibleStateImageBehavior = false;
@@ -122,22 +124,22 @@
             // colName
             // 
             this.colName.Text = "Name";
-            this.colName.Width = 376;
+            this.colName.Width = 318;
             // 
             // colFolder
             // 
             this.colFolder.Text = "Folder";
-            this.colFolder.Width = 120;
+            this.colFolder.Width = 145;
             // 
             // colAuthor
             // 
             this.colAuthor.Text = "Author";
-            this.colAuthor.Width = 120;
+            this.colAuthor.Width = 138;
             // 
             // colDownloadLink
             // 
             this.colDownloadLink.Text = "Download link";
-            this.colDownloadLink.Width = 200;
+            this.colDownloadLink.Width = 405;
             // 
             // tabPgGet
             // 
@@ -291,15 +293,55 @@
             this.matTabSel.Location = new System.Drawing.Point(0, 64);
             this.matTabSel.MouseState = MaterialSkin.MouseState.HOVER;
             this.matTabSel.Name = "matTabSel";
-            this.matTabSel.Size = new System.Drawing.Size(1078, 65);
+            this.matTabSel.Size = new System.Drawing.Size(1440, 65);
             this.matTabSel.TabIndex = 8;
             this.matTabSel.Text = "materialTabSelector1";
+            // 
+            // materialDivider1
+            // 
+            this.materialDivider1.BackColor = System.Drawing.SystemColors.Control;
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(1117, 152);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(286, 244);
+            this.materialDivider1.TabIndex = 9;
+            this.materialDivider1.Text = "materialDivider1";
+            // 
+            // lblNumMapsInstalledHeader
+            // 
+            this.lblNumMapsInstalledHeader.AutoSize = true;
+            this.lblNumMapsInstalledHeader.Depth = 0;
+            this.lblNumMapsInstalledHeader.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblNumMapsInstalledHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNumMapsInstalledHeader.Location = new System.Drawing.Point(1131, 167);
+            this.lblNumMapsInstalledHeader.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblNumMapsInstalledHeader.Name = "lblNumMapsInstalledHeader";
+            this.lblNumMapsInstalledHeader.Size = new System.Drawing.Size(186, 19);
+            this.lblNumMapsInstalledHeader.TabIndex = 10;
+            this.lblNumMapsInstalledHeader.Text = "Number of maps installed:";
+            // 
+            // lblNumMapsInstalled
+            // 
+            this.lblNumMapsInstalled.AutoSize = true;
+            this.lblNumMapsInstalled.Depth = 0;
+            this.lblNumMapsInstalled.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.lblNumMapsInstalled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNumMapsInstalled.Location = new System.Drawing.Point(1131, 188);
+            this.lblNumMapsInstalled.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblNumMapsInstalled.Name = "lblNumMapsInstalled";
+            this.lblNumMapsInstalled.Size = new System.Drawing.Size(17, 18);
+            this.lblNumMapsInstalled.TabIndex = 11;
+            this.lblNumMapsInstalled.Text = "0";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 659);
+            this.ClientSize = new System.Drawing.Size(1440, 659);
+            this.Controls.Add(this.lblNumMapsInstalled);
+            this.Controls.Add(this.lblNumMapsInstalledHeader);
+            this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.matTabSel);
             this.Controls.Add(this.matTabCtrl);
             this.Controls.Add(this.materialListView1);
@@ -310,6 +352,7 @@
             this.tabPgSettings.ResumeLayout(false);
             this.tabPgSettings.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -333,6 +376,9 @@
         private System.Windows.Forms.ColumnHeader colFolder;
         private System.Windows.Forms.ColumnHeader colAuthor;
         private System.Windows.Forms.ColumnHeader colDownloadLink;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private MaterialSkin.Controls.MaterialLabel lblNumMapsInstalledHeader;
+        private MaterialSkin.Controls.MaterialLabel lblNumMapsInstalled;
     }
 }
 
