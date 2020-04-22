@@ -181,5 +181,10 @@ namespace WompRat
 
             txtSettingsAddon.Text = addonFolderPath;
         }
+
+        private void richTxtAbout_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
+        }
     }
 }

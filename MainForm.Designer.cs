@@ -264,9 +264,9 @@
             this.lblSettingsAddon.Location = new System.Drawing.Point(18, 23);
             this.lblSettingsAddon.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblSettingsAddon.Name = "lblSettingsAddon";
-            this.lblSettingsAddon.Size = new System.Drawing.Size(111, 19);
+            this.lblSettingsAddon.Size = new System.Drawing.Size(154, 19);
             this.lblSettingsAddon.TabIndex = 2;
-            this.lblSettingsAddon.Text = "Addon location";
+            this.lblSettingsAddon.Text = "Addon folder location";
             // 
             // btnSettingsSave
             // 
@@ -354,6 +354,7 @@
             this.richTxtAbout.Size = new System.Drawing.Size(770, 198);
             this.richTxtAbout.TabIndex = 2;
             this.richTxtAbout.Text = resources.GetString("richTxtAbout.Text");
+            this.richTxtAbout.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTxtAbout_LinkClicked);
             // 
             // MainForm
             // 
