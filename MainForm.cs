@@ -11,6 +11,7 @@ namespace WompRat
     public partial class MainForm : MaterialForm
     {
         const string SettingsFilename = "settings.json";
+        const string MapsFilename = "maps.json";
         Settings settings;
         MaterialSkinManager materialSkinManager;
 
@@ -32,14 +33,11 @@ namespace WompRat
                 writeSettings(settings, SettingsFilename);
             }
 
-            
-
 
             // Create a material theme manager and add the form to manage (this)
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             updateTheme();
-            
             
         }
 
@@ -85,10 +83,17 @@ namespace WompRat
 
         private void matTabCtrl_SelectedIndexChanged(Object sender, EventArgs e)
         {
+            // Installed maps
             if (matTabCtrl.SelectedTab == matTabCtrl.TabPages[0])
             {
+                string[] row = { "hello"};
+                ListViewItem lvi = new ListViewItem(row);
+                lstVwInstalledMaps.Items.Add(lvi);
 
+                lstVwInstalledMaps.RedrawItems(0, lstVwInstalledMaps.Items.Count - 1, false);
+                Console.WriteLine(lstVwInstalledMaps.Items.Count);
             }
+            // Get maps
             else if (matTabCtrl.SelectedTab == matTabCtrl.TabPages[1])
             {
 
@@ -106,6 +111,7 @@ namespace WompRat
                     rdBtnLight.Checked = true;
                 }
             }
+            // About
             else if (matTabCtrl.SelectedTab == matTabCtrl.TabPages[3])
             {
 

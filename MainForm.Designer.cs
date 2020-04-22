@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "",
+            "sdfsd"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            "",
+            "dsfdsfdsf"}, -1);
             this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
             this.matTabCtrl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPgInstalled = new System.Windows.Forms.TabPage();
+            this.lstVwInstalledMaps = new MaterialSkin.Controls.MaterialListView();
+            this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colFolder = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPgGet = new System.Windows.Forms.TabPage();
             this.tabPgSettings = new System.Windows.Forms.TabPage();
             this.rdBtnDark = new MaterialSkin.Controls.MaterialRadioButton();
@@ -43,6 +52,7 @@
             this.tabPgAbout = new System.Windows.Forms.TabPage();
             this.matTabSel = new MaterialSkin.Controls.MaterialTabSelector();
             this.matTabCtrl.SuspendLayout();
+            this.tabPgInstalled.SuspendLayout();
             this.tabPgSettings.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,16 +87,51 @@
             this.matTabCtrl.SelectedIndex = 0;
             this.matTabCtrl.Size = new System.Drawing.Size(784, 460);
             this.matTabCtrl.TabIndex = 5;
-            this.matTabCtrl.SelectedIndexChanged += matTabCtrl_SelectedIndexChanged;
+            this.matTabCtrl.SelectedIndexChanged += new System.EventHandler(this.matTabCtrl_SelectedIndexChanged);
             // 
             // tabPgInstalled
             // 
+            this.tabPgInstalled.Controls.Add(this.lstVwInstalledMaps);
             this.tabPgInstalled.Location = new System.Drawing.Point(4, 22);
             this.tabPgInstalled.Name = "tabPgInstalled";
             this.tabPgInstalled.Size = new System.Drawing.Size(776, 434);
             this.tabPgInstalled.TabIndex = 0;
             this.tabPgInstalled.Text = "Installed maps";
             this.tabPgInstalled.UseVisualStyleBackColor = true;
+            // 
+            // lstVwInstalledMaps
+            // 
+            this.lstVwInstalledMaps.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstVwInstalledMaps.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colName,
+            this.colFolder});
+            this.lstVwInstalledMaps.Depth = 0;
+            this.lstVwInstalledMaps.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.lstVwInstalledMaps.FullRowSelect = true;
+            this.lstVwInstalledMaps.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lstVwInstalledMaps.HideSelection = false;
+            this.lstVwInstalledMaps.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
+            this.lstVwInstalledMaps.Location = new System.Drawing.Point(8, 3);
+            this.lstVwInstalledMaps.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.lstVwInstalledMaps.MouseState = MaterialSkin.MouseState.OUT;
+            this.lstVwInstalledMaps.Name = "lstVwInstalledMaps";
+            this.lstVwInstalledMaps.OwnerDraw = true;
+            this.lstVwInstalledMaps.Size = new System.Drawing.Size(572, 185);
+            this.lstVwInstalledMaps.TabIndex = 0;
+            this.lstVwInstalledMaps.UseCompatibleStateImageBehavior = false;
+            this.lstVwInstalledMaps.View = System.Windows.Forms.View.Details;
+            // 
+            // colName
+            // 
+            this.colName.Text = "Name";
+            this.colName.Width = 120;
+            // 
+            // colFolder
+            // 
+            this.colFolder.Text = "Folder";
+            this.colFolder.Width = 120;
             // 
             // tabPgGet
             // 
@@ -255,6 +300,7 @@
             this.Name = "MainForm";
             this.Text = "Womp Rat | SWBFII Map Manager";
             this.matTabCtrl.ResumeLayout(false);
+            this.tabPgInstalled.ResumeLayout(false);
             this.tabPgSettings.ResumeLayout(false);
             this.tabPgSettings.PerformLayout();
             this.ResumeLayout(false);
@@ -276,6 +322,9 @@
         private MaterialSkin.Controls.MaterialRadioButton rdBtnDark;
         private MaterialSkin.Controls.MaterialLabel lblSettingsTheme;
         private MaterialSkin.Controls.MaterialRadioButton rdBtnLight;
+        private MaterialSkin.Controls.MaterialListView lstVwInstalledMaps;
+        private System.Windows.Forms.ColumnHeader colName;
+        private System.Windows.Forms.ColumnHeader colFolder;
     }
 }
 
