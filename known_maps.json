@@ -1,0 +1,137 @@
+{
+    "Maps": [
+        {
+            "Name": "Hoth: The Empire Strikes Back",
+            "Folder": "ALM",
+            "Author": "Bantha55",
+            "Type": "Map",
+            "DownloadLink": "https://www.moddb.com/downloads/mirror/15154/123/83f5b6747ae6ff9b9f527c207c19ca74"
+        },
+        {
+            "Name": "Clone Wars: Kashyyyk 1.4",
+            "Folder": "SWBFII-CloneWarsKashyyyk_1.4",
+            "Author": "",
+            "Type": "Map",
+            "DownloadLink": "https://downloads.gamefront.com/battlefront2/swbfiiclonewarskashyyyk_1.4.rar?md5=JUq_LR8SM7N2fLh2GvVdTQ&expires=1587580091"
+        },
+        {
+            "Name": "Geonosis: Landing at Point Rain",
+            "Folder": "LPR",
+            "Author": "Darth_Spiderpig",
+            "Type": "Map",
+            "DownloadLink": "https://www.moddb.com/downloads/mirror/93558/114/6c2617eda7a68d49c68108295970a42c"
+		},
+        {
+            "Name": "Naboo: Siege of Theed",
+            "Folder": "MTK",
+            "Author": "Bantha55",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Coruscant: Droid Invasion",
+            "Folder": "QXY",
+            "Author": "Bantha55",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Corellia: Coronet City",
+            "Folder": "CCC",
+            "Author": "",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Hoth: Frozen Valley",
+            "Folder": "HFV",
+            "Author": "",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Kothlis: Sea Haven",
+            "Folder": "KTH",
+            "Author": "Felipe Gabe",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Geonosis: Landing at Point Rain",
+            "Folder": "LPR",
+            "Author": "Darth_Spiderpig",
+            "Type": "Map",
+            "DownloadLink": "https://www.moddb.com/downloads/mirror/93558/114/6c2617eda7a68d49c68108295970a42c"
+		},
+        {
+            "Name": "Naboo: Theed Hangar",
+            "Folder": "NTH",
+            "Author": "Koolaid7g",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Coruscant: Modern Warfare",
+            "Folder": "CMW",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Suun Ra: Desert City",
+            "Folder": "THC",
+            "Author": "JazzMaster",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Khimera: Beach",
+            "Folder": "BHA",
+            "Author": "YaNkFaN",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Khimera: Islands",
+            "Folder": "FR3",
+            "Author": "YaNkFaN",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Khimera: Jungle",
+            "Folder": "KHJ",
+            "Author": "YaNkFaN",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Khimera: Plains",
+            "Folder": "KHP",
+            "Author": "YaNkFaN",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Khimera: Streets",
+            "Folder": "KHS",
+            "Author": "YaNkFaN",
+            "Type": "Map",
+            "DownloadLink": ""
+		},
+        {
+            "Name": "Kashyyyk: Episode 3",
+            "Folder": "YYY",
+            "Author": "YaNkFaN",
+            "Type": "Map",
+            "DownloadLink": "https://www.moddb.com/downloads/mirror/121701/123/8890d0650083e9040e15b82e927b0580"
+		},
+        {
+            "Name": "Episode 2 Geonosis",
+            "Folder": "GE2",
+            "Author": "elfie",
+            "Type": "Map",
+            "DownloadLink": "https://www.gamefront.com/files/episode-2-geonosis/download"
+		}
+    ]
+}

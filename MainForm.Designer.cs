@@ -34,6 +34,8 @@
             this.lstVwInstalledMaps = new MaterialSkin.Controls.MaterialListView();
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colFolder = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDownloadLink = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPgGet = new System.Windows.Forms.TabPage();
             this.tabPgSettings = new System.Windows.Forms.TabPage();
             this.rdBtnDark = new MaterialSkin.Controls.MaterialRadioButton();
@@ -79,7 +81,7 @@
             this.matTabCtrl.MouseState = MaterialSkin.MouseState.HOVER;
             this.matTabCtrl.Name = "matTabCtrl";
             this.matTabCtrl.SelectedIndex = 0;
-            this.matTabCtrl.Size = new System.Drawing.Size(784, 460);
+            this.matTabCtrl.Size = new System.Drawing.Size(1078, 533);
             this.matTabCtrl.TabIndex = 5;
             this.matTabCtrl.SelectedIndexChanged += new System.EventHandler(this.matTabCtrl_SelectedIndexChanged);
             // 
@@ -88,7 +90,7 @@
             this.tabPgInstalled.Controls.Add(this.lstVwInstalledMaps);
             this.tabPgInstalled.Location = new System.Drawing.Point(4, 22);
             this.tabPgInstalled.Name = "tabPgInstalled";
-            this.tabPgInstalled.Size = new System.Drawing.Size(776, 434);
+            this.tabPgInstalled.Size = new System.Drawing.Size(1070, 507);
             this.tabPgInstalled.TabIndex = 0;
             this.tabPgInstalled.Text = "Installed maps";
             this.tabPgInstalled.UseVisualStyleBackColor = true;
@@ -98,18 +100,21 @@
             this.lstVwInstalledMaps.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstVwInstalledMaps.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
-            this.colFolder});
+            this.colFolder,
+            this.colAuthor,
+            this.colDownloadLink});
             this.lstVwInstalledMaps.Depth = 0;
+            this.lstVwInstalledMaps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstVwInstalledMaps.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
             this.lstVwInstalledMaps.FullRowSelect = true;
-            this.lstVwInstalledMaps.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstVwInstalledMaps.HideSelection = false;
-            this.lstVwInstalledMaps.Location = new System.Drawing.Point(8, 3);
+            this.lstVwInstalledMaps.Location = new System.Drawing.Point(0, 0);
             this.lstVwInstalledMaps.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lstVwInstalledMaps.MouseState = MaterialSkin.MouseState.OUT;
             this.lstVwInstalledMaps.Name = "lstVwInstalledMaps";
             this.lstVwInstalledMaps.OwnerDraw = true;
-            this.lstVwInstalledMaps.Size = new System.Drawing.Size(768, 428);
+            this.lstVwInstalledMaps.Size = new System.Drawing.Size(1070, 507);
+            this.lstVwInstalledMaps.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lstVwInstalledMaps.TabIndex = 0;
             this.lstVwInstalledMaps.UseCompatibleStateImageBehavior = false;
             this.lstVwInstalledMaps.View = System.Windows.Forms.View.Details;
@@ -117,12 +122,22 @@
             // colName
             // 
             this.colName.Text = "Name";
-            this.colName.Width = 120;
+            this.colName.Width = 376;
             // 
             // colFolder
             // 
             this.colFolder.Text = "Folder";
             this.colFolder.Width = 120;
+            // 
+            // colAuthor
+            // 
+            this.colAuthor.Text = "Author";
+            this.colAuthor.Width = 120;
+            // 
+            // colDownloadLink
+            // 
+            this.colDownloadLink.Text = "Download link";
+            this.colDownloadLink.Width = 200;
             // 
             // tabPgGet
             // 
@@ -276,7 +291,7 @@
             this.matTabSel.Location = new System.Drawing.Point(0, 64);
             this.matTabSel.MouseState = MaterialSkin.MouseState.HOVER;
             this.matTabSel.Name = "matTabSel";
-            this.matTabSel.Size = new System.Drawing.Size(784, 65);
+            this.matTabSel.Size = new System.Drawing.Size(1078, 65);
             this.matTabSel.TabIndex = 8;
             this.matTabSel.Text = "materialTabSelector1";
             // 
@@ -284,7 +299,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 617);
+            this.ClientSize = new System.Drawing.Size(1079, 659);
             this.Controls.Add(this.matTabSel);
             this.Controls.Add(this.matTabCtrl);
             this.Controls.Add(this.materialListView1);
@@ -316,6 +331,8 @@
         private MaterialSkin.Controls.MaterialListView lstVwInstalledMaps;
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colFolder;
+        private System.Windows.Forms.ColumnHeader colAuthor;
+        private System.Windows.Forms.ColumnHeader colDownloadLink;
     }
 }
 
