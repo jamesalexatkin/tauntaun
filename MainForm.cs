@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace WompRat
 {
@@ -17,11 +18,21 @@ namespace WompRat
         {
             InitializeComponent();
 
-            // Load settings
-            string jsonString = File.ReadAllText(SettingsFilename);
-            Console.WriteLine(jsonString);
-            settings = JsonConvert.DeserializeObject<Settings>(jsonString);
-            Console.WriteLine(settings.Theme);
+            if (File.Exists(SettingsFilename))
+            {
+                // Load settings
+                string jsonString = File.ReadAllText(SettingsFilename);
+                Console.WriteLine(jsonString);
+                settings = JsonConvert.DeserializeObject<Settings>(jsonString);
+                Console.WriteLine(settings.Theme);
+            }
+            else
+            {
+                settings = new Settings();
+                writeSettings(settings, SettingsFilename);
+            }
+
+            
 
 
             // Create a material theme manager and add the form to manage (this)
@@ -57,14 +68,19 @@ namespace WompRat
                 updatedSettings.Theme = "dark";
             }
 
-            string jsonToOutput = JsonConvert.SerializeObject(updatedSettings);
-            System.IO.File.WriteAllText(SettingsFilename, jsonToOutput);
+            writeSettings(updatedSettings, SettingsFilename);
 
             settings = updatedSettings;
 
             MessageBox.Show("Settings saved!");
 
             updateTheme();
+        }
+
+        private void writeSettings(Settings settings, string settingsFilename)
+        {
+            string jsonToOutput = JsonConvert.SerializeObject(settings);
+            System.IO.File.WriteAllText(settingsFilename, jsonToOutput);
         }
 
         private void matTabCtrl_SelectedIndexChanged(Object sender, EventArgs e)
@@ -102,7 +118,6 @@ namespace WompRat
 
             using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
             {
-
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
                     //Get the path of specified file
