@@ -1,15 +1,12 @@
 ﻿using MaterialSkin;
-using MaterialSkin.Controls;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Text;
 using System.IO;
 using System.Net;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Xml;
+using WompRat.Properties;
 
 namespace WompRat
 {
@@ -17,6 +14,7 @@ namespace WompRat
     {
         const string SettingsFilename = "settings.json";
         const string KnownMapsFilename = "known_maps.json";
+        string MapImagesDir = Directory.GetCurrentDirectory() + "/images";
         Settings settings;
         KnownMaps knownMaps;
         MaterialSkinManager materialSkinManager;
@@ -25,18 +23,27 @@ namespace WompRat
         {
             InitializeComponent();
 
+            // Load settings if they exist
             if (File.Exists(SettingsFilename))
             {
                 // Load settings
                 string jsonString = File.ReadAllText(SettingsFilename);
                 settings = JsonConvert.DeserializeObject<Settings>(jsonString);
             }
+            // Else create default settings file
             else
             {
                 settings = new Settings();
                 writeSettings(settings, SettingsFilename);
             }
 
+            // Create map images folder if it doesn't exist
+            if (!Directory.Exists(MapImagesDir))
+            {
+                Directory.CreateDirectory(MapImagesDir);
+            }
+
+            // Read known maps file
             if (File.Exists(KnownMapsFilename))
             {
                 // Load known maps
@@ -44,14 +51,14 @@ namespace WompRat
                 knownMaps = JsonConvert.DeserializeObject<KnownMaps>(jsonString);
 
                 string[] subdirs = getDirectoriesJustNames(settings.AddonLocation);
-                    
-                // Add installed ones to ListView
-                foreach(string subdir in subdirs)
+
+                // Add installed maps to ListView
+                foreach (string subdir in subdirs)
                 {
                     Map mapFound = findMapFromFolder(knownMaps.Maps, subdir);
                     ListViewItem lvi = new ListViewItem();
                     if (mapFound != null)
-                    {                   
+                    {
                         lvi.Text = mapFound.Name;
                         lvi.SubItems.Add(mapFound.Folder);
                         lvi.SubItems.Add(mapFound.Author);
@@ -61,48 +68,81 @@ namespace WompRat
                     {
                         lvi.Text = "Unrecognised map";
                     }
-                    
 
-                    // Download image 
-                    using (WebClient client = new WebClient())
-                    {
-                        try
-                        {
-                            string imagePath = Directory.GetCurrentDirectory() + "/" + mapFound.Folder + ".png";                            
-                            client.DownloadFile(new Uri(mapFound.ImageUrl), imagePath);
-                            Image mapImage = Image.FromFile(imagePath);
-                            imgLstInstalled.Images.Add(mapImage);
-                            lvi.ImageIndex = imgLstInstalled.Images.Count - 1;
-                        } 
-                        catch(System.UriFormatException e)
-                        {
-                            Console.WriteLine(e.StackTrace);
-                        }
-                    }
+
+                    // Get image
+                    Image mapImage = findMapImage(mapFound);
+                    imgLstInstalled.Images.Add(mapImage);
+                    lvi.ImageIndex = imgLstInstalled.Images.Count - 1;
 
                     lstVwInstalledMaps.Items.Add(lvi);
                 }
 
                 // Get and display number of maps installed
                 txtNumMapsInstalled.Text = lstVwInstalledMaps.Items.Count.ToString();
+
+                // Add all known maps to Get Maps ListView
+                foreach (Map m in knownMaps.Maps)
+                {
+                    ListViewItem lvi = new ListViewItem();
+                    if (m != null)
+                    {
+                        lvi.Text = m.Name;
+                        lvi.SubItems.Add(m.Folder);
+                        lvi.SubItems.Add(m.Author);
+                        lvi.SubItems.Add(m.DownloadUrl);
+                    }
+                    else
+                    {
+                        lvi.Text = "Unrecognised map";
+                    }
+
+                    // Get image
+                    Image mapImage = findMapImage(m);
+                    imgLstGetMaps.Images.Add(mapImage);
+                    lvi.ImageIndex = imgLstGetMaps.Images.Count - 1;
+
+                    lstVwGetMaps.Items.Add(lvi);
+                }
             }
 
-            // Create a material theme manager and add the form to manage (this)
-            /*materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            updateTheme();*/
+            
+        }
 
+        private Image findMapImage(Map m)
+        {
+            string imagePath = MapImagesDir + m.Folder + ".png";
+            Image mapImage;
 
-            listView1.Items[0].ImageIndex = 0;
-            listView1.Items[1].ImageIndex = 0;
-            listView1.Items[2].ImageIndex = 0;
-            listView1.Items[3].ImageIndex = 4;
+            // If image is already downloaded
+            if (File.Exists(imagePath))
+            {
+                mapImage = Image.FromFile(imagePath);
+            }
+            else
+            {
+                // Download image if it's not 
+                using (WebClient client = new WebClient())
+                {
+                    try
+                    {
+                        client.DownloadFile(new Uri(m.ImageUrl), imagePath);
+                        mapImage = Image.FromFile(imagePath);
+                    }
+                    catch (System.UriFormatException e)
+                    {
+                        Console.WriteLine(e.StackTrace);
+                        mapImage = Resources.MissingImage;
+                    }
+                }
+            }
+            return mapImage;
         }
 
         private string[] getDirectoriesJustNames(string root)
         {
             string[] dirs = Directory.GetDirectories(root);
-            for(int i = 0; i < dirs.Length; i++)
+            for (int i = 0; i < dirs.Length; i++)
             {
                 string dirName = new DirectoryInfo(dirs[i]).Name;
                 dirs[i] = dirName;
@@ -112,7 +152,8 @@ namespace WompRat
 
         private Map findMapFromFolder(List<Map> maps, string subdir)
         {
-            foreach(Map m in maps) {
+            foreach (Map m in maps)
+            {
                 if (m.Folder.Equals(subdir))
                 {
                     return m;
@@ -156,7 +197,7 @@ namespace WompRat
             else if (tabCtrl.SelectedTab == tabCtrl.TabPages[2])
             {
                 txtSettingsAddon.Text = settings.AddonLocation;
-                switch(settings.Theme)
+                switch (settings.Theme)
                 {
                     case "Light":
                         cmbTheme.SelectedItem = cmbTheme.Items[0];
