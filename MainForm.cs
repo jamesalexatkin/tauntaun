@@ -14,7 +14,7 @@ namespace WompRat
     {
         const string SettingsFilename = "settings.json";
         const string KnownMapsFilename = "known_maps.json";
-        string MapImagesDir = Directory.GetCurrentDirectory() + "/images";
+        string MapImagesDir = Directory.GetCurrentDirectory() + "/images/";
         Settings settings;
         KnownMaps knownMaps;
         MaterialSkinManager materialSkinManager;
@@ -261,19 +261,15 @@ namespace WompRat
             ListView.SelectedListViewItemCollection selectedLvis = lstVwGetMaps.SelectedItems;
             foreach (ListViewItem lvi in selectedLvis)
             {
-                string mapFolder = lvi.SubItems[0].ToString();
+                string mapFolder = lvi.SubItems[1].Text;
                 Map m = findMapFromFolder(knownMaps.Maps, mapFolder);
                 string downloadUrl = m.DownloadUrl;
+                string destinationFilepath = Directory.GetCurrentDirectory() + "\\downloaded\\" + mapFolder + ".zip";
+                Console.WriteLine(destinationFilepath);
 
-                /*string fileName = "ms-banner.gif", myStringWebResource = null;
+                WebClient Client = new WebClient();
+                Client.DownloadFile(downloadUrl, destinationFilepath);
 
-                // Create a new WebClient instance.
-                using (WebClient myWebClient = new WebClient())
-                {
-                    string myStringWebResource = remoteUri + fileName;
-                    // Download the Web resource and save it into the current filesystem folder.
-                    myWebClient.DownloadFile(myStringWebResource, fileName);
-                }*/
             }
         }
 
@@ -288,7 +284,7 @@ namespace WompRat
                 Map m = findMapFromFolder(knownMaps.Maps, mapFolder);
                 
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show("Are you sure wish to uninstall '" + m.Name + "'?", "Uninstall map", buttons);
+                DialogResult result = MessageBox.Show("Are you sure wish to uninstall '" + m.Name + "' and delete it from your computer?", "Uninstall map", buttons);
                 if (result == DialogResult.Yes)
                 {
                     Console.WriteLine(fullMapFolderPath);
@@ -301,10 +297,7 @@ namespace WompRat
                 else
                 {
                     this.Close();
-                }
-                
-
-
+                }             
             }
         }
     }
