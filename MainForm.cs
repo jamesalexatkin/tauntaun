@@ -3,7 +3,9 @@ using MaterialSkin.Controls;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -68,7 +70,12 @@ namespace WompRat
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             updateTheme();
-            
+
+
+            listView1.Items[0].ImageIndex = 0;
+            listView1.Items[1].ImageIndex = 0;
+            listView1.Items[2].ImageIndex = 0;
+            listView1.Items[3].ImageIndex = 4;
         }
 
         private string[] getDirectoriesJustNames(string root)
@@ -186,5 +193,10 @@ namespace WompRat
         {
             System.Diagnostics.Process.Start(e.LinkText);
         }
+
+        /*private void richTxtAbout_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
+        }*/
     }
 }
