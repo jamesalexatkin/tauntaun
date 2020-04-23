@@ -5,133 +5,152 @@
             "Folder": "ALM",
             "Author": "Bantha55",
             "Type": "Map",
-            "DownloadLink": "https://www.moddb.com/downloads/mirror/15154/123/83f5b6747ae6ff9b9f527c207c19ca74"
+            "DownloadUrl": "https://www.moddb.com/downloads/mirror/15154/123/83f5b6747ae6ff9b9f527c207c19ca74",
+            "ImageUrl": "https://media.moddb.com/images/downloads/1/16/15154/screenshot_0001_800x600.jpg"
         },
         {
             "Name": "Clone Wars: Kashyyyk 1.4",
             "Folder": "SWBFII-CloneWarsKashyyyk_1.4",
             "Author": "",
             "Type": "Map",
-            "DownloadLink": "https://downloads.gamefront.com/battlefront2/swbfiiclonewarskashyyyk_1.4.rar?md5=JUq_LR8SM7N2fLh2GvVdTQ&expires=1587580091"
+            "DownloadUrl": "https://www.gamefront.com/files/clone-wars-kashyyyk-1/download",
+            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/97810_1.jpg"
         },
         {
             "Name": "Geonosis: Landing at Point Rain",
             "Folder": "LPR",
             "Author": "Darth_Spiderpig",
             "Type": "Map",
-            "DownloadLink": "https://www.moddb.com/downloads/mirror/93558/114/6c2617eda7a68d49c68108295970a42c"
+            "DownloadUrl": "https://www.moddb.com/downloads/mirror/93558/114/6c2617eda7a68d49c68108295970a42c",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/94/93558/thumb_620x2000/screenshot_0090.jpg"
 		},
         {
             "Name": "Naboo: Siege of Theed",
             "Folder": "MTK",
             "Author": "Bantha55",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": ""
 		},
         {
             "Name": "Coruscant: Droid Invasion",
             "Folder": "QXY",
             "Author": "Bantha55",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/104/103429/thumb_620x2000/Bantha55.jpg"
 		},
         {
             "Name": "Corellia: Coronet City",
             "Folder": "CCC",
             "Author": "",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": ""
 		},
         {
             "Name": "Hoth: Frozen Valley",
             "Folder": "HFV",
             "Author": "",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/150/149494/thumb_620x2000/00284663.jpg"
 		},
         {
             "Name": "Kothlis: Sea Haven",
             "Folder": "KTH",
             "Author": "Felipe Gabe",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/96/95953/thumb_620x2000/KTH_2.0_Thumbnail.1.PNG"
 		},
         {
             "Name": "Geonosis: Landing at Point Rain",
             "Folder": "LPR",
             "Author": "Darth_Spiderpig",
             "Type": "Map",
-            "DownloadLink": "https://www.moddb.com/downloads/mirror/93558/114/6c2617eda7a68d49c68108295970a42c"
+            "DownloadUrl": "https://www.moddb.com/downloads/mirror/93558/114/6c2617eda7a68d49c68108295970a42c",
+            "ImageUrl": ""
 		},
         {
             "Name": "Naboo: Theed Hangar",
             "Folder": "NTH",
             "Author": "Koolaid7g",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/85165_1.jpg"
 		},
         {
             "Name": "Coruscant: Modern Warfare",
             "Folder": "CMW",
             "Author": "El_Fabricio",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": ""
 		},
         {
             "Name": "Suun Ra: Desert City",
             "Folder": "THC",
             "Author": "JazzMaster",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/73/72807/thumb_620x2000/2014-07-30_00014.jpg"
 		},
         {
             "Name": "Khimera: Beach",
             "Folder": "BHA",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": ""
 		},
         {
             "Name": "Khimera: Islands",
             "Folder": "FR3",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": ""
 		},
         {
             "Name": "Khimera: Jungle",
             "Folder": "KHJ",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": ""
 		},
         {
             "Name": "Khimera: Plains",
             "Folder": "KHP",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": ""
 		},
         {
             "Name": "Khimera: Streets",
             "Folder": "KHS",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadLink": ""
+            "DownloadUrl": "",
+            "ImageUrl": ""
 		},
         {
             "Name": "Kashyyyk: Episode 3",
             "Folder": "YYY",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadLink": "https://www.moddb.com/downloads/mirror/121701/123/8890d0650083e9040e15b82e927b0580"
+            "DownloadUrl": "https://www.moddb.com/downloads/mirror/121701/123/8890d0650083e9040e15b82e927b0580",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/122/121701/thumb_620x2000/20170418210817_1.jpg"
 		},
         {
             "Name": "Episode 2 Geonosis",
             "Folder": "GE2",
             "Author": "elfie",
             "Type": "Map",
-            "DownloadLink": "https://www.gamefront.com/files/episode-2-geonosis/download"
+            "DownloadUrl": "https://www.gamefront.com/files/episode-2-geonosis/download",
+            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/92149_1.jpg"
 		}
     ]
 }

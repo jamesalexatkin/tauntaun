@@ -3,15 +3,17 @@ using MaterialSkin.Controls;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Xml;
 
 namespace WompRat
 {
-    public partial class MainForm : MaterialForm
+    public partial class MainForm : Form
     {
         const string SettingsFilename = "settings.json";
         const string KnownMapsFilename = "known_maps.json";
@@ -53,23 +55,42 @@ namespace WompRat
                         lvi.Text = mapFound.Name;
                         lvi.SubItems.Add(mapFound.Folder);
                         lvi.SubItems.Add(mapFound.Author);
-                        lvi.SubItems.Add(mapFound.DownloadLink);
+                        lvi.SubItems.Add(mapFound.DownloadUrl);
                     }
                     else
                     {
                         lvi.Text = "Unrecognised map";
                     }
+                    
+
+                    // Download image 
+                    using (WebClient client = new WebClient())
+                    {
+                        try
+                        {
+                            string imagePath = Directory.GetCurrentDirectory() + "/" + mapFound.Folder + ".png";                            
+                            client.DownloadFile(new Uri(mapFound.ImageUrl), imagePath);
+                            Image mapImage = Image.FromFile(imagePath);
+                            imgLstInstalled.Images.Add(mapImage);
+                            lvi.ImageIndex = imgLstInstalled.Images.Count - 1;
+                        } 
+                        catch(System.UriFormatException e)
+                        {
+                            Console.WriteLine(e.StackTrace);
+                        }
+                    }
+
                     lstVwInstalledMaps.Items.Add(lvi);
                 }
 
                 // Get and display number of maps installed
-                lblNumMapsInstalled.Text = lstVwInstalledMaps.Items.Count.ToString();
+                txtNumMapsInstalled.Text = lstVwInstalledMaps.Items.Count.ToString();
             }
 
             // Create a material theme manager and add the form to manage (this)
-            materialSkinManager = MaterialSkinManager.Instance;
+            /*materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            updateTheme();
+            updateTheme();*/
 
 
             listView1.Items[0].ImageIndex = 0;
@@ -98,7 +119,7 @@ namespace WompRat
                 }
             }
             // In this case, we haven't recognised the map
-            return new Map("Unrecognised map", subdir, "?", "?", "?");
+            return new Map("Unrecognised map", subdir, "?", "?", "?", "?");
         }
 
         private void updateTheme()
@@ -113,68 +134,55 @@ namespace WompRat
             }
         }
 
-        private void btnSettingsSave_Click(object sender, EventArgs e)
-        {
-            Settings updatedSettings = new Settings();
-            updatedSettings.AddonLocation = txtSettingsAddon.Text;
-            if (rdBtnLight.Checked)
-            {
-                updatedSettings.Theme = "light";
-            }
-            else if (rdBtnDark.Checked)
-            {
-                updatedSettings.Theme = "dark";
-            }
-
-            writeSettings(updatedSettings, SettingsFilename);
-
-            settings = updatedSettings;
-
-            MessageBox.Show("Settings saved!");
-
-            updateTheme();
-        }
-
         private void writeSettings(Settings settings, string settingsFilename)
         {
             string jsonToOutput = JsonConvert.SerializeObject(settings);
             System.IO.File.WriteAllText(settingsFilename, jsonToOutput);
         }
 
-        private void matTabCtrl_SelectedIndexChanged(Object sender, EventArgs e)
+        private void tabCtrl_SelectedIndexChanged(Object sender, EventArgs e)
         {
             // Installed maps
-            if (matTabCtrl.SelectedTab == matTabCtrl.TabPages[0])
+            if (tabCtrl.SelectedTab == tabCtrl.TabPages[0])
             {
                 lstVwInstalledMaps.RedrawItems(0, lstVwInstalledMaps.Items.Count - 1, false);
             }
             // Get maps
-            else if (matTabCtrl.SelectedTab == matTabCtrl.TabPages[1])
+            else if (tabCtrl.SelectedTab == tabCtrl.TabPages[1])
             {
 
             }
             // Settings
-            else if (matTabCtrl.SelectedTab == matTabCtrl.TabPages[2])
+            else if (tabCtrl.SelectedTab == tabCtrl.TabPages[2])
             {
                 txtSettingsAddon.Text = settings.AddonLocation;
-                if (settings.Theme == "dark")
+                switch(settings.Theme)
                 {
-                    rdBtnDark.Checked = true;
-                } 
-                else
-                {
-                    rdBtnLight.Checked = true;
+                    case "Light":
+                        cmbTheme.SelectedItem = cmbTheme.Items[0];
+                        break;
+                    case "Dark":
+                        cmbTheme.SelectedItem = cmbTheme.Items[1];
+                        break;
+                    default:
+                        cmbTheme.SelectedItem = cmbTheme.Items[0];
+                        break;
                 }
             }
             // About
-            else if (matTabCtrl.SelectedTab == matTabCtrl.TabPages[3])
+            else if (tabCtrl.SelectedTab == tabCtrl.TabPages[3])
             {
 
             }
         }
 
+        private void richTxtAbout_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
+        }
+
         private void btnSettingsBrowse_Click(object sender, EventArgs e)
-        { 
+        {
             string addonFolderPath = "";
 
             using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
@@ -189,14 +197,19 @@ namespace WompRat
             txtSettingsAddon.Text = addonFolderPath;
         }
 
-        private void richTxtAbout_LinkClicked(object sender, LinkClickedEventArgs e)
+        private void btnSettingsSave_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(e.LinkText);
-        }
+            Settings updatedSettings = new Settings();
+            updatedSettings.AddonLocation = txtSettingsAddon.Text;
+            updatedSettings.Theme = cmbTheme.SelectedItem.ToString();
 
-        /*private void richTxtAbout_LinkClicked(object sender, LinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(e.LinkText);
-        }*/
+            writeSettings(updatedSettings, SettingsFilename);
+
+            settings = updatedSettings;
+
+            MessageBox.Show("Settings saved!");
+
+            updateTheme();
+        }
     }
 }
