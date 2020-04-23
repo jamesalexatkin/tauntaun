@@ -104,6 +104,9 @@ namespace WompRat
 
                     lstVwGetMaps.Items.Add(lvi);
                 }
+
+                // Get and display number of maps available
+                txtNumMapsAvailable.Text = lstVwGetMaps.Items.Count.ToString();
             }
 
             

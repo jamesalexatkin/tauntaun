@@ -42,6 +42,7 @@
             this.cmbTheme = new System.Windows.Forms.ComboBox();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnDeleteMap = new System.Windows.Forms.Button();
             this.lstVwInstalledMaps = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,15 +50,16 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imgLstInstalled = new System.Windows.Forms.ImageList(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btnDeleteMap = new System.Windows.Forms.Button();
             this.lstVwGetMaps = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.imgLstGetMaps = new System.Windows.Forms.ImageList(this.components);
+            this.txtNumMapsAvailable = new System.Windows.Forms.TextBox();
+            this.lblMapsAvailable = new System.Windows.Forms.Label();
             this.tabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -193,6 +195,15 @@
             this.tabPage1.Text = "Installed maps";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnDeleteMap
+            // 
+            this.btnDeleteMap.Location = new System.Drawing.Point(888, 83);
+            this.btnDeleteMap.Name = "btnDeleteMap";
+            this.btnDeleteMap.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteMap.TabIndex = 15;
+            this.btnDeleteMap.Text = "Delete map";
+            this.btnDeleteMap.UseVisualStyleBackColor = true;
+            // 
             // lstVwInstalledMaps
             // 
             this.lstVwInstalledMaps.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -232,6 +243,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtNumMapsAvailable);
+            this.tabPage2.Controls.Add(this.lblMapsAvailable);
             this.tabPage2.Controls.Add(this.lstVwGetMaps);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -240,40 +253,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Get maps";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.cmbTheme);
-            this.tabPage3.Controls.Add(this.txtSettingsAddon);
-            this.tabPage3.Controls.Add(this.lblSettingsTheme);
-            this.tabPage3.Controls.Add(this.lblSettingsAddon);
-            this.tabPage3.Controls.Add(this.btnSettingsSave);
-            this.tabPage3.Controls.Add(this.btnSettingsBrowse);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1056, 552);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Settings";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.richTxtAbout);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1056, 552);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "About";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteMap
-            // 
-            this.btnDeleteMap.Location = new System.Drawing.Point(888, 83);
-            this.btnDeleteMap.Name = "btnDeleteMap";
-            this.btnDeleteMap.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteMap.TabIndex = 15;
-            this.btnDeleteMap.Text = "Delete map";
-            this.btnDeleteMap.UseVisualStyleBackColor = true;
             // 
             // lstVwGetMaps
             // 
@@ -306,11 +285,56 @@
             // 
             this.columnHeader8.Text = "Download link";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.cmbTheme);
+            this.tabPage3.Controls.Add(this.txtSettingsAddon);
+            this.tabPage3.Controls.Add(this.lblSettingsTheme);
+            this.tabPage3.Controls.Add(this.lblSettingsAddon);
+            this.tabPage3.Controls.Add(this.btnSettingsSave);
+            this.tabPage3.Controls.Add(this.btnSettingsBrowse);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1056, 552);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Settings";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.richTxtAbout);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1056, 552);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "About";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // imgLstGetMaps
             // 
             this.imgLstGetMaps.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
             this.imgLstGetMaps.ImageSize = new System.Drawing.Size(128, 96);
             this.imgLstGetMaps.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // txtNumMapsAvailable
+            // 
+            this.txtNumMapsAvailable.BackColor = System.Drawing.Color.White;
+            this.txtNumMapsAvailable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumMapsAvailable.Location = new System.Drawing.Point(888, 39);
+            this.txtNumMapsAvailable.Name = "txtNumMapsAvailable";
+            this.txtNumMapsAvailable.ReadOnly = true;
+            this.txtNumMapsAvailable.Size = new System.Drawing.Size(100, 13);
+            this.txtNumMapsAvailable.TabIndex = 17;
+            this.txtNumMapsAvailable.Text = "0";
+            // 
+            // lblMapsAvailable
+            // 
+            this.lblMapsAvailable.AutoSize = true;
+            this.lblMapsAvailable.Location = new System.Drawing.Point(885, 23);
+            this.lblMapsAvailable.Name = "lblMapsAvailable";
+            this.lblMapsAvailable.Size = new System.Drawing.Size(129, 13);
+            this.lblMapsAvailable.TabIndex = 16;
+            this.lblMapsAvailable.Text = "Number of maps available";
             // 
             // MainForm
             // 
@@ -324,6 +348,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -360,6 +385,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ImageList imgLstGetMaps;
+        private System.Windows.Forms.TextBox txtNumMapsAvailable;
+        private System.Windows.Forms.Label lblMapsAvailable;
     }
 }
 
