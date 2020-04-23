@@ -42,7 +42,7 @@
             this.cmbTheme = new System.Windows.Forms.ComboBox();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnDeleteMap = new System.Windows.Forms.Button();
+            this.btnUninstallMap = new System.Windows.Forms.Button();
             this.lstVwInstalledMaps = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,6 +60,7 @@
             this.imgLstGetMaps = new System.Windows.Forms.ImageList(this.components);
             this.txtNumMapsAvailable = new System.Windows.Forms.TextBox();
             this.lblMapsAvailable = new System.Windows.Forms.Label();
+            this.btnInstallMap = new System.Windows.Forms.Button();
             this.tabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -183,7 +184,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.btnDeleteMap);
+            this.tabPage1.Controls.Add(this.btnUninstallMap);
             this.tabPage1.Controls.Add(this.lstVwInstalledMaps);
             this.tabPage1.Controls.Add(this.txtNumMapsInstalled);
             this.tabPage1.Controls.Add(this.lblNumMapsInstalledHeader);
@@ -195,14 +196,15 @@
             this.tabPage1.Text = "Installed maps";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnDeleteMap
+            // btnUninstallMap
             // 
-            this.btnDeleteMap.Location = new System.Drawing.Point(888, 83);
-            this.btnDeleteMap.Name = "btnDeleteMap";
-            this.btnDeleteMap.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteMap.TabIndex = 15;
-            this.btnDeleteMap.Text = "Delete map";
-            this.btnDeleteMap.UseVisualStyleBackColor = true;
+            this.btnUninstallMap.Location = new System.Drawing.Point(888, 58);
+            this.btnUninstallMap.Name = "btnUninstallMap";
+            this.btnUninstallMap.Size = new System.Drawing.Size(125, 23);
+            this.btnUninstallMap.TabIndex = 15;
+            this.btnUninstallMap.Text = "Uninstall map";
+            this.btnUninstallMap.UseVisualStyleBackColor = true;
+            this.btnUninstallMap.Click += new System.EventHandler(this.btnUninstallMap_Click);
             // 
             // lstVwInstalledMaps
             // 
@@ -243,6 +245,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnInstallMap);
             this.tabPage2.Controls.Add(this.txtNumMapsAvailable);
             this.tabPage2.Controls.Add(this.lblMapsAvailable);
             this.tabPage2.Controls.Add(this.lstVwGetMaps);
@@ -332,9 +335,19 @@
             this.lblMapsAvailable.AutoSize = true;
             this.lblMapsAvailable.Location = new System.Drawing.Point(885, 23);
             this.lblMapsAvailable.Name = "lblMapsAvailable";
-            this.lblMapsAvailable.Size = new System.Drawing.Size(129, 13);
+            this.lblMapsAvailable.Size = new System.Drawing.Size(132, 13);
             this.lblMapsAvailable.TabIndex = 16;
-            this.lblMapsAvailable.Text = "Number of maps available";
+            this.lblMapsAvailable.Text = "Number of maps available:";
+            // 
+            // btnInstallMap
+            // 
+            this.btnInstallMap.Location = new System.Drawing.Point(888, 58);
+            this.btnInstallMap.Name = "btnInstallMap";
+            this.btnInstallMap.Size = new System.Drawing.Size(125, 23);
+            this.btnInstallMap.TabIndex = 18;
+            this.btnInstallMap.Text = "Install map";
+            this.btnInstallMap.UseVisualStyleBackColor = true;
+            this.btnInstallMap.Click += new System.EventHandler(this.btnInstallMap_Click);
             // 
             // MainForm
             // 
@@ -378,7 +391,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ImageList imgLstInstalled;
-        private System.Windows.Forms.Button btnDeleteMap;
+        private System.Windows.Forms.Button btnUninstallMap;
         private System.Windows.Forms.ListView lstVwGetMaps;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
@@ -387,6 +400,7 @@
         private System.Windows.Forms.ImageList imgLstGetMaps;
         private System.Windows.Forms.TextBox txtNumMapsAvailable;
         private System.Windows.Forms.Label lblMapsAvailable;
+        private System.Windows.Forms.Button btnInstallMap;
     }
 }
 

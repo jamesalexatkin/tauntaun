@@ -255,5 +255,57 @@ namespace WompRat
 
             updateTheme();
         }
+
+        private void btnInstallMap_Click(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection selectedLvis = lstVwGetMaps.SelectedItems;
+            foreach (ListViewItem lvi in selectedLvis)
+            {
+                string mapFolder = lvi.SubItems[0].ToString();
+                Map m = findMapFromFolder(knownMaps.Maps, mapFolder);
+                string downloadUrl = m.DownloadUrl;
+
+                /*string fileName = "ms-banner.gif", myStringWebResource = null;
+
+                // Create a new WebClient instance.
+                using (WebClient myWebClient = new WebClient())
+                {
+                    string myStringWebResource = remoteUri + fileName;
+                    // Download the Web resource and save it into the current filesystem folder.
+                    myWebClient.DownloadFile(myStringWebResource, fileName);
+                }*/
+            }
+        }
+
+        private void btnUninstallMap_Click(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection selectedLvis = lstVwInstalledMaps.SelectedItems;
+            foreach (ListViewItem lvi in selectedLvis)
+            {
+                string mapFolder = lvi.SubItems[1].Text;
+                string fullMapFolderPath = settings.AddonLocation + "\\" + mapFolder;
+
+                Map m = findMapFromFolder(knownMaps.Maps, mapFolder);
+                
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("Are you sure wish to uninstall '" + m.Name + "'?", "Uninstall map", buttons);
+                if (result == DialogResult.Yes)
+                {
+                    Console.WriteLine(fullMapFolderPath);
+                    Directory.Delete(fullMapFolderPath, true);
+                    lstVwInstalledMaps.Items.Remove(lvi);
+                    lstVwInstalledMaps.RedrawItems(0, lstVwInstalledMaps.Items.Count - 1, false);
+                    // Get and display number of maps installed
+                    txtNumMapsInstalled.Text = lstVwInstalledMaps.Items.Count.ToString();
+                }
+                else
+                {
+                    this.Close();
+                }
+                
+
+
+            }
+        }
     }
 }
