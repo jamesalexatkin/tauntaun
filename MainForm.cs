@@ -119,11 +119,6 @@ namespace WompRat
                 // Get and display number of maps available
                 txtNumMapsAvailable.Text = lstVwGetMaps.Items.Count.ToString();
             }
-
-
-
-            // REMOVE THIS
-            //parseInstallInstructions(TempDir + "RVT.rar", findMapFromFolder(knownMaps.Maps, "RVT").InstallationInstructions);
         }
 
         private Image findMapImage(Map m)
@@ -329,7 +324,11 @@ namespace WompRat
                                 // Show map name
                                 lblMapInstalling.Visible = true;
                                 lblMapInstalling.Text = m.Name;
+                                lblInstallStatus.Visible = true;
+                                lblInstallStatus.Text = "Downloading map...";
 
+                                // Exit this now as we have found and processed our match
+                                // Any other matches in the HTML are irrelevant
                                 break;
                             }
                         }
@@ -343,10 +342,7 @@ namespace WompRat
         {
             MessageBox.Show("File has been downloaded!");
 
-            // Hide progress bar
-            progBarMapDownload.Visible = false;
-            // Hide map name
-            lblMapInstalling.Visible = false;
+            
 
 
             Map mapToInstall = client.mapToInstall;
@@ -367,12 +363,14 @@ namespace WompRat
                 String[] words = trimmedInstruction.Split(' ');
                 if (words != null)
                 {
+                    int instructionsCompleted = 0;
                     switch (words[0])
                     {
                         // Extract archive
                         case "EXTRACT":
                             string fileExtension = Path.GetExtension(downloadedFile);
                             string destination = TempDir + Path.GetFileNameWithoutExtension(downloadedFile) + "/";
+                            lblInstallStatus.Text = "Extracting map...";
                             switch (fileExtension)
                             {
                                 case ".zip":
@@ -406,9 +404,10 @@ namespace WompRat
                                 destination = settings.AddonLocation;
                             }
 
+                            lblInstallStatus.Text = "Moving map...";
                             CopyDirectory(TempDir + folderToMove, destination, true);
 
-                            Console.WriteLine("Copied " + folderToMove + " to " + destination);
+                            Console.WriteLine("Copied " + folderToMove + " to " + destination);                          
 
                             break;
 
@@ -416,12 +415,19 @@ namespace WompRat
                             // TODO: handle this error
                             break;
                     }
+                    instructionsCompleted++;
+                    progBarMapDownload.Value = instructionsCompleted / instructions.Length * progBarMapDownload.Maximum;
+
                 }
                 else
                 {
                     // TODO: handle this error
                 }
             }
+            // Hide progress bar
+            progBarMapDownload.Visible = false;
+            // Hide map name
+            lblMapInstalling.Visible = false;
         }
 
         private void CopyDirectory(string sourceDirName, string destDirName, bool copySubDirs)
