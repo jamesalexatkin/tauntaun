@@ -341,10 +341,7 @@ namespace WompRat
         private void client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             MessageBox.Show("File has been downloaded!");
-
-            
-
-
+                       
             Map mapToInstall = client.mapToInstall;
 
             // Install map

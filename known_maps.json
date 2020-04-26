@@ -5,24 +5,27 @@
             "Folder": "SWBFII-CloneWarsKashyyyk_1.4",
             "Author": "",
             "Type": "Map",
-            "DownloadUrl": "https://www.gamefront.com/files/clone-wars-kashyyyk-1/download",
-            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/97810_1.jpg"
+            "DownloadUrl": "https://www.gamefront.com/games/star-wars-battlefront-2/file/clone-wars-kashyyyk-1",
+            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/97810_1.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE SWBFII-CloneWarsKashyyyk_1.4 TO addon"
         },        
         {
             "Name": "Corellia: Coronet City",
             "Folder": "CCC",
-            "Author": "",
+            "Author": "Foodstuff",
             "Type": "Map",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/corellia-coronet-city-2017-re-archive",
-            "ImageUrl": "https://media.moddb.com/images/downloads/1/130/129123/20161210174221_1.jpg"
+            "ImageUrl": "https://media.moddb.com/images/downloads/1/130/129123/20161210174221_1.jpg",
+            "InstallationInstructions": "EXTRACT, RUN .exe"
 		},
         {
             "Name": "Coruscant: Droid Invasion",
             "Folder": "QXY",
             "Author": "Bantha55",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/104/103429/thumb_620x2000/Bantha55.jpg"
+            "DownloadUrl": "https://www.moddb.com/mods/mod-compilation-2016-by-flare/downloads/courscant-droid-invasion",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/104/103429/thumb_620x2000/Bantha55.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE QXY TO addon"
 		},
         {
             "Name": "Coruscant: Modern Warfare",
@@ -30,15 +33,17 @@
             "Author": "El_Fabricio",
             "Type": "Map",
             "DownloadUrl": "",
-            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704320539/EF802A132F1017BC6660C8633141635F776A60FF/"
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704320539/EF802A132F1017BC6660C8633141635F776A60FF/",
+            "InstallationInstructions": ""
 		},
         {
             "Name": "Episode 2 Geonosis",
             "Folder": "GE2",
             "Author": "elfie",
             "Type": "Map",
-            "DownloadUrl": "https://www.gamefront.com/files/episode-2-geonosis/download",
-            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/92149_1.jpg"
+            "DownloadUrl": "https://www.gamefront.com/games/star-wars-battlefront-2/file/episode-2-geonosis",
+            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/92149_1.jpg",
+            "InstallationInstructions": ""
 		},
         {
             "Name": "Geonosis: Landing at Point Rain",
@@ -46,103 +51,125 @@
             "Author": "Darth_Spiderpig",
             "Type": "Map",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/second-battle-of-geonosis-landing-at-point-rain",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/94/93558/thumb_620x2000/screenshot_0090.jpg"
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/94/93558/thumb_620x2000/screenshot_0090.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE LPR TO addon"
 		},
         {
             "Name": "Hoth: Frozen Valley",
             "Folder": "HFV",
             "Author": "",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/150/149494/thumb_620x2000/00284663.jpg"
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/hoth-frozen-valley-2-0",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/150/149494/thumb_620x2000/00284663.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE HFV TO addon"
 		},
         {
             "Name": "Hoth: The Empire Strikes Back",
             "Folder": "ALM",
             "Author": "Bantha55",
             "Type": "Map",
-            "DownloadUrl": "https://www.moddb.com/downloads/mirror/15154/123/83f5b6747ae6ff9b9f527c207c19ca74",
-            "ImageUrl": "https://media.moddb.com/images/downloads/1/16/15154/screenshot_0001_800x600.jpg"
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/hoth-the-empire-strike-back",
+            "ImageUrl": "https://media.moddb.com/images/downloads/1/16/15154/screenshot_0001_800x600.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE ALM TO addon"
         },        
         {
             "Name": "Kashyyyk: Episode 3",
             "Folder": "YYY",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadUrl": "https://www.moddb.com/downloads/mirror/121701/123/8890d0650083e9040e15b82e927b0580",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/122/121701/thumb_620x2000/20170418210817_1.jpg"
+            "DownloadUrl": "https://www.moddb.com/mods/filefronts-hidden-gems/downloads/kashyyyk-episode-3",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/122/121701/thumb_620x2000/20170418210817_1.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE YYY TO addon"
+		},
+        {
+            "Name": "Khimera: Battlegrounds (Map pack)",
+            "Folder": "KBMP",
+            "Author": "YaNkFaN",
+            "Type": "Map pack",
+            "DownloadUrl": "https://drive.google.com/file/d/0B024NjOSHnVsSTFwZ2xTcWNWblk/edit",
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/23964095334772827/A5EEFF8A68B8B8B67204702DD514C956741B9F77/",
+            "InstallationInstructions": "RUN .exe"
 		},
         {
             "Name": "Khimera: Beach",
             "Folder": "BHA",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/23964095334772827/A5EEFF8A68B8B8B67204702DD514C956741B9F77/"
+            "DownloadUrl": "https://drive.google.com/file/d/0B024NjOSHnVsSTFwZ2xTcWNWblk/edit",
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/23964095334772827/A5EEFF8A68B8B8B67204702DD514C956741B9F77/",
+            "InstallationInstructions": "RUN .exe"
 		},
         {
             "Name": "Khimera: Islands",
             "Folder": "FR3",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704569022/BC893787AAE19BED87E9136B3E9AF2A562BE80A6/"
+            "DownloadUrl": "https://drive.google.com/file/d/0B024NjOSHnVsSTFwZ2xTcWNWblk/edit",
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704569022/BC893787AAE19BED87E9136B3E9AF2A562BE80A6/",
+            "InstallationInstructions": "RUN .exe"
 		},
         {
             "Name": "Khimera: Jungle",
             "Folder": "KHJ",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://steamuserimages-a.akamaihd.net//ugc/23964095334773557/1B8C0B71534DCF76A235433277B48CDAE1B597F8/"
+            "DownloadUrl": "https://drive.google.com/file/d/0B024NjOSHnVsSTFwZ2xTcWNWblk/edit",
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net//ugc/23964095334773557/1B8C0B71534DCF76A235433277B48CDAE1B597F8/",
+            "InstallationInstructions": "RUN .exe"
 		},
         {
             "Name": "Khimera: Plains",
             "Folder": "KHP",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704569148/BF039E999492FB3CC00088FB84421189B5AD7636/"
+            "DownloadUrl": "https://drive.google.com/file/d/0B024NjOSHnVsSTFwZ2xTcWNWblk/edit",
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704569148/BF039E999492FB3CC00088FB84421189B5AD7636/",
+            "InstallationInstructions": "RUN .exe"
 		},
         {
             "Name": "Khimera: Streets",
             "Folder": "KHS",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://steamuserimages-a.akamaihd.net//ugc/23964095334774262/A94AA2E01EB26DDB20052713EA0E35AE1E3A01B2/"
+            "DownloadUrl": "https://drive.google.com/file/d/0B024NjOSHnVsSTFwZ2xTcWNWblk/edit",
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net//ugc/23964095334774262/A94AA2E01EB26DDB20052713EA0E35AE1E3A01B2/",
+            "InstallationInstructions": "RUN .exe"
 		},    
         {
             "Name": "Kothlis: Sea Haven",
             "Folder": "KTH",
             "Author": "Felipe Gabe",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/96/95953/thumb_620x2000/KTH_2.0_Thumbnail.1.PNG"
+            "DownloadUrl": "https://drive.google.com/file/d/0B024NjOSHnVsLWhCU0J6MXNrZ3c/view",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/96/95953/thumb_620x2000/KTH_2.0_Thumbnail.1.PNG",
+            "InstallationInstructions": "EXTRACT, MOVE KTH TO addon"
 		},
         {
             "Name": "Naboo: Siege of Theed",
             "Folder": "MTK",
             "Author": "Bantha55",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/428193628077275234/A822B3116E79BD04101C8634F35A87BD82C1481D/?imw=1024&imh=575&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"
-		},      
+            "DownloadUrl": "http://www.mediafire.com/file/cdunsbhd9vnp4j7/Bantha55_Naboo_FINAL.rar/file",
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/428193628077275234/A822B3116E79BD04101C8634F35A87BD82C1481D/?imw=1024&imh=575&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
+            "InstallationInstructions": "EXTRACT, MOVE MTK TO addon"
+        },      
         {
             "Name": "Naboo: Theed Hangar",
             "Folder": "NTH",
             "Author": "Koolaid7g",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/85165_1.jpg"
+            "DownloadUrl": "https://www.gamefront.com/games/star-wars-battlefront-2/file/naboo-theed-hangar",
+            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/85165_1.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE NTH TO addon"
 		},        
         {
             "Name": "Suun Ra: Desert City",
             "Folder": "THC",
             "Author": "JazzMaster",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/73/72807/thumb_620x2000/2014-07-30_00014.jpg"
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/suun-ra-desert-city-v10-sky-to-ground",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/73/72807/thumb_620x2000/2014-07-30_00014.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE THC TO addon"
 		},        
         {
             "Name": "Rhen Var: Temple",

@@ -75,7 +75,7 @@
             // 
             this.txtNumMapsInstalled.BackColor = System.Drawing.Color.White;
             this.txtNumMapsInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNumMapsInstalled.Location = new System.Drawing.Point(931, 39);
+            this.txtNumMapsInstalled.Location = new System.Drawing.Point(932, 39);
             this.txtNumMapsInstalled.Name = "txtNumMapsInstalled";
             this.txtNumMapsInstalled.ReadOnly = true;
             this.txtNumMapsInstalled.Size = new System.Drawing.Size(100, 13);
@@ -358,7 +358,7 @@
             this.tabPage3.Controls.Add(this.btnSettingsBrowse);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1056, 552);
+            this.tabPage3.Size = new System.Drawing.Size(1085, 552);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -368,7 +368,7 @@
             this.tabPage4.Controls.Add(this.richTxtAbout);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1056, 552);
+            this.tabPage4.Size = new System.Drawing.Size(1085, 552);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "About";
             this.tabPage4.UseVisualStyleBackColor = true;
