@@ -1,4 +1,5 @@
-﻿using MaterialSkin;
+﻿using HtmlAgilityPack;
+using MaterialSkin;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WompRat.Properties;
 
@@ -16,6 +18,7 @@ namespace WompRat
         const string SettingsFilename = "settings.json";
         const string KnownMapsFilename = "known_maps.json";
         string MapImagesDir = Directory.GetCurrentDirectory() + "/images/";
+        string TempDir = Directory.GetCurrentDirectory() + "/temp/";
         Settings settings;
         KnownMaps knownMaps;
         MaterialSkinManager materialSkinManager;
@@ -43,6 +46,12 @@ namespace WompRat
             if (!Directory.Exists(MapImagesDir))
             {
                 Directory.CreateDirectory(MapImagesDir);
+            }
+
+            // Create temp folder if it doesn't exist
+            if (!Directory.Exists(TempDir))
+            {
+                Directory.CreateDirectory(TempDir);
             }
 
             // Read known maps file
@@ -264,14 +273,73 @@ namespace WompRat
                 string mapFolder = lvi.SubItems[1].Text;
                 Map m = findMapFromFolder(knownMaps.Maps, mapFolder);
                 string downloadUrl = m.DownloadUrl;
-                string destinationFilepath = Directory.GetCurrentDirectory() + "\\downloaded\\" + mapFolder + ".7z";
+
+                // Check if link is to moddb
+                Regex moddbRegex = new Regex("https://www.moddb.com/.*");
+                if (moddbRegex.Match(downloadUrl).Success)
+                {
+                    string tempMainPagePath = TempDir + mapFolder + "ModdbMainPage.html";
+                    client = new WebClient();
+                    client.DownloadFile(downloadUrl, tempMainPagePath);
+
+                    HtmlAgilityPack.HtmlDocument moddbMainPage = new HtmlAgilityPack.HtmlDocument();
+                    moddbMainPage.LoadHtml(File.ReadAllText(tempMainPagePath));
+                    HtmlAgilityPack.HtmlNode downloadButton = moddbMainPage.GetElementbyId("downloadmirrorstoggle");
+                    string downloadPageUrl = "https://moddb.com/" + downloadButton.GetAttributeValue("href", "");
+
+                    string tempDownloadPagePath = TempDir + mapFolder + "DownloadPage.html";
+                    client = new WebClient();
+                    client.DownloadFile(downloadPageUrl, tempDownloadPagePath);
+
+
+
+                    HtmlAgilityPack.HtmlDocument moddbDownloadPage = new HtmlAgilityPack.HtmlDocument();
+                    moddbDownloadPage.LoadHtml(File.ReadAllText(tempDownloadPagePath));
+
+                    IEnumerable<HtmlAgilityPack.HtmlNode> anchors = moddbDownloadPage.DocumentNode.Descendants("a");
+                    if (anchors != null)
+                    {
+                        Regex downloadFile = new Regex(@"download (.*)\.(.*)");
+                        
+                        foreach (HtmlNode a in anchors)
+                        {
+                            Match match = downloadFile.Match(a.InnerText);
+
+                            if (match.Success)
+                            {
+                                string filename = match.Groups[1].ToString();
+                                string fileExtension = match.Groups[2].ToString();
+                                string destFile = TempDir + filename + "." + fileExtension;
+
+                                string realDownloadUrl = "https://moddb.com/" + a.GetAttributeValue("href", "");
+
+                                client = new WebClient();
+                                client.DownloadFileCompleted += client_DownloadFileCompleted;
+                                client.DownloadProgressChanged += client_DownloadProgressChanged;
+                                MessageBox.Show("File will start downloading");
+                                client.DownloadFileAsync(new Uri(realDownloadUrl), destFile);
+
+                                break;
+                            }
+                        }
+                    }
+                    // TODO: find all a's (not ps) and regex on text for "download blah.foo" giving us filename and also dl link
+
+
+                    // Find download button on page
+                    //string findDownloadPage = "(<a href=\")(.*)(\" class=\".* \" rel=\".* \" title=\"Your download...\")";
+                    //MatchCollection matches = Regex.Matches(moddbMainPage, findDownloadPage);
+                }
+
+
+                /*string destinationFilepath = Directory.GetCurrentDirectory() + "\\downloaded\\" + mapFolder + ".7z";
                 Console.WriteLine(destinationFilepath);
 
                 client = new WebClient();
                 client.DownloadFileCompleted += client_DownloadFileCompleted;
                 client.DownloadProgressChanged += client_DownloadProgressChanged;
                 MessageBox.Show("File will start downloading");
-                client.DownloadFileAsync(new Uri(downloadUrl), destinationFilepath);
+                client.DownloadFileAsync(new Uri(downloadUrl), destinationFilepath);*/
 
 
                 
