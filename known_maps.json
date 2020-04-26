@@ -151,7 +151,7 @@
             "Type": "Map",
             "DownloadUrl": "https://www.moddb.com/mods/filefronts-hidden-gems/downloads/rhen-var-temple",
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/119/118726/thumb_620x2000/20170217101914_1.jpg",
-            "InstallationInstructions": "EXTRACT, MOVE 'RVT' 'addon'"
+            "InstallationInstructions": "EXTRACT, MOVE RVT TO addon"
 		}
     ]
 }

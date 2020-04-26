@@ -1,16 +1,11 @@
 ﻿using HtmlAgilityPack;
 using MaterialSkin;
 using Newtonsoft.Json;
-using SharpCompress.Archives;
-using SharpCompress.Archives.Rar;
-using SharpCompress.Common;
 using SharpCompress.Readers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.IO.Compression;
-using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -128,7 +123,7 @@ namespace WompRat
 
 
             // REMOVE THIS
-            parseInstallInstructions(TempDir + "RVT.rar", findMapFromFolder(knownMaps.Maps, "RVT").InstallationInstructions);
+            //parseInstallInstructions(TempDir + "RVT.rar", findMapFromFolder(knownMaps.Maps, "RVT").InstallationInstructions);
         }
 
         private Image findMapImage(Map m)
@@ -310,7 +305,7 @@ namespace WompRat
                     if (anchors != null)
                     {
                         Regex downloadFile = new Regex(@"download (.*)\.(.*)");
-                        
+
                         foreach (HtmlNode a in anchors)
                         {
                             Match match = downloadFile.Match(a.InnerText);
@@ -322,7 +317,7 @@ namespace WompRat
                                 string destFile = TempDir + filename + "." + fileExtension;
 
                                 string realDownloadUrl = "https://moddb.com/" + a.GetAttributeValue("href", "");
-                                
+
                                 client.DownloadFileCompleted += client_DownloadFileCompleted;
                                 client.DownloadProgressChanged += client_DownloadProgressChanged;
                                 MessageBox.Show("File will start downloading.", "Downloading " + m.Name);
@@ -365,19 +360,20 @@ namespace WompRat
 
         private void parseInstallInstructions(string downloadedFile, string installationInstructions)
         {
-            String[] instructions = installationInstructions.Split(',', ' ');
-            foreach(string instruction in instructions)
+            String[] instructions = installationInstructions.Split(',');
+            foreach (string instruction in instructions)
             {
-                String[] words = instruction.Split(' ');
+                string trimmedInstruction = instruction.Trim();
+                String[] words = trimmedInstruction.Split(' ');
                 if (words != null)
                 {
                     switch (words[0])
                     {
                         // Extract archive
-                        case "EXTRACT":                            
+                        case "EXTRACT":
                             string fileExtension = Path.GetExtension(downloadedFile);
                             string destination = TempDir + Path.GetFileNameWithoutExtension(downloadedFile) + "/";
-                            switch(fileExtension)
+                            switch (fileExtension)
                             {
                                 case ".zip":
                                 case ".ZIP":
@@ -386,7 +382,7 @@ namespace WompRat
 
                                 case ".rar":
                                 case ".RAR":
-                                    extractRarFile(downloadedFile, destination);                               
+                                    extractRarFile(downloadedFile, destination);
                                     break;
 
                                 case ".7z":
@@ -398,11 +394,24 @@ namespace WompRat
                                     break;
 
                             }
-
-
+                            Console.WriteLine("Extracted " + downloadedFile + " to " + destination);
                             break;
+
                         case "MOVE":
+                            string folderToMove = words[1];
+                            destination = words[3];
+                            // Handle addon shorthand
+                            if (destination == "addon")
+                            {
+                                destination = settings.AddonLocation;
+                            }
+
+                            CopyDirectory(TempDir + folderToMove, destination, true);
+
+                            Console.WriteLine("Copied " + folderToMove + " to " + destination);
+
                             break;
+
                         default:
                             // TODO: handle this error
                             break;
@@ -411,6 +420,44 @@ namespace WompRat
                 else
                 {
                     // TODO: handle this error
+                }
+            }
+        }
+
+        private void CopyDirectory(string sourceDirName, string destDirName, bool copySubDirs)
+        {
+            // Get the subdirectories for the specified directory.
+            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+
+            if (!dir.Exists)
+            {
+                throw new DirectoryNotFoundException(
+                    "Source directory does not exist or could not be found: "
+                    + sourceDirName);
+            }
+
+            DirectoryInfo[] dirs = dir.GetDirectories();
+            // If the destination directory doesn't exist, create it.
+            if (!Directory.Exists(destDirName))
+            {
+                Directory.CreateDirectory(destDirName);
+            }
+
+            // Get the files in the directory and copy them to the new location.
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string temppath = Path.Combine(destDirName, file.Name);
+                file.CopyTo(temppath, false);
+            }
+
+            // If copying subdirectories, copy them and their contents to new location.
+            if (copySubDirs)
+            {
+                foreach (DirectoryInfo subdir in dirs)
+                {
+                    string temppath = Path.Combine(destDirName, subdir.Name);
+                    CopyDirectory(subdir.FullName, temppath, copySubDirs);
                 }
             }
         }
@@ -436,23 +483,6 @@ namespace WompRat
                     }
                 }
             }
-            /*using (var archive = RarArchive.Open(downloadedFile))
-            {
-                foreach (RarArchiveEntry entry in archive.Entries)
-                {
-                    var newName = entry.FullName.Substring(root.Length);
-                    string path = Path.Combine(extractPath, newName);
-
-                    if (!Directory.Exists(path))
-                        Directory.CreateDirectory(Path.GetDirectoryName(path));
-
-                    entry.ExtractToFile(path);
-                    *//*entry.WriteToDirectory(TempDir + "extracted", new ExtractionOptions()
-                    {
-
-                    });*//*
-                }
-            }*/
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -460,8 +490,8 @@ namespace WompRat
             if (client != null)
             {
                 // We have to delete our client manually when we close the window
-                client.Dispose(); 
-            }                
+                client.Dispose();
+            }
         }
 
         private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -478,7 +508,7 @@ namespace WompRat
                 string fullMapFolderPath = settings.AddonLocation + "\\" + mapFolder;
 
                 Map m = findMapFromFolder(knownMaps.Maps, mapFolder);
-                
+
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show("Are you sure wish to uninstall '" + m.Name + "' and delete it from your computer?", "Uninstall map", buttons);
                 if (result == DialogResult.Yes)
@@ -493,7 +523,7 @@ namespace WompRat
                 else
                 {
                     this.Close();
-                }             
+                }
             }
         }
     }
