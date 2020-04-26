@@ -376,6 +376,7 @@ namespace WompRat
                         // Extract archive
                         case "EXTRACT":                            
                             string fileExtension = Path.GetExtension(downloadedFile);
+                            string destination = TempDir + Path.GetFileNameWithoutExtension(downloadedFile) + "/";
                             switch(fileExtension)
                             {
                                 case ".zip":
@@ -385,7 +386,7 @@ namespace WompRat
 
                                 case ".rar":
                                 case ".RAR":
-                                    extractRarFile(downloadedFile);                               
+                                    extractRarFile(downloadedFile, destination);                               
                                     break;
 
                                 case ".7z":
@@ -414,7 +415,7 @@ namespace WompRat
             }
         }
 
-        private void extractRarFile(string downloadedFile)
+        private void extractRarFile(string downloadedFile, string destination)
         {
             using (Stream stream = File.OpenRead(downloadedFile))
             using (var reader = ReaderFactory.Open(stream))
@@ -425,12 +426,12 @@ namespace WompRat
                     {
                         using (var entryStream = reader.OpenEntryStream())
                         {
-                            string filepath = TempDir + reader.Entry.Key;
+                            string filepath = destination + reader.Entry.Key;
                             Directory.CreateDirectory(Path.GetDirectoryName(filepath));
                             using (FileStream destStream = File.Create(filepath))
                             {
                                 entryStream.CopyTo(destStream);
-                            }                            
+                            }
                         }
                     }
                 }
