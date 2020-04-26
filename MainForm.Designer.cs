@@ -62,6 +62,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.imgLstGetMaps = new System.Windows.Forms.ImageList(this.components);
+            this.lblMapInstalling = new System.Windows.Forms.Label();
             this.tabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -246,6 +247,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblMapInstalling);
             this.tabPage2.Controls.Add(this.progBarMapDownload);
             this.tabPage2.Controls.Add(this.btnInstallMap);
             this.tabPage2.Controls.Add(this.txtNumMapsAvailable);
@@ -261,10 +263,11 @@
             // 
             // progBarMapDownload
             // 
-            this.progBarMapDownload.Location = new System.Drawing.Point(888, 103);
+            this.progBarMapDownload.Location = new System.Drawing.Point(888, 123);
             this.progBarMapDownload.Name = "progBarMapDownload";
             this.progBarMapDownload.Size = new System.Drawing.Size(125, 23);
             this.progBarMapDownload.TabIndex = 19;
+            this.progBarMapDownload.Visible = false;
             // 
             // btnInstallMap
             // 
@@ -358,6 +361,16 @@
             this.imgLstGetMaps.ImageSize = new System.Drawing.Size(128, 96);
             this.imgLstGetMaps.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // lblMapInstalling
+            // 
+            this.lblMapInstalling.AutoSize = true;
+            this.lblMapInstalling.Location = new System.Drawing.Point(888, 104);
+            this.lblMapInstalling.Name = "lblMapInstalling";
+            this.lblMapInstalling.Size = new System.Drawing.Size(35, 13);
+            this.lblMapInstalling.TabIndex = 20;
+            this.lblMapInstalling.Text = "label1";
+            this.lblMapInstalling.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,6 +379,7 @@
             this.Controls.Add(this.tabCtrl);
             this.Name = "MainForm";
             this.Text = "Womp Rat | SWBFII Map Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.tabCtrl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -411,6 +425,7 @@
         private System.Windows.Forms.Label lblMapsAvailable;
         private System.Windows.Forms.Button btnInstallMap;
         private System.Windows.Forms.ProgressBar progBarMapDownload;
+        private System.Windows.Forms.Label lblMapInstalling;
     }
 }
 

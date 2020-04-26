@@ -45,8 +45,8 @@
             "Folder": "LPR",
             "Author": "Darth_Spiderpig",
             "Type": "Map",
-            "DownloadUrl": "https://www.moddb.com/downloads/mirror/93558/114/6c2617eda7a68d49c68108295970a42c",
-            "ImageUrl": ""
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/second-battle-of-geonosis-landing-at-point-rain",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/94/93558/thumb_620x2000/screenshot_0090.jpg"
 		},
         {
             "Name": "Hoth: Frozen Valley",
@@ -150,7 +150,8 @@
             "Author": "Commander-Sev",
             "Type": "Map",
             "DownloadUrl": "https://www.moddb.com/mods/filefronts-hidden-gems/downloads/rhen-var-temple",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/119/118726/thumb_620x2000/20170217101914_1.jpg"
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/119/118726/thumb_620x2000/20170217101914_1.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE 'RVT' 'addon'"
 		}
     ]
 }

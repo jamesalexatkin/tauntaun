@@ -1,11 +1,16 @@
 ﻿using HtmlAgilityPack;
 using MaterialSkin;
 using Newtonsoft.Json;
+using SharpCompress.Archives;
+using SharpCompress.Archives.Rar;
+using SharpCompress.Common;
+using SharpCompress.Readers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -22,7 +27,7 @@ namespace WompRat
         Settings settings;
         KnownMaps knownMaps;
         MaterialSkinManager materialSkinManager;
-        WebClient client;
+        MapInstallClient client;
 
         public MainForm()
         {
@@ -119,6 +124,11 @@ namespace WompRat
                 // Get and display number of maps available
                 txtNumMapsAvailable.Text = lstVwGetMaps.Items.Count.ToString();
             }
+
+
+
+            // REMOVE THIS
+            parseInstallInstructions(TempDir + "RVT.rar", findMapFromFolder(knownMaps.Maps, "RVT").InstallationInstructions);
         }
 
         private Image findMapImage(Map m)
@@ -172,7 +182,7 @@ namespace WompRat
                 }
             }
             // In this case, we haven't recognised the map
-            return new Map("Unrecognised map", subdir, "?", "?", "?", "?");
+            return new Map("Unrecognised map", subdir, "?", "?", "?", "?", "");
         }
 
         private void updateTheme()
@@ -279,7 +289,7 @@ namespace WompRat
                 if (moddbRegex.Match(downloadUrl).Success)
                 {
                     string tempMainPagePath = TempDir + mapFolder + "ModdbMainPage.html";
-                    client = new WebClient();
+                    client = new MapInstallClient(m);
                     client.DownloadFile(downloadUrl, tempMainPagePath);
 
                     HtmlAgilityPack.HtmlDocument moddbMainPage = new HtmlAgilityPack.HtmlDocument();
@@ -288,7 +298,7 @@ namespace WompRat
                     string downloadPageUrl = "https://moddb.com/" + downloadButton.GetAttributeValue("href", "");
 
                     string tempDownloadPagePath = TempDir + mapFolder + "DownloadPage.html";
-                    client = new WebClient();
+                    //client = new MapInstallClient();
                     client.DownloadFile(downloadPageUrl, tempDownloadPagePath);
 
 
@@ -312,59 +322,148 @@ namespace WompRat
                                 string destFile = TempDir + filename + "." + fileExtension;
 
                                 string realDownloadUrl = "https://moddb.com/" + a.GetAttributeValue("href", "");
-
-                                client = new WebClient();
+                                
                                 client.DownloadFileCompleted += client_DownloadFileCompleted;
                                 client.DownloadProgressChanged += client_DownloadProgressChanged;
-                                MessageBox.Show("File will start downloading");
+                                MessageBox.Show("File will start downloading.", "Downloading " + m.Name);
                                 client.DownloadFileAsync(new Uri(realDownloadUrl), destFile);
+                                client.downloadedFile = destFile;
+
+                                // Show progress bar
+                                progBarMapDownload.Visible = true;
+                                // Show map name
+                                lblMapInstalling.Visible = true;
+                                lblMapInstalling.Text = m.Name;
 
                                 break;
                             }
                         }
                     }
-                    // TODO: find all a's (not ps) and regex on text for "download blah.foo" giving us filename and also dl link
-
-
-                    // Find download button on page
-                    //string findDownloadPage = "(<a href=\")(.*)(\" class=\".* \" rel=\".* \" title=\"Your download...\")";
-                    //MatchCollection matches = Regex.Matches(moddbMainPage, findDownloadPage);
                 }
-
-
-                /*string destinationFilepath = Directory.GetCurrentDirectory() + "\\downloaded\\" + mapFolder + ".7z";
-                Console.WriteLine(destinationFilepath);
-
-                client = new WebClient();
-                client.DownloadFileCompleted += client_DownloadFileCompleted;
-                client.DownloadProgressChanged += client_DownloadProgressChanged;
-                MessageBox.Show("File will start downloading");
-                client.DownloadFileAsync(new Uri(downloadUrl), destinationFilepath);*/
-
-
-                
-
-
             }
         }
 
 
-        private void client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e) // This is our new method!
+        private void client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             MessageBox.Show("File has been downloaded!");
 
+            // Hide progress bar
+            progBarMapDownload.Visible = false;
+            // Hide map name
+            lblMapInstalling.Visible = false;
 
-            string destinationFilepath = Directory.GetCurrentDirectory() + "\\downloaded\\" + "LPR.7z";
-            ZipFile.ExtractToDirectory(destinationFilepath, Directory.GetCurrentDirectory() + "\\downloaded\\");
+
+            Map mapToInstall = client.mapToInstall;
+
+            // Install map
+            string installationInstructions = mapToInstall.InstallationInstructions;
+            parseInstallInstructions(client.downloadedFile, installationInstructions);
+
+            MessageBox.Show("Finished installing " + mapToInstall.Name);
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void parseInstallInstructions(string downloadedFile, string installationInstructions)
+        {
+            String[] instructions = installationInstructions.Split(',', ' ');
+            foreach(string instruction in instructions)
+            {
+                String[] words = instruction.Split(' ');
+                if (words != null)
+                {
+                    switch (words[0])
+                    {
+                        // Extract archive
+                        case "EXTRACT":                            
+                            string fileExtension = Path.GetExtension(downloadedFile);
+                            switch(fileExtension)
+                            {
+                                case ".zip":
+                                case ".ZIP":
+                                    // TODO
+                                    break;
+
+                                case ".rar":
+                                case ".RAR":
+                                    extractRarFile(downloadedFile);                               
+                                    break;
+
+                                case ".7z":
+                                    // TODO
+                                    break;
+
+                                default:
+                                    // TODO: handle this error
+                                    break;
+
+                            }
+
+
+                            break;
+                        case "MOVE":
+                            break;
+                        default:
+                            // TODO: handle this error
+                            break;
+                    }
+                }
+                else
+                {
+                    // TODO: handle this error
+                }
+            }
+        }
+
+        private void extractRarFile(string downloadedFile)
+        {
+            using (Stream stream = File.OpenRead(downloadedFile))
+            using (var reader = ReaderFactory.Open(stream))
+            {
+                while (reader.MoveToNextEntry())
+                {
+                    if (!reader.Entry.IsDirectory)
+                    {
+                        using (var entryStream = reader.OpenEntryStream())
+                        {
+                            string filepath = TempDir + reader.Entry.Key;
+                            Directory.CreateDirectory(Path.GetDirectoryName(filepath));
+                            using (FileStream destStream = File.Create(filepath))
+                            {
+                                entryStream.CopyTo(destStream);
+                            }                            
+                        }
+                    }
+                }
+            }
+            /*using (var archive = RarArchive.Open(downloadedFile))
+            {
+                foreach (RarArchiveEntry entry in archive.Entries)
+                {
+                    var newName = entry.FullName.Substring(root.Length);
+                    string path = Path.Combine(extractPath, newName);
+
+                    if (!Directory.Exists(path))
+                        Directory.CreateDirectory(Path.GetDirectoryName(path));
+
+                    entry.ExtractToFile(path);
+                    *//*entry.WriteToDirectory(TempDir + "extracted", new ExtractionOptions()
+                    {
+
+                    });*//*
+                }
+            }*/
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (client != null)
-                client.Dispose(); // We have to delete our client manually when we close the window or whenever you want
+            {
+                // We have to delete our client manually when we close the window
+                client.Dispose(); 
+            }                
         }
 
-        private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e) // NEW
+        private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             progBarMapDownload.Value = e.ProgressPercentage;
         }
