@@ -32,9 +32,9 @@
             "Folder": "CMW",
             "Author": "El_Fabricio",
             "Type": "Map",
-            "DownloadUrl": "",
+            "DownloadUrl": "http://www.mediafire.com/file/t76xr3nx4xtm4gt/Swbf2_-_Coruscant-Modern_Warfare.7z/file",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704320539/EF802A132F1017BC6660C8633141635F776A60FF/",
-            "InstallationInstructions": ""
+            "InstallationInstructions": "EXTRACT, MOVE CMW TO addon"
 		},
         {
             "Name": "Episode 2 Geonosis",
@@ -43,7 +43,7 @@
             "Type": "Map",
             "DownloadUrl": "https://www.gamefront.com/games/star-wars-battlefront-2/file/episode-2-geonosis",
             "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/92149_1.jpg",
-            "InstallationInstructions": ""
+            "InstallationInstructions": "RUN .exe"
 		},
         {
             "Name": "Geonosis: Landing at Point Rain",
