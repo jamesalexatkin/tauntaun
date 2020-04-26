@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Windows.Forms;
 using WompRat.Properties;
@@ -18,6 +19,7 @@ namespace WompRat
         Settings settings;
         KnownMaps knownMaps;
         MaterialSkinManager materialSkinManager;
+        WebClient client;
 
         public MainForm()
         {
@@ -108,8 +110,6 @@ namespace WompRat
                 // Get and display number of maps available
                 txtNumMapsAvailable.Text = lstVwGetMaps.Items.Count.ToString();
             }
-
-            
         }
 
         private Image findMapImage(Map m)
@@ -264,13 +264,41 @@ namespace WompRat
                 string mapFolder = lvi.SubItems[1].Text;
                 Map m = findMapFromFolder(knownMaps.Maps, mapFolder);
                 string downloadUrl = m.DownloadUrl;
-                string destinationFilepath = Directory.GetCurrentDirectory() + "\\downloaded\\" + mapFolder + ".zip";
+                string destinationFilepath = Directory.GetCurrentDirectory() + "\\downloaded\\" + mapFolder + ".7z";
                 Console.WriteLine(destinationFilepath);
 
-                WebClient Client = new WebClient();
-                Client.DownloadFile(downloadUrl, destinationFilepath);
+                client = new WebClient();
+                client.DownloadFileCompleted += client_DownloadFileCompleted;
+                client.DownloadProgressChanged += client_DownloadProgressChanged;
+                MessageBox.Show("File will start downloading");
+                client.DownloadFileAsync(new Uri(downloadUrl), destinationFilepath);
+
+
+                
+
 
             }
+        }
+
+
+        private void client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e) // This is our new method!
+        {
+            MessageBox.Show("File has been downloaded!");
+
+
+            string destinationFilepath = Directory.GetCurrentDirectory() + "\\downloaded\\" + "LPR.7z";
+            ZipFile.ExtractToDirectory(destinationFilepath, Directory.GetCurrentDirectory() + "\\downloaded\\");
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (client != null)
+                client.Dispose(); // We have to delete our client manually when we close the window or whenever you want
+        }
+
+        private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e) // NEW
+        {
+            progBarMapDownload.Value = e.ProgressPercentage;
         }
 
         private void btnUninstallMap_Click(object sender, EventArgs e)

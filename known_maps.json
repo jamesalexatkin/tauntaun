@@ -22,7 +22,8 @@
             "Author": "Darth_Spiderpig",
             "Type": "Map",
             "DownloadUrl": "http://moddb.com/downloads/mirror/93558/115/cd9360907686656973d444c081035c7c",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/94/93558/thumb_620x2000/screenshot_0090.jpg"
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/94/93558/thumb_620x2000/screenshot_0090.jpg",
+            "Installation": ""
 		},
         {
             "Name": "Naboo: Siege of Theed",
@@ -30,7 +31,7 @@
             "Author": "Bantha55",
             "Type": "Map",
             "DownloadUrl": "",
-            "ImageUrl": ""
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/428193628077275234/A822B3116E79BD04101C8634F35A87BD82C1481D/?imw=1024&imh=575&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"
 		},
         {
             "Name": "Coruscant: Droid Invasion",
@@ -45,8 +46,8 @@
             "Folder": "CCC",
             "Author": "",
             "Type": "Map",
-            "DownloadUrl": "",
-            "ImageUrl": ""
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/corellia-coronet-city-2017-re-archive",
+            "ImageUrl": "https://media.moddb.com/images/downloads/1/130/129123/20161210174221_1.jpg"
 		},
         {
             "Name": "Hoth: Frozen Valley",
@@ -86,7 +87,7 @@
             "Author": "El_Fabricio",
             "Type": "Map",
             "DownloadUrl": "",
-            "ImageUrl": ""
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704320539/EF802A132F1017BC6660C8633141635F776A60FF/"
 		},
         {
             "Name": "Suun Ra: Desert City",
@@ -102,7 +103,7 @@
             "Author": "YaNkFaN",
             "Type": "Map",
             "DownloadUrl": "",
-            "ImageUrl": ""
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/23964095334772827/A5EEFF8A68B8B8B67204702DD514C956741B9F77/"
 		},
         {
             "Name": "Khimera: Islands",
@@ -110,7 +111,7 @@
             "Author": "YaNkFaN",
             "Type": "Map",
             "DownloadUrl": "",
-            "ImageUrl": ""
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704569022/BC893787AAE19BED87E9136B3E9AF2A562BE80A6/"
 		},
         {
             "Name": "Khimera: Jungle",
@@ -118,7 +119,7 @@
             "Author": "YaNkFaN",
             "Type": "Map",
             "DownloadUrl": "",
-            "ImageUrl": ""
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net//ugc/23964095334773557/1B8C0B71534DCF76A235433277B48CDAE1B597F8/"
 		},
         {
             "Name": "Khimera: Plains",
@@ -126,7 +127,7 @@
             "Author": "YaNkFaN",
             "Type": "Map",
             "DownloadUrl": "",
-            "ImageUrl": ""
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704569148/BF039E999492FB3CC00088FB84421189B5AD7636/"
 		},
         {
             "Name": "Khimera: Streets",
@@ -134,7 +135,7 @@
             "Author": "YaNkFaN",
             "Type": "Map",
             "DownloadUrl": "",
-            "ImageUrl": ""
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net//ugc/23964095334774262/A94AA2E01EB26DDB20052713EA0E35AE1E3A01B2/"
 		},
         {
             "Name": "Kashyyyk: Episode 3",
@@ -151,6 +152,14 @@
             "Type": "Map",
             "DownloadUrl": "https://www.gamefront.com/files/episode-2-geonosis/download",
             "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/92149_1.jpg"
+		},
+        {
+            "Name": "Rhen Var: Temple",
+            "Folder": "RVT",
+            "Author": "Commander-Sev",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/mods/filefronts-hidden-gems/downloads/rhen-var-temple",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/119/118726/thumb_620x2000/20170217101914_1.jpg"
 		}
     ]
 }
