@@ -25,7 +25,6 @@ namespace WompRat
         string TempDir = Path.Combine(Directory.GetCurrentDirectory(), "temp");
         Settings settings;
         KnownMaps knownMaps;
-        MaterialSkinManager materialSkinManager;
         MapInstallClient client = new MapInstallClient();
         const string moddbBaseUrl = "https://www.moddb.com/";
 
@@ -185,18 +184,6 @@ namespace WompRat
             }
             // In this case, we haven't recognised the map
             return new Map("Unrecognised map", subdir, "?", "?", "?", "?", "");
-        }
-
-        private void updateTheme()
-        {
-            if (settings.Theme.Equals("dark"))
-            {
-                materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            }
-            else
-            {
-                materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            }
         }
 
         private void writeSettings(Settings settings, string settingsFilename)
