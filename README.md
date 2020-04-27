@@ -13,6 +13,9 @@
 * Download and install new maps.
 * Pulls together download methods for existing maps into a single application.
 
+# 📥 Installation
+Tauntaun can be installed by grabbing the latest release from the [Releases](https://github.com/jamesalexatkin/tauntaun/releases) page.
+
 # 💬 Contributing
 If you wish to contribute, please do so by opening a pull request with a good description of your changes.
 
