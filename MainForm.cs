@@ -458,15 +458,15 @@ namespace WompRat
                     {
                         // Extract archive
                         case "EXTRACT":
-                            string fileExtension = Path.GetExtension(downloadedFile);
-                            string destination = TempDir + Path.GetFileNameWithoutExtension(downloadedFile) + "/";
+                            // Get file extension and make it all lowercase for consistency
+                            string fileExtension = Path.GetExtension(downloadedFile).ToLower();
+                            Console.WriteLine(fileExtension);
+                            string destination = Path.Combine(TempDir, Path.GetFileNameWithoutExtension(downloadedFile));
                             lblInstallStatus.Text = "Extracting map...";
                             switch (fileExtension)
                             {
                                 case ".zip":
-                                case ".ZIP":
                                 case ".rar":
-                                case ".RAR":
                                     extractZipOrRarFile(downloadedFile, destination);
                                     break;
 
@@ -475,7 +475,7 @@ namespace WompRat
                                     break;
 
                                 default:
-                                    throw new MapInstallException("Unrecognised archive type");
+                                    throw new MapInstallException("Unrecognised archive type: '" + fileExtension + "'");
                                     break;
 
                             }
