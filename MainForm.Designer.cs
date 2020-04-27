@@ -214,7 +214,7 @@
             this.tabCtrl.Location = new System.Drawing.Point(0, 0);
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
-            this.tabCtrl.Size = new System.Drawing.Size(1335, 703);
+            this.tabCtrl.Size = new System.Drawing.Size(1335, 729);
             this.tabCtrl.TabIndex = 9;
             this.tabCtrl.SelectedIndexChanged += new System.EventHandler(this.tabCtrl_SelectedIndexChanged);
             // 
@@ -226,7 +226,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1327, 677);
+            this.tabPage1.Size = new System.Drawing.Size(1327, 703);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Installed maps";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -386,7 +386,7 @@
             this.lstVwInstalledMaps.LargeImageList = this.imgLstInstalled;
             this.lstVwInstalledMaps.Location = new System.Drawing.Point(3, 3);
             this.lstVwInstalledMaps.Name = "lstVwInstalledMaps";
-            this.lstVwInstalledMaps.Size = new System.Drawing.Size(890, 671);
+            this.lstVwInstalledMaps.Size = new System.Drawing.Size(890, 697);
             this.lstVwInstalledMaps.TabIndex = 14;
             this.lstVwInstalledMaps.UseCompatibleStateImageBehavior = false;
             this.lstVwInstalledMaps.SelectedIndexChanged += new System.EventHandler(this.lstVwInstalledMaps_SelectedIndexChanged);
@@ -687,7 +687,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1335, 703);
+            this.ClientSize = new System.Drawing.Size(1335, 729);
             this.Controls.Add(this.tabCtrl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";

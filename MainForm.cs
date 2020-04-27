@@ -554,7 +554,7 @@ namespace Tauntaun
         {
             using (Stream stream = File.OpenRead(downloadedFile))
             using (var archive = SevenZipArchive.Open(stream))
-                using (var reader = archive.ExtractAllEntries())
+            using (var reader = archive.ExtractAllEntries())
             {                
                 while (reader.MoveToNextEntry())
                 {
