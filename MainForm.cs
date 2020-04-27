@@ -442,7 +442,7 @@ namespace WompRat
                 MessageBox.Show(mapInstallEx.Message, "Map installation failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
-            MessageBox.Show("Finished installing " + mapToInstall.Name);
+            MessageBox.Show("Finished installing " + mapToInstall.Name + ".");
         }
 
         private void parseInstallInstructions(string downloadedFile, string installationInstructions)
@@ -507,21 +507,34 @@ namespace WompRat
 
                             if (target == ".exe") 
                             {
-                                downloadedFileWoExtension = Path.GetFileNameWithoutExtension(downloadedFile);
-                                string extractedDir = Path.Combine(TempDir, downloadedFileWoExtension);
+                                string fileToRun = "";
 
-                                string[] foundFiles = System.IO.Directory.GetFiles(extractedDir, "*.exe");
-
-                                if (foundFiles.Length > 0)
+                                // If we've downloaded a plain .exe, we can run it straight away
+                                if (Path.GetExtension(downloadedFile) == ".exe")
                                 {
-                                    string installerExe = foundFiles[0];
-                                    MessageBox.Show("Installation will continue in external installer.");
-                                    Process.Start(installerExe);
+                                    fileToRun = downloadedFile;
                                 }
+                                // Otherwise, the .exe was in an archive that we've unzipped
                                 else
                                 {
-                                    throw new MapInstallException("No executable installer found.");
+                                    downloadedFileWoExtension = Path.GetFileNameWithoutExtension(downloadedFile);
+                                    string extractedDir = Path.Combine(TempDir, downloadedFileWoExtension);
+
+                                    string[] foundFiles = System.IO.Directory.GetFiles(extractedDir, "*.exe");
+
+                                    if (foundFiles.Length > 0)
+                                    {
+                                        fileToRun = foundFiles[0];
+                                    }                                
+                                    else
+                                    {
+                                        throw new MapInstallException("No executable installer found.");
+                                    }
                                 }
+
+                                // Now run installer
+                                MessageBox.Show("Installation will continue in external installer.");
+                                Process.Start(fileToRun);
                             }
 
                             break;
