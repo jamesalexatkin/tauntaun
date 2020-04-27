@@ -50,23 +50,39 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imgLstInstalled = new System.Windows.Forms.ImageList(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblMapInstalling = new System.Windows.Forms.Label();
-            this.progBarMapDownload = new System.Windows.Forms.ProgressBar();
-            this.btnInstallMap = new System.Windows.Forms.Button();
-            this.txtNumMapsAvailable = new System.Windows.Forms.TextBox();
-            this.lblMapsAvailable = new System.Windows.Forms.Label();
+            this.panelCurMap = new System.Windows.Forms.Panel();
+            this.txtTypeCurMap = new System.Windows.Forms.TextBox();
+            this.txtFolderCurMap = new System.Windows.Forms.TextBox();
+            this.txtAuthorCurMap = new System.Windows.Forms.TextBox();
+            this.txtNameCurMap = new System.Windows.Forms.TextBox();
+            this.lblCurMap = new System.Windows.Forms.Label();
+            this.lblDownloadCurMap = new System.Windows.Forms.Label();
+            this.lblFolderCurMap = new System.Windows.Forms.Label();
+            this.lblAuthorCurMap = new System.Windows.Forms.Label();
+            this.lblNameCurMap = new System.Windows.Forms.Label();
+            this.picBoxCurMap = new System.Windows.Forms.PictureBox();
             this.lstVwGetMaps = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imgLstGetMaps = new System.Windows.Forms.ImageList(this.components);
+            this.panelInstall = new System.Windows.Forms.Panel();
+            this.progBarMapDownload = new System.Windows.Forms.ProgressBar();
+            this.lblInstallStatus = new System.Windows.Forms.Label();
+            this.btnInstallMap = new System.Windows.Forms.Button();
+            this.lblMapInstalling = new System.Windows.Forms.Label();
+            this.lblMapsAvailable = new System.Windows.Forms.Label();
+            this.txtNumMapsAvailable = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.lblInstallStatus = new System.Windows.Forms.Label();
+            this.txtDownloadCurMap = new System.Windows.Forms.RichTextBox();
             this.tabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panelCurMap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMap)).BeginInit();
+            this.panelInstall.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.SuspendLayout();
@@ -178,10 +194,11 @@
             this.tabCtrl.Controls.Add(this.tabPage2);
             this.tabCtrl.Controls.Add(this.tabPage3);
             this.tabCtrl.Controls.Add(this.tabPage4);
-            this.tabCtrl.Location = new System.Drawing.Point(12, 12);
+            this.tabCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabCtrl.Location = new System.Drawing.Point(0, 0);
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
-            this.tabCtrl.Size = new System.Drawing.Size(1093, 578);
+            this.tabCtrl.Size = new System.Drawing.Size(1335, 703);
             this.tabCtrl.TabIndex = 9;
             this.tabCtrl.SelectedIndexChanged += new System.EventHandler(this.tabCtrl_SelectedIndexChanged);
             // 
@@ -194,7 +211,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1085, 552);
+            this.tabPage1.Size = new System.Drawing.Size(1434, 677);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Installed maps";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -216,13 +233,15 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.lstVwInstalledMaps.Dock = System.Windows.Forms.DockStyle.Left;
             this.lstVwInstalledMaps.HideSelection = false;
             this.lstVwInstalledMaps.LargeImageList = this.imgLstInstalled;
-            this.lstVwInstalledMaps.Location = new System.Drawing.Point(19, 23);
+            this.lstVwInstalledMaps.Location = new System.Drawing.Point(3, 3);
             this.lstVwInstalledMaps.Name = "lstVwInstalledMaps";
-            this.lstVwInstalledMaps.Size = new System.Drawing.Size(890, 508);
+            this.lstVwInstalledMaps.Size = new System.Drawing.Size(890, 671);
             this.lstVwInstalledMaps.TabIndex = 14;
             this.lstVwInstalledMaps.UseCompatibleStateImageBehavior = false;
+            this.lstVwInstalledMaps.SelectedIndexChanged += new System.EventHandler(this.lstVwGetMaps_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -248,68 +267,126 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.lblInstallStatus);
-            this.tabPage2.Controls.Add(this.lblMapInstalling);
-            this.tabPage2.Controls.Add(this.progBarMapDownload);
-            this.tabPage2.Controls.Add(this.btnInstallMap);
-            this.tabPage2.Controls.Add(this.txtNumMapsAvailable);
-            this.tabPage2.Controls.Add(this.lblMapsAvailable);
+            this.tabPage2.Controls.Add(this.panelCurMap);
             this.tabPage2.Controls.Add(this.lstVwGetMaps);
+            this.tabPage2.Controls.Add(this.panelInstall);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1085, 552);
+            this.tabPage2.Size = new System.Drawing.Size(1327, 677);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Get maps";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lblMapInstalling
+            // panelCurMap
             // 
-            this.lblMapInstalling.AutoSize = true;
-            this.lblMapInstalling.Location = new System.Drawing.Point(932, 103);
-            this.lblMapInstalling.Name = "lblMapInstalling";
-            this.lblMapInstalling.Size = new System.Drawing.Size(35, 13);
-            this.lblMapInstalling.TabIndex = 20;
-            this.lblMapInstalling.Text = "label1";
-            this.lblMapInstalling.Visible = false;
+            this.panelCurMap.BackColor = System.Drawing.SystemColors.Control;
+            this.panelCurMap.Controls.Add(this.txtDownloadCurMap);
+            this.panelCurMap.Controls.Add(this.txtTypeCurMap);
+            this.panelCurMap.Controls.Add(this.txtFolderCurMap);
+            this.panelCurMap.Controls.Add(this.txtAuthorCurMap);
+            this.panelCurMap.Controls.Add(this.txtNameCurMap);
+            this.panelCurMap.Controls.Add(this.lblCurMap);
+            this.panelCurMap.Controls.Add(this.lblDownloadCurMap);
+            this.panelCurMap.Controls.Add(this.lblFolderCurMap);
+            this.panelCurMap.Controls.Add(this.lblAuthorCurMap);
+            this.panelCurMap.Controls.Add(this.lblNameCurMap);
+            this.panelCurMap.Controls.Add(this.picBoxCurMap);
+            this.panelCurMap.Location = new System.Drawing.Point(910, 3);
+            this.panelCurMap.Name = "panelCurMap";
+            this.panelCurMap.Size = new System.Drawing.Size(409, 481);
+            this.panelCurMap.TabIndex = 23;
             // 
-            // progBarMapDownload
+            // txtTypeCurMap
             // 
-            this.progBarMapDownload.Location = new System.Drawing.Point(932, 153);
-            this.progBarMapDownload.Name = "progBarMapDownload";
-            this.progBarMapDownload.Size = new System.Drawing.Size(125, 23);
-            this.progBarMapDownload.TabIndex = 19;
-            this.progBarMapDownload.Visible = false;
+            this.txtTypeCurMap.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTypeCurMap.Location = new System.Drawing.Point(88, 389);
+            this.txtTypeCurMap.Name = "txtTypeCurMap";
+            this.txtTypeCurMap.ReadOnly = true;
+            this.txtTypeCurMap.Size = new System.Drawing.Size(316, 13);
+            this.txtTypeCurMap.TabIndex = 9;
             // 
-            // btnInstallMap
+            // txtFolderCurMap
             // 
-            this.btnInstallMap.Location = new System.Drawing.Point(931, 58);
-            this.btnInstallMap.Name = "btnInstallMap";
-            this.btnInstallMap.Size = new System.Drawing.Size(125, 23);
-            this.btnInstallMap.TabIndex = 18;
-            this.btnInstallMap.Text = "Install map";
-            this.btnInstallMap.UseVisualStyleBackColor = true;
-            this.btnInstallMap.Click += new System.EventHandler(this.btnInstallMap_Click);
+            this.txtFolderCurMap.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFolderCurMap.Location = new System.Drawing.Point(88, 363);
+            this.txtFolderCurMap.Name = "txtFolderCurMap";
+            this.txtFolderCurMap.ReadOnly = true;
+            this.txtFolderCurMap.Size = new System.Drawing.Size(316, 13);
+            this.txtFolderCurMap.TabIndex = 8;
             // 
-            // txtNumMapsAvailable
+            // txtAuthorCurMap
             // 
-            this.txtNumMapsAvailable.BackColor = System.Drawing.Color.White;
-            this.txtNumMapsAvailable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNumMapsAvailable.Location = new System.Drawing.Point(932, 39);
-            this.txtNumMapsAvailable.Name = "txtNumMapsAvailable";
-            this.txtNumMapsAvailable.ReadOnly = true;
-            this.txtNumMapsAvailable.Size = new System.Drawing.Size(100, 13);
-            this.txtNumMapsAvailable.TabIndex = 17;
-            this.txtNumMapsAvailable.Text = "0";
+            this.txtAuthorCurMap.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAuthorCurMap.Location = new System.Drawing.Point(88, 337);
+            this.txtAuthorCurMap.Name = "txtAuthorCurMap";
+            this.txtAuthorCurMap.ReadOnly = true;
+            this.txtAuthorCurMap.Size = new System.Drawing.Size(316, 13);
+            this.txtAuthorCurMap.TabIndex = 7;
             // 
-            // lblMapsAvailable
+            // txtNameCurMap
             // 
-            this.lblMapsAvailable.AutoSize = true;
-            this.lblMapsAvailable.Location = new System.Drawing.Point(928, 23);
-            this.lblMapsAvailable.Name = "lblMapsAvailable";
-            this.lblMapsAvailable.Size = new System.Drawing.Size(132, 13);
-            this.lblMapsAvailable.TabIndex = 16;
-            this.lblMapsAvailable.Text = "Number of maps available:";
+            this.txtNameCurMap.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNameCurMap.Location = new System.Drawing.Point(88, 311);
+            this.txtNameCurMap.Name = "txtNameCurMap";
+            this.txtNameCurMap.ReadOnly = true;
+            this.txtNameCurMap.Size = new System.Drawing.Size(316, 13);
+            this.txtNameCurMap.TabIndex = 6;
+            // 
+            // lblCurMap
+            // 
+            this.lblCurMap.AutoSize = true;
+            this.lblCurMap.Location = new System.Drawing.Point(4, 392);
+            this.lblCurMap.Name = "lblCurMap";
+            this.lblCurMap.Size = new System.Drawing.Size(34, 13);
+            this.lblCurMap.TabIndex = 5;
+            this.lblCurMap.Text = "Type:";
+            // 
+            // lblDownloadCurMap
+            // 
+            this.lblDownloadCurMap.AutoSize = true;
+            this.lblDownloadCurMap.Location = new System.Drawing.Point(5, 418);
+            this.lblDownloadCurMap.Name = "lblDownloadCurMap";
+            this.lblDownloadCurMap.Size = new System.Drawing.Size(77, 13);
+            this.lblDownloadCurMap.TabIndex = 4;
+            this.lblDownloadCurMap.Text = "Download link:";
+            // 
+            // lblFolderCurMap
+            // 
+            this.lblFolderCurMap.AutoSize = true;
+            this.lblFolderCurMap.Location = new System.Drawing.Point(4, 366);
+            this.lblFolderCurMap.Name = "lblFolderCurMap";
+            this.lblFolderCurMap.Size = new System.Drawing.Size(39, 13);
+            this.lblFolderCurMap.TabIndex = 3;
+            this.lblFolderCurMap.Text = "Folder:";
+            // 
+            // lblAuthorCurMap
+            // 
+            this.lblAuthorCurMap.AutoSize = true;
+            this.lblAuthorCurMap.Location = new System.Drawing.Point(4, 340);
+            this.lblAuthorCurMap.Name = "lblAuthorCurMap";
+            this.lblAuthorCurMap.Size = new System.Drawing.Size(41, 13);
+            this.lblAuthorCurMap.TabIndex = 2;
+            this.lblAuthorCurMap.Text = "Author:";
+            // 
+            // lblNameCurMap
+            // 
+            this.lblNameCurMap.AutoSize = true;
+            this.lblNameCurMap.Location = new System.Drawing.Point(5, 314);
+            this.lblNameCurMap.Name = "lblNameCurMap";
+            this.lblNameCurMap.Size = new System.Drawing.Size(38, 13);
+            this.lblNameCurMap.TabIndex = 1;
+            this.lblNameCurMap.Text = "Name:";
+            // 
+            // picBoxCurMap
+            // 
+            this.picBoxCurMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picBoxCurMap.Location = new System.Drawing.Point(4, 4);
+            this.picBoxCurMap.Name = "picBoxCurMap";
+            this.picBoxCurMap.Size = new System.Drawing.Size(400, 300);
+            this.picBoxCurMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxCurMap.TabIndex = 0;
+            this.picBoxCurMap.TabStop = false;
             // 
             // lstVwGetMaps
             // 
@@ -318,13 +395,15 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
+            this.lstVwGetMaps.Dock = System.Windows.Forms.DockStyle.Left;
             this.lstVwGetMaps.HideSelection = false;
             this.lstVwGetMaps.LargeImageList = this.imgLstGetMaps;
-            this.lstVwGetMaps.Location = new System.Drawing.Point(19, 23);
+            this.lstVwGetMaps.Location = new System.Drawing.Point(3, 3);
             this.lstVwGetMaps.Name = "lstVwGetMaps";
-            this.lstVwGetMaps.Size = new System.Drawing.Size(890, 508);
+            this.lstVwGetMaps.Size = new System.Drawing.Size(890, 671);
             this.lstVwGetMaps.TabIndex = 15;
             this.lstVwGetMaps.UseCompatibleStateImageBehavior = false;
+            this.lstVwGetMaps.SelectedIndexChanged += new System.EventHandler(this.lstVwGetMaps_SelectedIndexChanged);
             // 
             // columnHeader5
             // 
@@ -348,6 +427,78 @@
             this.imgLstGetMaps.ImageSize = new System.Drawing.Size(128, 96);
             this.imgLstGetMaps.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // panelInstall
+            // 
+            this.panelInstall.BackColor = System.Drawing.Color.White;
+            this.panelInstall.Controls.Add(this.progBarMapDownload);
+            this.panelInstall.Controls.Add(this.lblInstallStatus);
+            this.panelInstall.Controls.Add(this.btnInstallMap);
+            this.panelInstall.Controls.Add(this.lblMapInstalling);
+            this.panelInstall.Controls.Add(this.lblMapsAvailable);
+            this.panelInstall.Controls.Add(this.txtNumMapsAvailable);
+            this.panelInstall.Location = new System.Drawing.Point(910, 490);
+            this.panelInstall.Name = "panelInstall";
+            this.panelInstall.Size = new System.Drawing.Size(182, 184);
+            this.panelInstall.TabIndex = 22;
+            // 
+            // progBarMapDownload
+            // 
+            this.progBarMapDownload.Location = new System.Drawing.Point(8, 140);
+            this.progBarMapDownload.Name = "progBarMapDownload";
+            this.progBarMapDownload.Size = new System.Drawing.Size(125, 23);
+            this.progBarMapDownload.TabIndex = 19;
+            this.progBarMapDownload.Visible = false;
+            // 
+            // lblInstallStatus
+            // 
+            this.lblInstallStatus.AutoSize = true;
+            this.lblInstallStatus.Location = new System.Drawing.Point(5, 113);
+            this.lblInstallStatus.Name = "lblInstallStatus";
+            this.lblInstallStatus.Size = new System.Drawing.Size(35, 13);
+            this.lblInstallStatus.TabIndex = 21;
+            this.lblInstallStatus.Text = "label1";
+            this.lblInstallStatus.Visible = false;
+            // 
+            // btnInstallMap
+            // 
+            this.btnInstallMap.Location = new System.Drawing.Point(8, 45);
+            this.btnInstallMap.Name = "btnInstallMap";
+            this.btnInstallMap.Size = new System.Drawing.Size(125, 23);
+            this.btnInstallMap.TabIndex = 18;
+            this.btnInstallMap.Text = "Install map";
+            this.btnInstallMap.UseVisualStyleBackColor = true;
+            this.btnInstallMap.Click += new System.EventHandler(this.btnInstallMap_Click);
+            // 
+            // lblMapInstalling
+            // 
+            this.lblMapInstalling.AutoSize = true;
+            this.lblMapInstalling.Location = new System.Drawing.Point(5, 90);
+            this.lblMapInstalling.Name = "lblMapInstalling";
+            this.lblMapInstalling.Size = new System.Drawing.Size(35, 13);
+            this.lblMapInstalling.TabIndex = 20;
+            this.lblMapInstalling.Text = "label1";
+            this.lblMapInstalling.Visible = false;
+            // 
+            // lblMapsAvailable
+            // 
+            this.lblMapsAvailable.AutoSize = true;
+            this.lblMapsAvailable.Location = new System.Drawing.Point(5, 10);
+            this.lblMapsAvailable.Name = "lblMapsAvailable";
+            this.lblMapsAvailable.Size = new System.Drawing.Size(132, 13);
+            this.lblMapsAvailable.TabIndex = 16;
+            this.lblMapsAvailable.Text = "Number of maps available:";
+            // 
+            // txtNumMapsAvailable
+            // 
+            this.txtNumMapsAvailable.BackColor = System.Drawing.Color.White;
+            this.txtNumMapsAvailable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumMapsAvailable.Location = new System.Drawing.Point(9, 26);
+            this.txtNumMapsAvailable.Name = "txtNumMapsAvailable";
+            this.txtNumMapsAvailable.ReadOnly = true;
+            this.txtNumMapsAvailable.Size = new System.Drawing.Size(100, 13);
+            this.txtNumMapsAvailable.TabIndex = 17;
+            this.txtNumMapsAvailable.Text = "0";
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.cmbTheme);
@@ -358,7 +509,7 @@
             this.tabPage3.Controls.Add(this.btnSettingsBrowse);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1085, 552);
+            this.tabPage3.Size = new System.Drawing.Size(1434, 677);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -368,26 +519,27 @@
             this.tabPage4.Controls.Add(this.richTxtAbout);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1085, 552);
+            this.tabPage4.Size = new System.Drawing.Size(1434, 677);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "About";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // lblInstallStatus
+            // txtDownloadCurMap
             // 
-            this.lblInstallStatus.AutoSize = true;
-            this.lblInstallStatus.Location = new System.Drawing.Point(932, 127);
-            this.lblInstallStatus.Name = "lblInstallStatus";
-            this.lblInstallStatus.Size = new System.Drawing.Size(35, 13);
-            this.lblInstallStatus.TabIndex = 21;
-            this.lblInstallStatus.Text = "label1";
-            this.lblInstallStatus.Visible = false;
+            this.txtDownloadCurMap.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDownloadCurMap.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDownloadCurMap.Location = new System.Drawing.Point(88, 418);
+            this.txtDownloadCurMap.Name = "txtDownloadCurMap";
+            this.txtDownloadCurMap.Size = new System.Drawing.Size(316, 60);
+            this.txtDownloadCurMap.TabIndex = 10;
+            this.txtDownloadCurMap.Text = "";
+            this.txtDownloadCurMap.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTxtAbout_LinkClicked);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 603);
+            this.ClientSize = new System.Drawing.Size(1335, 703);
             this.Controls.Add(this.tabCtrl);
             this.Name = "MainForm";
             this.Text = "Womp Rat | SWBFII Map Manager";
@@ -396,7 +548,11 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.panelCurMap.ResumeLayout(false);
+            this.panelCurMap.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMap)).EndInit();
+            this.panelInstall.ResumeLayout(false);
+            this.panelInstall.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -439,6 +595,19 @@
         private System.Windows.Forms.ProgressBar progBarMapDownload;
         private System.Windows.Forms.Label lblMapInstalling;
         private System.Windows.Forms.Label lblInstallStatus;
+        private System.Windows.Forms.Panel panelInstall;
+        private System.Windows.Forms.Panel panelCurMap;
+        private System.Windows.Forms.PictureBox picBoxCurMap;
+        private System.Windows.Forms.Label lblAuthorCurMap;
+        private System.Windows.Forms.Label lblNameCurMap;
+        private System.Windows.Forms.Label lblDownloadCurMap;
+        private System.Windows.Forms.Label lblFolderCurMap;
+        private System.Windows.Forms.Label lblCurMap;
+        private System.Windows.Forms.TextBox txtTypeCurMap;
+        private System.Windows.Forms.TextBox txtFolderCurMap;
+        private System.Windows.Forms.TextBox txtAuthorCurMap;
+        private System.Windows.Forms.TextBox txtNameCurMap;
+        private System.Windows.Forms.RichTextBox txtDownloadCurMap;
     }
 }
 

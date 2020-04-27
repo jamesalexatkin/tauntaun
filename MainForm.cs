@@ -261,16 +261,36 @@ namespace WompRat
             settings = updatedSettings;
 
             MessageBox.Show("Settings saved!");
+        }
 
-            updateTheme();
+        private void lstVwGetMaps_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection selectedLvis = lstVwGetMaps.SelectedItems;
+            if (selectedLvis.Count > 0) 
+            {
+                ListViewItem curMapLvi = selectedLvis[0];
+                string mapFolder = curMapLvi.SubItems[1].Text;
+                Map curMap = findMapFromFolder(knownMaps.Maps, mapFolder);
+
+                picBoxCurMap.Image = findMapImage(curMap);
+
+                txtNameCurMap.Text = curMap.Name;
+                txtAuthorCurMap.Text = curMap.Author;
+                txtFolderCurMap.Text = curMap.Folder;
+                txtTypeCurMap.Text = curMap.Type;
+                txtDownloadCurMap.Text = curMap.DownloadUrl;
+                
+            }
+            else
+            {
+                // TODO
+            }
         }
 
         private void btnInstallMap_Click(object sender, EventArgs e)
         {
             try
             {
-
-
                 ListView.SelectedListViewItemCollection selectedLvis = lstVwGetMaps.SelectedItems;
                 foreach (ListViewItem lvi in selectedLvis)
                 {
@@ -294,8 +314,6 @@ namespace WompRat
                         string tempDownloadPagePath = TempDir + mapFolder + "DownloadPage.html";
                         //client = new MapInstallClient();
                         client.DownloadFile(downloadPageUrl, tempDownloadPagePath);
-
-
 
                         HtmlAgilityPack.HtmlDocument moddbDownloadPage = new HtmlAgilityPack.HtmlDocument();
                         moddbDownloadPage.LoadHtml(File.ReadAllText(tempDownloadPagePath));
@@ -444,6 +462,7 @@ namespace WompRat
             progBarMapDownload.Visible = false;
             // Hide map name
             lblMapInstalling.Visible = false;
+            lblInstallStatus.Visible = false;
         }
 
         private void CopyDirectory(string sourceDirName, string destDirName, bool copySubDirs)
@@ -548,5 +567,7 @@ namespace WompRat
                 }
             }
         }
+
+        
     }
 }
