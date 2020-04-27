@@ -1,4 +1,4 @@
-﻿namespace WompRat
+﻿namespace Tauntaun
 {
     partial class MainForm
     {
@@ -42,7 +42,20 @@
             this.cmbTheme = new System.Windows.Forms.ComboBox();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnUninstallMap = new System.Windows.Forms.Button();
+            this.panelInfoCurMapInstalled = new System.Windows.Forms.Panel();
+            this.txtDownloadCurMapInstalled = new System.Windows.Forms.RichTextBox();
+            this.txtTypeCurMapInstalled = new System.Windows.Forms.TextBox();
+            this.txtFolderCurMapInstalled = new System.Windows.Forms.TextBox();
+            this.txtAuthorCurMapInstalled = new System.Windows.Forms.TextBox();
+            this.txtNameCurMapInstalled = new System.Windows.Forms.TextBox();
+            this.lblTypeCurMapInstalled = new System.Windows.Forms.Label();
+            this.lblDownloadCurMapInstalled = new System.Windows.Forms.Label();
+            this.lblFolderCurMapInstalled = new System.Windows.Forms.Label();
+            this.lblAuthorCurMapInstalled = new System.Windows.Forms.Label();
+            this.lblNameCurMapInstalled = new System.Windows.Forms.Label();
+            this.picBoxCurMapInstalled = new System.Windows.Forms.PictureBox();
             this.lstVwInstalledMaps = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -77,30 +90,17 @@
             this.txtNumMapsAvailable = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.panelInfoCurMapInstalled = new System.Windows.Forms.Panel();
-            this.txtDownloadCurMapInstalled = new System.Windows.Forms.RichTextBox();
-            this.txtTypeCurMapInstalled = new System.Windows.Forms.TextBox();
-            this.txtFolderCurMapInstalled = new System.Windows.Forms.TextBox();
-            this.txtAuthorCurMapInstalled = new System.Windows.Forms.TextBox();
-            this.txtNameCurMapInstalled = new System.Windows.Forms.TextBox();
-            this.lblTypeCurMapInstalled = new System.Windows.Forms.Label();
-            this.lblDownloadCurMapInstalled = new System.Windows.Forms.Label();
-            this.lblFolderCurMapInstalled = new System.Windows.Forms.Label();
-            this.lblAuthorCurMapInstalled = new System.Windows.Forms.Label();
-            this.lblNameCurMapInstalled = new System.Windows.Forms.Label();
-            this.picBoxCurMapInstalled = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.tabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panelInfoCurMapInstalled.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMapInstalled)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panelCurMapGet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMapGet)).BeginInit();
             this.panelInstall.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.panelInfoCurMapInstalled.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMapInstalled)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNumMapsInstalled
@@ -231,6 +231,17 @@
             this.tabPage1.Text = "Installed maps";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnUninstallMap);
+            this.panel2.Controls.Add(this.txtNumMapsInstalled);
+            this.panel2.Controls.Add(this.lblNumMapsInstalledHeader);
+            this.panel2.Location = new System.Drawing.Point(912, 490);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(182, 184);
+            this.panel2.TabIndex = 25;
+            // 
             // btnUninstallMap
             // 
             this.btnUninstallMap.Enabled = false;
@@ -241,6 +252,127 @@
             this.btnUninstallMap.Text = "Uninstall map";
             this.btnUninstallMap.UseVisualStyleBackColor = true;
             this.btnUninstallMap.Click += new System.EventHandler(this.btnUninstallMap_Click);
+            // 
+            // panelInfoCurMapInstalled
+            // 
+            this.panelInfoCurMapInstalled.BackColor = System.Drawing.SystemColors.Control;
+            this.panelInfoCurMapInstalled.Controls.Add(this.txtDownloadCurMapInstalled);
+            this.panelInfoCurMapInstalled.Controls.Add(this.txtTypeCurMapInstalled);
+            this.panelInfoCurMapInstalled.Controls.Add(this.txtFolderCurMapInstalled);
+            this.panelInfoCurMapInstalled.Controls.Add(this.txtAuthorCurMapInstalled);
+            this.panelInfoCurMapInstalled.Controls.Add(this.txtNameCurMapInstalled);
+            this.panelInfoCurMapInstalled.Controls.Add(this.lblTypeCurMapInstalled);
+            this.panelInfoCurMapInstalled.Controls.Add(this.lblDownloadCurMapInstalled);
+            this.panelInfoCurMapInstalled.Controls.Add(this.lblFolderCurMapInstalled);
+            this.panelInfoCurMapInstalled.Controls.Add(this.lblAuthorCurMapInstalled);
+            this.panelInfoCurMapInstalled.Controls.Add(this.lblNameCurMapInstalled);
+            this.panelInfoCurMapInstalled.Controls.Add(this.picBoxCurMapInstalled);
+            this.panelInfoCurMapInstalled.Location = new System.Drawing.Point(912, 3);
+            this.panelInfoCurMapInstalled.Name = "panelInfoCurMapInstalled";
+            this.panelInfoCurMapInstalled.Size = new System.Drawing.Size(409, 481);
+            this.panelInfoCurMapInstalled.TabIndex = 24;
+            // 
+            // txtDownloadCurMapInstalled
+            // 
+            this.txtDownloadCurMapInstalled.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDownloadCurMapInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDownloadCurMapInstalled.Location = new System.Drawing.Point(88, 418);
+            this.txtDownloadCurMapInstalled.Name = "txtDownloadCurMapInstalled";
+            this.txtDownloadCurMapInstalled.Size = new System.Drawing.Size(316, 60);
+            this.txtDownloadCurMapInstalled.TabIndex = 10;
+            this.txtDownloadCurMapInstalled.Text = "";
+            this.txtDownloadCurMapInstalled.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTxt_LinkClicked);
+            // 
+            // txtTypeCurMapInstalled
+            // 
+            this.txtTypeCurMapInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTypeCurMapInstalled.Location = new System.Drawing.Point(88, 389);
+            this.txtTypeCurMapInstalled.Name = "txtTypeCurMapInstalled";
+            this.txtTypeCurMapInstalled.ReadOnly = true;
+            this.txtTypeCurMapInstalled.Size = new System.Drawing.Size(316, 13);
+            this.txtTypeCurMapInstalled.TabIndex = 9;
+            // 
+            // txtFolderCurMapInstalled
+            // 
+            this.txtFolderCurMapInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFolderCurMapInstalled.Location = new System.Drawing.Point(88, 363);
+            this.txtFolderCurMapInstalled.Name = "txtFolderCurMapInstalled";
+            this.txtFolderCurMapInstalled.ReadOnly = true;
+            this.txtFolderCurMapInstalled.Size = new System.Drawing.Size(316, 13);
+            this.txtFolderCurMapInstalled.TabIndex = 8;
+            // 
+            // txtAuthorCurMapInstalled
+            // 
+            this.txtAuthorCurMapInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAuthorCurMapInstalled.Location = new System.Drawing.Point(88, 337);
+            this.txtAuthorCurMapInstalled.Name = "txtAuthorCurMapInstalled";
+            this.txtAuthorCurMapInstalled.ReadOnly = true;
+            this.txtAuthorCurMapInstalled.Size = new System.Drawing.Size(316, 13);
+            this.txtAuthorCurMapInstalled.TabIndex = 7;
+            // 
+            // txtNameCurMapInstalled
+            // 
+            this.txtNameCurMapInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNameCurMapInstalled.Location = new System.Drawing.Point(88, 311);
+            this.txtNameCurMapInstalled.Name = "txtNameCurMapInstalled";
+            this.txtNameCurMapInstalled.ReadOnly = true;
+            this.txtNameCurMapInstalled.Size = new System.Drawing.Size(316, 13);
+            this.txtNameCurMapInstalled.TabIndex = 6;
+            // 
+            // lblTypeCurMapInstalled
+            // 
+            this.lblTypeCurMapInstalled.AutoSize = true;
+            this.lblTypeCurMapInstalled.Location = new System.Drawing.Point(4, 392);
+            this.lblTypeCurMapInstalled.Name = "lblTypeCurMapInstalled";
+            this.lblTypeCurMapInstalled.Size = new System.Drawing.Size(34, 13);
+            this.lblTypeCurMapInstalled.TabIndex = 5;
+            this.lblTypeCurMapInstalled.Text = "Type:";
+            // 
+            // lblDownloadCurMapInstalled
+            // 
+            this.lblDownloadCurMapInstalled.AutoSize = true;
+            this.lblDownloadCurMapInstalled.Location = new System.Drawing.Point(5, 418);
+            this.lblDownloadCurMapInstalled.Name = "lblDownloadCurMapInstalled";
+            this.lblDownloadCurMapInstalled.Size = new System.Drawing.Size(77, 13);
+            this.lblDownloadCurMapInstalled.TabIndex = 4;
+            this.lblDownloadCurMapInstalled.Text = "Download link:";
+            // 
+            // lblFolderCurMapInstalled
+            // 
+            this.lblFolderCurMapInstalled.AutoSize = true;
+            this.lblFolderCurMapInstalled.Location = new System.Drawing.Point(4, 366);
+            this.lblFolderCurMapInstalled.Name = "lblFolderCurMapInstalled";
+            this.lblFolderCurMapInstalled.Size = new System.Drawing.Size(39, 13);
+            this.lblFolderCurMapInstalled.TabIndex = 3;
+            this.lblFolderCurMapInstalled.Text = "Folder:";
+            // 
+            // lblAuthorCurMapInstalled
+            // 
+            this.lblAuthorCurMapInstalled.AutoSize = true;
+            this.lblAuthorCurMapInstalled.Location = new System.Drawing.Point(4, 340);
+            this.lblAuthorCurMapInstalled.Name = "lblAuthorCurMapInstalled";
+            this.lblAuthorCurMapInstalled.Size = new System.Drawing.Size(41, 13);
+            this.lblAuthorCurMapInstalled.TabIndex = 2;
+            this.lblAuthorCurMapInstalled.Text = "Author:";
+            // 
+            // lblNameCurMapInstalled
+            // 
+            this.lblNameCurMapInstalled.AutoSize = true;
+            this.lblNameCurMapInstalled.Location = new System.Drawing.Point(5, 314);
+            this.lblNameCurMapInstalled.Name = "lblNameCurMapInstalled";
+            this.lblNameCurMapInstalled.Size = new System.Drawing.Size(38, 13);
+            this.lblNameCurMapInstalled.TabIndex = 1;
+            this.lblNameCurMapInstalled.Text = "Name:";
+            // 
+            // picBoxCurMapInstalled
+            // 
+            this.picBoxCurMapInstalled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picBoxCurMapInstalled.Location = new System.Drawing.Point(4, 4);
+            this.picBoxCurMapInstalled.Name = "picBoxCurMapInstalled";
+            this.picBoxCurMapInstalled.Size = new System.Drawing.Size(400, 300);
+            this.picBoxCurMapInstalled.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxCurMapInstalled.TabIndex = 0;
+            this.picBoxCurMapInstalled.TabStop = false;
             // 
             // lstVwInstalledMaps
             // 
@@ -551,138 +683,6 @@
             this.tabPage4.Text = "About";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // panelInfoCurMapInstalled
-            // 
-            this.panelInfoCurMapInstalled.BackColor = System.Drawing.SystemColors.Control;
-            this.panelInfoCurMapInstalled.Controls.Add(this.txtDownloadCurMapInstalled);
-            this.panelInfoCurMapInstalled.Controls.Add(this.txtTypeCurMapInstalled);
-            this.panelInfoCurMapInstalled.Controls.Add(this.txtFolderCurMapInstalled);
-            this.panelInfoCurMapInstalled.Controls.Add(this.txtAuthorCurMapInstalled);
-            this.panelInfoCurMapInstalled.Controls.Add(this.txtNameCurMapInstalled);
-            this.panelInfoCurMapInstalled.Controls.Add(this.lblTypeCurMapInstalled);
-            this.panelInfoCurMapInstalled.Controls.Add(this.lblDownloadCurMapInstalled);
-            this.panelInfoCurMapInstalled.Controls.Add(this.lblFolderCurMapInstalled);
-            this.panelInfoCurMapInstalled.Controls.Add(this.lblAuthorCurMapInstalled);
-            this.panelInfoCurMapInstalled.Controls.Add(this.lblNameCurMapInstalled);
-            this.panelInfoCurMapInstalled.Controls.Add(this.picBoxCurMapInstalled);
-            this.panelInfoCurMapInstalled.Location = new System.Drawing.Point(912, 3);
-            this.panelInfoCurMapInstalled.Name = "panelInfoCurMapInstalled";
-            this.panelInfoCurMapInstalled.Size = new System.Drawing.Size(409, 481);
-            this.panelInfoCurMapInstalled.TabIndex = 24;
-            // 
-            // txtDownloadCurMapInstalled
-            // 
-            this.txtDownloadCurMapInstalled.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDownloadCurMapInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDownloadCurMapInstalled.Location = new System.Drawing.Point(88, 418);
-            this.txtDownloadCurMapInstalled.Name = "txtDownloadCurMapInstalled";
-            this.txtDownloadCurMapInstalled.Size = new System.Drawing.Size(316, 60);
-            this.txtDownloadCurMapInstalled.TabIndex = 10;
-            this.txtDownloadCurMapInstalled.Text = "";
-            this.txtDownloadCurMapInstalled.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTxt_LinkClicked);
-            // 
-            // txtTypeCurMapInstalled
-            // 
-            this.txtTypeCurMapInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTypeCurMapInstalled.Location = new System.Drawing.Point(88, 389);
-            this.txtTypeCurMapInstalled.Name = "txtTypeCurMapInstalled";
-            this.txtTypeCurMapInstalled.ReadOnly = true;
-            this.txtTypeCurMapInstalled.Size = new System.Drawing.Size(316, 13);
-            this.txtTypeCurMapInstalled.TabIndex = 9;
-            // 
-            // txtFolderCurMapInstalled
-            // 
-            this.txtFolderCurMapInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFolderCurMapInstalled.Location = new System.Drawing.Point(88, 363);
-            this.txtFolderCurMapInstalled.Name = "txtFolderCurMapInstalled";
-            this.txtFolderCurMapInstalled.ReadOnly = true;
-            this.txtFolderCurMapInstalled.Size = new System.Drawing.Size(316, 13);
-            this.txtFolderCurMapInstalled.TabIndex = 8;
-            // 
-            // txtAuthorCurMapInstalled
-            // 
-            this.txtAuthorCurMapInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAuthorCurMapInstalled.Location = new System.Drawing.Point(88, 337);
-            this.txtAuthorCurMapInstalled.Name = "txtAuthorCurMapInstalled";
-            this.txtAuthorCurMapInstalled.ReadOnly = true;
-            this.txtAuthorCurMapInstalled.Size = new System.Drawing.Size(316, 13);
-            this.txtAuthorCurMapInstalled.TabIndex = 7;
-            // 
-            // txtNameCurMapInstalled
-            // 
-            this.txtNameCurMapInstalled.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNameCurMapInstalled.Location = new System.Drawing.Point(88, 311);
-            this.txtNameCurMapInstalled.Name = "txtNameCurMapInstalled";
-            this.txtNameCurMapInstalled.ReadOnly = true;
-            this.txtNameCurMapInstalled.Size = new System.Drawing.Size(316, 13);
-            this.txtNameCurMapInstalled.TabIndex = 6;
-            // 
-            // lblTypeCurMapInstalled
-            // 
-            this.lblTypeCurMapInstalled.AutoSize = true;
-            this.lblTypeCurMapInstalled.Location = new System.Drawing.Point(4, 392);
-            this.lblTypeCurMapInstalled.Name = "lblTypeCurMapInstalled";
-            this.lblTypeCurMapInstalled.Size = new System.Drawing.Size(34, 13);
-            this.lblTypeCurMapInstalled.TabIndex = 5;
-            this.lblTypeCurMapInstalled.Text = "Type:";
-            // 
-            // lblDownloadCurMapInstalled
-            // 
-            this.lblDownloadCurMapInstalled.AutoSize = true;
-            this.lblDownloadCurMapInstalled.Location = new System.Drawing.Point(5, 418);
-            this.lblDownloadCurMapInstalled.Name = "lblDownloadCurMapInstalled";
-            this.lblDownloadCurMapInstalled.Size = new System.Drawing.Size(77, 13);
-            this.lblDownloadCurMapInstalled.TabIndex = 4;
-            this.lblDownloadCurMapInstalled.Text = "Download link:";
-            // 
-            // lblFolderCurMapInstalled
-            // 
-            this.lblFolderCurMapInstalled.AutoSize = true;
-            this.lblFolderCurMapInstalled.Location = new System.Drawing.Point(4, 366);
-            this.lblFolderCurMapInstalled.Name = "lblFolderCurMapInstalled";
-            this.lblFolderCurMapInstalled.Size = new System.Drawing.Size(39, 13);
-            this.lblFolderCurMapInstalled.TabIndex = 3;
-            this.lblFolderCurMapInstalled.Text = "Folder:";
-            // 
-            // lblAuthorCurMapInstalled
-            // 
-            this.lblAuthorCurMapInstalled.AutoSize = true;
-            this.lblAuthorCurMapInstalled.Location = new System.Drawing.Point(4, 340);
-            this.lblAuthorCurMapInstalled.Name = "lblAuthorCurMapInstalled";
-            this.lblAuthorCurMapInstalled.Size = new System.Drawing.Size(41, 13);
-            this.lblAuthorCurMapInstalled.TabIndex = 2;
-            this.lblAuthorCurMapInstalled.Text = "Author:";
-            // 
-            // lblNameCurMapInstalled
-            // 
-            this.lblNameCurMapInstalled.AutoSize = true;
-            this.lblNameCurMapInstalled.Location = new System.Drawing.Point(5, 314);
-            this.lblNameCurMapInstalled.Name = "lblNameCurMapInstalled";
-            this.lblNameCurMapInstalled.Size = new System.Drawing.Size(38, 13);
-            this.lblNameCurMapInstalled.TabIndex = 1;
-            this.lblNameCurMapInstalled.Text = "Name:";
-            // 
-            // picBoxCurMapInstalled
-            // 
-            this.picBoxCurMapInstalled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picBoxCurMapInstalled.Location = new System.Drawing.Point(4, 4);
-            this.picBoxCurMapInstalled.Name = "picBoxCurMapInstalled";
-            this.picBoxCurMapInstalled.Size = new System.Drawing.Size(400, 300);
-            this.picBoxCurMapInstalled.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxCurMapInstalled.TabIndex = 0;
-            this.picBoxCurMapInstalled.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.btnUninstallMap);
-            this.panel2.Controls.Add(this.txtNumMapsInstalled);
-            this.panel2.Controls.Add(this.lblNumMapsInstalledHeader);
-            this.panel2.Location = new System.Drawing.Point(912, 490);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 184);
-            this.panel2.TabIndex = 25;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -690,10 +690,15 @@
             this.ClientSize = new System.Drawing.Size(1335, 703);
             this.Controls.Add(this.tabCtrl);
             this.Name = "MainForm";
-            this.Text = "Womp Rat | SWBFII Map Manager";
+            this.Text = "Tauntaun - SWBFII Map Manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.tabCtrl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panelInfoCurMapInstalled.ResumeLayout(false);
+            this.panelInfoCurMapInstalled.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMapInstalled)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panelCurMapGet.ResumeLayout(false);
             this.panelCurMapGet.PerformLayout();
@@ -703,11 +708,6 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.panelInfoCurMapInstalled.ResumeLayout(false);
-            this.panelInfoCurMapInstalled.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMapInstalled)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

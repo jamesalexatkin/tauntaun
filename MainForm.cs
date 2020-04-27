@@ -12,9 +12,9 @@ using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using WompRat.Properties;
+using Tauntaun.Properties;
 
-namespace WompRat
+namespace Tauntaun
 {
     public partial class MainForm : Form
     {

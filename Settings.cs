@@ -1,4 +1,4 @@
-﻿namespace WompRat
+﻿namespace Tauntaun
 {
     internal class Settings
     {

@@ -1,4 +1,4 @@
-﻿namespace WompRat
+﻿namespace Tauntaun
 {
     public class Map
     {
