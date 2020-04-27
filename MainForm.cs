@@ -6,6 +6,7 @@ using SharpCompress.Readers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -498,6 +499,30 @@ namespace WompRat
                             CopyDirectory(dirToMove, destination, true);
 
                             Console.WriteLine("Copied " + folderToMove + " to " + destination);                          
+
+                            break;
+
+                        case "RUN":
+                            string target = words[1];
+
+                            if (target == ".exe") 
+                            {
+                                downloadedFileWoExtension = Path.GetFileNameWithoutExtension(downloadedFile);
+                                string extractedDir = Path.Combine(TempDir, downloadedFileWoExtension);
+
+                                string[] foundFiles = System.IO.Directory.GetFiles(extractedDir, "*.exe");
+
+                                if (foundFiles.Length > 0)
+                                {
+                                    string installerExe = foundFiles[0];
+                                    MessageBox.Show("Installation will continue in external installer.");
+                                    Process.Start(installerExe);
+                                }
+                                else
+                                {
+                                    throw new MapInstallException("No executable installer found.");
+                                }
+                            }
 
                             break;
 
