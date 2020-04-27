@@ -2,6 +2,7 @@
 using HtmlAgilityPack;
 using MaterialSkin;
 using Newtonsoft.Json;
+using SharpCompress.Archives.SevenZip;
 using SharpCompress.Readers;
 using System;
 using System.Collections;
@@ -463,7 +464,7 @@ namespace Tauntaun
                                     break;
 
                                 case ".7z":
-                                    throw new MapInstallException(".7z extraction not yet implemented");
+                                    extractSevenZipFile(downloadedFile, destination);
                                     break;
 
                                 default:
@@ -549,6 +550,30 @@ namespace Tauntaun
             lblInstallStatus.Visible = false;
         }
 
+        private void extractSevenZipFile(string downloadedFile, string destination)
+        {
+            using (Stream stream = File.OpenRead(downloadedFile))
+            using (var archive = SevenZipArchive.Open(stream))
+                using (var reader = archive.ExtractAllEntries())
+            {                
+                while (reader.MoveToNextEntry())
+                {
+                    if (!reader.Entry.IsDirectory)
+                    {
+                        using (var entryStream = reader.OpenEntryStream())
+                        {
+                            string filepath = Path.Combine(destination, reader.Entry.Key);
+                            Directory.CreateDirectory(Path.GetDirectoryName(filepath));
+                            using (FileStream destStream = File.Create(filepath))
+                            {
+                                entryStream.CopyTo(destStream);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         private void CopyDirectory(string sourceDirName, string destDirName, bool copySubDirs)
         {
             // Get the subdirectories for the specified directory.
@@ -586,7 +611,7 @@ namespace Tauntaun
                     CopyDirectory(subdir.FullName, temppath, copySubDirs);
                 }
             }
-        }
+        }          
 
         private void extractZipOrRarFile(string downloadedFile, string destination)
         {
