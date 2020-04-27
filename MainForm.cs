@@ -263,22 +263,48 @@ namespace WompRat
             MessageBox.Show("Settings saved!");
         }
 
+        private void lstVwInstalledMaps_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection selectedLvis = lstVwInstalledMaps.SelectedItems;
+            if (selectedLvis.Count > 0)
+            {
+                // We only display the first item
+                ListViewItem curMapLvi = selectedLvis[0];
+                string mapFolder = curMapLvi.SubItems[1].Text;
+                Map curMap = findMapFromFolder(knownMaps.Maps, mapFolder);
+
+                picBoxCurMapInstalled.Image = findMapImage(curMap);
+
+                txtNameCurMapInstalled.Text = curMap.Name;
+                txtAuthorCurMapInstalled.Text = curMap.Author;
+                txtFolderCurMapInstalled.Text = curMap.Folder;
+                txtTypeCurMapInstalled.Text = curMap.Type;
+                txtDownloadCurMapInstalled.Text = curMap.DownloadUrl;
+
+            }
+            else
+            {
+                // TODO
+            }
+        }
+
         private void lstVwGetMaps_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListView.SelectedListViewItemCollection selectedLvis = lstVwGetMaps.SelectedItems;
             if (selectedLvis.Count > 0) 
             {
+                // We only display the first item
                 ListViewItem curMapLvi = selectedLvis[0];
                 string mapFolder = curMapLvi.SubItems[1].Text;
                 Map curMap = findMapFromFolder(knownMaps.Maps, mapFolder);
 
-                picBoxCurMap.Image = findMapImage(curMap);
+                picBoxCurMapGet.Image = findMapImage(curMap);
 
-                txtNameCurMap.Text = curMap.Name;
-                txtAuthorCurMap.Text = curMap.Author;
-                txtFolderCurMap.Text = curMap.Folder;
-                txtTypeCurMap.Text = curMap.Type;
-                txtDownloadCurMap.Text = curMap.DownloadUrl;
+                txtNameCurMapGet.Text = curMap.Name;
+                txtAuthorCurMapGet.Text = curMap.Author;
+                txtFolderCurMapGet.Text = curMap.Folder;
+                txtTypeCurMapGet.Text = curMap.Type;
+                txtDownloadCurMapGet.Text = curMap.DownloadUrl;
                 
             }
             else
