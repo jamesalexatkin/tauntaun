@@ -1,4 +1,5 @@
-﻿using HtmlAgilityPack;
+﻿using Flurl;
+using HtmlAgilityPack;
 using MaterialSkin;
 using Newtonsoft.Json;
 using SharpCompress.Readers;
@@ -19,12 +20,13 @@ namespace WompRat
         const string SettingsFilename = "settings.json";
         const string KnownMapsFilename = "known_maps.json";
         ArrayList installedMaps = new ArrayList();
-        string MapImagesDir = Directory.GetCurrentDirectory() + "/images/";
-        string TempDir = Directory.GetCurrentDirectory() + "/temp/";
+        string MapImagesDir = Path.Combine(Directory.GetCurrentDirectory(), "images");
+        string TempDir = Path.Combine(Directory.GetCurrentDirectory(), "temp");
         Settings settings;
         KnownMaps knownMaps;
         MaterialSkinManager materialSkinManager;
         MapInstallClient client = new MapInstallClient();
+        const string moddbBaseUrl = "https://www.moddb.com/";
 
         public MainForm()
         {
@@ -126,7 +128,7 @@ namespace WompRat
 
         private Image findMapImage(Map m)
         {
-            string imagePath = MapImagesDir + m.Folder + ".png";
+            string imagePath = Path.Combine(MapImagesDir, m.Folder + ".png");
             Image mapImage;
 
             // If image is already downloaded
@@ -341,62 +343,10 @@ namespace WompRat
                         string downloadUrl = m.DownloadUrl;
 
                         // Check if link is to moddb
-                        Regex moddbRegex = new Regex("https://www.moddb.com/.*");
+                        Regex moddbRegex = new Regex(moddbBaseUrl + ".*");
                         if (moddbRegex.Match(downloadUrl).Success)
                         {
-                            string tempMainPagePath = TempDir + mapFolder + "ModdbMainPage.html";
-                            client = new MapInstallClient(m);
-                            client.DownloadFile(downloadUrl, tempMainPagePath);
-
-                            HtmlAgilityPack.HtmlDocument moddbMainPage = new HtmlAgilityPack.HtmlDocument();
-                            moddbMainPage.LoadHtml(File.ReadAllText(tempMainPagePath));
-                            HtmlAgilityPack.HtmlNode downloadButton = moddbMainPage.GetElementbyId("downloadmirrorstoggle");
-                            string downloadPageUrl = "https://moddb.com/" + downloadButton.GetAttributeValue("href", "");
-
-                            string tempDownloadPagePath = TempDir + mapFolder + "DownloadPage.html";
-                            //client = new MapInstallClient();
-                            client.DownloadFile(downloadPageUrl, tempDownloadPagePath);
-
-                            HtmlAgilityPack.HtmlDocument moddbDownloadPage = new HtmlAgilityPack.HtmlDocument();
-                            moddbDownloadPage.LoadHtml(File.ReadAllText(tempDownloadPagePath));
-
-                            IEnumerable<HtmlAgilityPack.HtmlNode> anchors = moddbDownloadPage.DocumentNode.Descendants("a");
-                            if (anchors != null)
-                            {
-                                Regex downloadFile = new Regex(@"download (.*)\.(.*)");
-
-                                foreach (HtmlNode a in anchors)
-                                {
-                                    Match match = downloadFile.Match(a.InnerText);
-
-                                    if (match.Success)
-                                    {
-                                        string filename = match.Groups[1].ToString();
-                                        string fileExtension = match.Groups[2].ToString();
-                                        string destFile = TempDir + filename + "." + fileExtension;
-
-                                        string realDownloadUrl = "https://moddb.com/" + a.GetAttributeValue("href", "");
-
-                                        client.DownloadFileCompleted += client_DownloadFileCompleted;
-                                        client.DownloadProgressChanged += client_DownloadProgressChanged;
-                                        MessageBox.Show("File will start downloading.", "Downloading " + m.Name);
-                                        client.DownloadFileAsync(new Uri(realDownloadUrl), destFile);
-                                        client.downloadedFile = destFile;
-
-                                        // Show progress bar
-                                        progBarMapDownload.Visible = true;
-                                        // Show map name
-                                        lblMapInstalling.Visible = true;
-                                        lblMapInstalling.Text = m.Name;
-                                        lblInstallStatus.Visible = true;
-                                        lblInstallStatus.Text = "Downloading map...";
-
-                                        // Exit this now as we have found and processed our match
-                                        // Any other matches in the HTML are irrelevant
-                                        break;
-                                    }
-                                }
-                            }
+                            downloadModdbMap(mapFolder, m, downloadUrl);
                         }
                         else
                         {
@@ -416,10 +366,66 @@ namespace WompRat
             }
         }
 
+        private void downloadModdbMap(string mapFolder, Map m, string downloadUrl)
+        {
+            string tempMainPagePath = Path.Combine(TempDir, mapFolder + "ModdbMainPage.html");
+            client = new MapInstallClient(m);
+            client.DownloadFile(downloadUrl, tempMainPagePath);
+
+            HtmlAgilityPack.HtmlDocument moddbMainPage = new HtmlAgilityPack.HtmlDocument();
+            moddbMainPage.LoadHtml(File.ReadAllText(tempMainPagePath));
+            HtmlAgilityPack.HtmlNode downloadButton = moddbMainPage.GetElementbyId("downloadmirrorstoggle");
+            string downloadPageUrl = Url.Combine(moddbBaseUrl, downloadButton.GetAttributeValue("href", ""));
+
+            string tempDownloadPagePath = Path.Combine(TempDir, mapFolder + "DownloadPage.html");
+            //client = new MapInstallClient();
+            client.DownloadFile(downloadPageUrl, tempDownloadPagePath);
+
+            HtmlAgilityPack.HtmlDocument moddbDownloadPage = new HtmlAgilityPack.HtmlDocument();
+            moddbDownloadPage.LoadHtml(File.ReadAllText(tempDownloadPagePath));
+
+            IEnumerable<HtmlAgilityPack.HtmlNode> anchors = moddbDownloadPage.DocumentNode.Descendants("a");
+            if (anchors != null)
+            {
+                Regex downloadFile = new Regex(@"download (.*)\.(.*)");
+
+                foreach (HtmlNode a in anchors)
+                {
+                    Match match = downloadFile.Match(a.InnerText);
+
+                    if (match.Success)
+                    {
+                        string filename = match.Groups[1].ToString();
+                        string fileExtension = match.Groups[2].ToString();
+                        string destFile = Path.Combine(TempDir, filename + "." + fileExtension);
+
+                        string realDownloadUrl = Url.Combine(moddbBaseUrl, a.GetAttributeValue("href", ""));
+
+                        client.DownloadFileCompleted += client_DownloadFileCompleted;
+                        client.DownloadProgressChanged += client_DownloadProgressChanged;
+                        //MessageBox.Show("File will start downloading.", "Downloading " + m.Name);
+                        client.DownloadFileAsync(new Uri(realDownloadUrl), destFile);
+                        client.downloadedFile = destFile;
+
+                        // Show progress bar
+                        progBarMapDownload.Visible = true;
+                        // Show map name
+                        lblMapInstalling.Visible = true;
+                        lblMapInstalling.Text = m.Name;
+                        lblInstallStatus.Visible = true;
+                        lblInstallStatus.Text = "Downloading map...";
+
+                        // Exit this now as we have found and processed our match
+                        // Any other matches in the HTML are irrelevant
+                        break;
+                    }
+                }
+            }
+        }
 
         private void client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            MessageBox.Show("File has been downloaded!");
+            //MessageBox.Show("File has been downloaded!");
                        
             Map mapToInstall = client.mapToInstall;
 
@@ -427,6 +433,7 @@ namespace WompRat
             string installationInstructions = mapToInstall.InstallationInstructions;
             try
             {
+                lblInstallStatus.Text = "Finishing install...";
                 parseInstallInstructions(client.downloadedFile, installationInstructions);
             }
             catch (MapInstallException mapInstallEx)
@@ -458,12 +465,9 @@ namespace WompRat
                             {
                                 case ".zip":
                                 case ".ZIP":
-                                    throw new MapInstallException(".zip extraction not yet implemented");
-                                    break;
-
                                 case ".rar":
                                 case ".RAR":
-                                    extractRarFile(downloadedFile, destination);
+                                    extractZipOrRarFile(downloadedFile, destination);
                                     break;
 
                                 case ".7z":
@@ -480,6 +484,9 @@ namespace WompRat
 
                         case "MOVE":
                             string folderToMove = words[1];
+                            string downloadedFileWoExtension = Path.GetFileNameWithoutExtension(downloadedFile);
+                            string dirToMove = Path.Combine(TempDir, downloadedFileWoExtension);
+
                             destination = words[3];
                             // Handle addon shorthand
                             if (destination == "addon")
@@ -488,7 +495,7 @@ namespace WompRat
                             }
 
                             lblInstallStatus.Text = "Moving map...";
-                            CopyDirectory(TempDir + folderToMove, destination, true);
+                            CopyDirectory(dirToMove, destination, true);
 
                             Console.WriteLine("Copied " + folderToMove + " to " + destination);                          
 
@@ -537,7 +544,8 @@ namespace WompRat
             foreach (FileInfo file in files)
             {
                 string temppath = Path.Combine(destDirName, file.Name);
-                file.CopyTo(temppath, false);
+                // TODO: Make this overwrite a file if it already exists
+                file.CopyTo(temppath, true);
             }
 
             // If copying subdirectories, copy them and their contents to new location.
@@ -551,7 +559,7 @@ namespace WompRat
             }
         }
 
-        private void extractRarFile(string downloadedFile, string destination)
+        private void extractZipOrRarFile(string downloadedFile, string destination)
         {
             using (Stream stream = File.OpenRead(downloadedFile))
             using (var reader = ReaderFactory.Open(stream))
@@ -562,7 +570,7 @@ namespace WompRat
                     {
                         using (var entryStream = reader.OpenEntryStream())
                         {
-                            string filepath = destination + reader.Entry.Key;
+                            string filepath = Path.Combine(destination, reader.Entry.Key);
                             Directory.CreateDirectory(Path.GetDirectoryName(filepath));
                             using (FileStream destStream = File.Create(filepath))
                             {
