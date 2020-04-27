@@ -1,5 +1,23 @@
 {
-    "Maps": [
+    "Maps": [    
+        {
+            "Name": "Battle of Endor (Space)",
+            "Folder": "SEN",
+            "Author": "Maveritchell",
+            "Type": "Map",
+            "DownloadUrl": "https://www.gamefront.com/games/star-wars-battlefront-2/file/battle-of-endor-space",
+            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/89581_9.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE SEN TO addon"
+        },
+        {
+            "Name": "Christmas In Jinglin' Town",
+            "Folder": "XMS",
+            "Author": "Dann Boeing",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/christmas-in-jinglin-town",
+            "ImageUrl": "https://images.gamewatcherstatic.com/screenshot/image/2/90/233182/00238595.jpg",
+            "InstallationInstructions": "RUN .exe"
+        },
         {
             "Name": "Clone Wars: Kashyyyk 1.4",
             "Folder": "SWBFII-CloneWarsKashyyyk_1.4",
@@ -161,16 +179,7 @@
             "DownloadUrl": "https://www.gamefront.com/games/star-wars-battlefront-2/file/naboo-theed-hangar",
             "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/85165_1.jpg",
             "InstallationInstructions": "EXTRACT, MOVE NTH TO addon"
-		},        
-        {
-            "Name": "Suun Ra: Desert City",
-            "Folder": "THC",
-            "Author": "JazzMaster",
-            "Type": "Map",
-            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/suun-ra-desert-city-v10-sky-to-ground",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/73/72807/thumb_620x2000/2014-07-30_00014.jpg",
-            "InstallationInstructions": "EXTRACT, MOVE THC TO addon"
-		},        
+		},
         {
             "Name": "Rhen Var: Temple",
             "Folder": "RVT",
@@ -179,6 +188,24 @@
             "DownloadUrl": "https://www.moddb.com/mods/filefronts-hidden-gems/downloads/rhen-var-temple",
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/119/118726/thumb_620x2000/20170217101914_1.jpg",
             "InstallationInstructions": "EXTRACT, MOVE RVT TO addon"
+		},
+        {
+            "Name": "Sky To Ground Map Packs 1-4",
+            "Folder": "STG14",
+            "Author": "El_Fabricio",
+            "Type": "Map pack",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/173/172126/thumb_620x2000/skyground.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
+        {
+            "Name": "Suun Ra: Desert City",
+            "Folder": "THC",
+            "Author": "JazzMaster",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/suun-ra-desert-city-v10-sky-to-ground",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/73/72807/thumb_620x2000/2014-07-30_00014.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE THC TO addon"
 		}
     ]
 }
