@@ -11,5 +11,9 @@ namespace WompRat
         {
             this.mapToInstall = mapToInstall;
         }
+
+        public MapInstallClient()
+        {
+        }
     }
 }
