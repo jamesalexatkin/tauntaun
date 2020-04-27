@@ -68,35 +68,7 @@ namespace WompRat
 
                 string[] subdirs = getDirectoriesJustNames(settings.AddonLocation);
 
-                // Add installed maps to ListView
-                foreach (string subdir in subdirs)
-                {
-                    Map mapFound = findMapFromFolder(knownMaps.Maps, subdir);
-                    installedMaps.Add(mapFound);
-                    ListViewItem lvi = new ListViewItem();
-                    if (mapFound != null)
-                    {
-                        lvi.Text = mapFound.Name;
-                        lvi.SubItems.Add(mapFound.Folder);
-                        lvi.SubItems.Add(mapFound.Author);
-                        lvi.SubItems.Add(mapFound.DownloadUrl);
-                    }
-                    else
-                    {
-                        lvi.Text = "Unrecognised map";
-                    }
-
-
-                    // Get image
-                    Image mapImage = findMapImage(mapFound);
-                    imgLstInstalled.Images.Add(mapImage);
-                    lvi.ImageIndex = imgLstInstalled.Images.Count - 1;
-
-                    lstVwInstalledMaps.Items.Add(lvi);
-                }
-
-                // Get and display number of maps installed
-                txtNumMapsInstalled.Text = lstVwInstalledMaps.Items.Count.ToString();
+                refreshInstalledMaps(subdirs);
 
                 // Add all known maps to Get Maps ListView
                 foreach (Map m in knownMaps.Maps)
@@ -125,6 +97,40 @@ namespace WompRat
                 // Get and display number of maps available
                 txtNumMapsAvailable.Text = lstVwGetMaps.Items.Count.ToString();
             }
+        }
+
+        private void refreshInstalledMaps(string[] subdirs)
+        {
+            lstVwInstalledMaps.Clear();
+            installedMaps = new ArrayList();
+            // Add installed maps to ListView
+            foreach (string subdir in subdirs)
+            {
+                Map mapFound = findMapFromFolder(knownMaps.Maps, subdir);
+                installedMaps.Add(mapFound);
+                ListViewItem lvi = new ListViewItem();
+                if (mapFound != null)
+                {
+                    lvi.Text = mapFound.Name;
+                    lvi.SubItems.Add(mapFound.Folder);
+                    lvi.SubItems.Add(mapFound.Author);
+                    lvi.SubItems.Add(mapFound.DownloadUrl);
+                }
+                else
+                {
+                    lvi.Text = "Unrecognised map";
+                }
+
+                // Get image
+                Image mapImage = findMapImage(mapFound);
+                imgLstInstalled.Images.Add(mapImage);
+                lvi.ImageIndex = imgLstInstalled.Images.Count - 1;
+
+                lstVwInstalledMaps.Items.Add(lvi);
+            }
+
+            // Get and display number of maps installed
+            txtNumMapsInstalled.Text = lstVwInstalledMaps.Items.Count.ToString();
         }
 
         private Image findMapImage(Map m)
@@ -204,7 +210,7 @@ namespace WompRat
             // Installed maps
             if (tabCtrl.SelectedTab == tabCtrl.TabPages[0])
             {
-                lstVwInstalledMaps.RedrawItems(0, lstVwInstalledMaps.Items.Count - 1, false);
+                refreshInstalledMaps(getDirectoriesJustNames(settings.AddonLocation));
             }
             // Get maps
             else if (tabCtrl.SelectedTab == tabCtrl.TabPages[1])
@@ -425,9 +431,7 @@ namespace WompRat
         }
 
         private void client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-        {
-            //MessageBox.Show("File has been downloaded!");
-                       
+        {                       
             Map mapToInstall = client.mapToInstall;
 
             // Install map
