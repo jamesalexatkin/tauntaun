@@ -3,6 +3,7 @@ using MaterialSkin;
 using Newtonsoft.Json;
 using SharpCompress.Readers;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -17,6 +18,7 @@ namespace WompRat
     {
         const string SettingsFilename = "settings.json";
         const string KnownMapsFilename = "known_maps.json";
+        ArrayList installedMaps = new ArrayList();
         string MapImagesDir = Directory.GetCurrentDirectory() + "/images/";
         string TempDir = Directory.GetCurrentDirectory() + "/temp/";
         Settings settings;
@@ -67,6 +69,7 @@ namespace WompRat
                 foreach (string subdir in subdirs)
                 {
                     Map mapFound = findMapFromFolder(knownMaps.Maps, subdir);
+                    installedMaps.Add(mapFound);
                     ListViewItem lvi = new ListViewItem();
                     if (mapFound != null)
                     {
@@ -229,7 +232,7 @@ namespace WompRat
             }
         }
 
-        private void richTxtAbout_LinkClicked(object sender, LinkClickedEventArgs e)
+        private void richTxt_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.LinkText);
         }
@@ -281,6 +284,8 @@ namespace WompRat
                 txtTypeCurMapInstalled.Text = curMap.Type;
                 txtDownloadCurMapInstalled.Text = curMap.DownloadUrl;
 
+                // Enable uninstall button
+                btnUninstallMap.Enabled = true;
             }
             else
             {
@@ -306,6 +311,14 @@ namespace WompRat
                 txtTypeCurMapGet.Text = curMap.Type;
                 txtDownloadCurMapGet.Text = curMap.DownloadUrl;
                 
+                if (installedMaps.Contains(curMap)) {
+                    // Enable install button
+                    btnInstallMap.Enabled = false;
+                }
+                else
+                {
+                    btnInstallMap.Enabled = true;
+                }
             }
             else
             {
@@ -386,6 +399,7 @@ namespace WompRat
                     {
                         throw new MapInstallException("Can't download file. Maybe support for this site is not yet implemented");
                     }
+                    installedMaps.Add(m);
                 }
             }
             catch (MapInstallException mapInstallEx)
@@ -591,6 +605,7 @@ namespace WompRat
                 {
                     this.Close();
                 }
+                installedMaps.Remove(m);
             }
         }
 

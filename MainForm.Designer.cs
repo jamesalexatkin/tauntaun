@@ -170,7 +170,7 @@
             this.richTxtAbout.Size = new System.Drawing.Size(770, 198);
             this.richTxtAbout.TabIndex = 2;
             this.richTxtAbout.Text = resources.GetString("richTxtAbout.Text");
-            this.richTxtAbout.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTxtAbout_LinkClicked);
+            this.richTxtAbout.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTxt_LinkClicked);
             // 
             // btnSettingsSave
             // 
@@ -233,6 +233,7 @@
             // 
             // btnUninstallMap
             // 
+            this.btnUninstallMap.Enabled = false;
             this.btnUninstallMap.Location = new System.Drawing.Point(8, 45);
             this.btnUninstallMap.Name = "btnUninstallMap";
             this.btnUninstallMap.Size = new System.Drawing.Size(125, 23);
@@ -321,7 +322,7 @@
             this.txtDownloadCurMapGet.Size = new System.Drawing.Size(316, 60);
             this.txtDownloadCurMapGet.TabIndex = 10;
             this.txtDownloadCurMapGet.Text = "";
-            this.txtDownloadCurMapGet.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTxtAbout_LinkClicked);
+            this.txtDownloadCurMapGet.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTxt_LinkClicked);
             // 
             // txtTypeCurMapGet
             // 
@@ -578,6 +579,7 @@
             this.txtDownloadCurMapInstalled.Size = new System.Drawing.Size(316, 60);
             this.txtDownloadCurMapInstalled.TabIndex = 10;
             this.txtDownloadCurMapInstalled.Text = "";
+            this.txtDownloadCurMapInstalled.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTxt_LinkClicked);
             // 
             // txtTypeCurMapInstalled
             // 
