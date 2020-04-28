@@ -28,6 +28,7 @@ namespace Tauntaun
         KnownMaps knownMaps;
         MapInstallClient client = new MapInstallClient();
         const string moddbBaseUrl = "https://www.moddb.com/";
+        //const string gamefrontBaseUrl = "https://www.gamefront.com/";
 
         public MainForm()
         {
@@ -236,7 +237,7 @@ namespace Tauntaun
 
         private void btnSettingsBrowse_Click(object sender, EventArgs e)
         {
-            string addonFolderPath = "";
+            string addonFolderPath = settings.AddonLocation;
 
             using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
             {
@@ -336,13 +337,17 @@ namespace Tauntaun
                         string mapFolder = lvi.SubItems[1].Text;
                         Map m = findMapFromFolder(knownMaps.Maps, mapFolder);
                         string downloadUrl = m.DownloadUrl;
-
+                                              
                         // Check if link is to moddb
-                        Regex moddbRegex = new Regex(moddbBaseUrl + ".*");
-                        if (moddbRegex.Match(downloadUrl).Success)
+                        if (new Regex(moddbBaseUrl + ".*").IsMatch(downloadUrl))
                         {
                             downloadModdbMap(mapFolder, m, downloadUrl);
                         }
+                        /*// Check if link is to gamefront
+                        else if (new Regex(gamefrontBaseUrl + ".*").Match(downloadUrl).Success)
+                        {
+                            downloadGamefrontMap(mapFolder, m, downloadUrl);
+                        }*/
                         else
                         {
                             throw new MapInstallException("Can't download file. Maybe support for this site is not yet implemented.");
@@ -361,27 +366,44 @@ namespace Tauntaun
             }
         }
 
+        /*private void downloadGamefrontMap(string mapFolder, Map m, string downloadUrl)
+        {
+            // Download mod listing page
+            string tempMainPagePath = Path.Combine(TempDir, mapFolder + "GamefrontMainPage.html");
+            client = new MapInstallClient(m);
+            client.DownloadFile(downloadUrl, tempMainPagePath);
+
+            // TODO: Parse correct page element for download link
+            HtmlAgilityPack.HtmlDocument gamefrontMainPage = new HtmlAgilityPack.HtmlDocument();
+            gamefrontMainPage.LoadHtml(File.ReadAllText(tempMainPagePath));
+            HtmlAgilityPack.HtmlNode downloadButton = gamefrontMainPage.GetElementbyId("downloadmirrorstoggle");
+            string downloadPageUrl = Url.Combine(moddbBaseUrl, downloadButton.GetAttributeValue("href", ""));
+        }*/
+
         private void downloadModdbMap(string mapFolder, Map m, string downloadUrl)
         {
+            // Download mod listing page
             string tempMainPagePath = Path.Combine(TempDir, mapFolder + "ModdbMainPage.html");
             client = new MapInstallClient(m);
             client.DownloadFile(downloadUrl, tempMainPagePath);
 
+            // Scan for download button and retrieve link
             HtmlAgilityPack.HtmlDocument moddbMainPage = new HtmlAgilityPack.HtmlDocument();
             moddbMainPage.LoadHtml(File.ReadAllText(tempMainPagePath));
             HtmlAgilityPack.HtmlNode downloadButton = moddbMainPage.GetElementbyId("downloadmirrorstoggle");
             string downloadPageUrl = Url.Combine(moddbBaseUrl, downloadButton.GetAttributeValue("href", ""));
 
+            // Download download page
             string tempDownloadPagePath = Path.Combine(TempDir, mapFolder + "DownloadPage.html");
-            //client = new MapInstallClient();
             client.DownloadFile(downloadPageUrl, tempDownloadPagePath);
-
+            
+            // Scan for a tags in download page
             HtmlAgilityPack.HtmlDocument moddbDownloadPage = new HtmlAgilityPack.HtmlDocument();
             moddbDownloadPage.LoadHtml(File.ReadAllText(tempDownloadPagePath));
-
             IEnumerable<HtmlAgilityPack.HtmlNode> anchors = moddbDownloadPage.DocumentNode.Descendants("a");
             if (anchors != null)
             {
+                // Regex matches text displayed on page for correct download link
                 Regex downloadFile = new Regex(@"download (.*)\.(.*)");
 
                 foreach (HtmlNode a in anchors)
