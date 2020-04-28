@@ -73,6 +73,24 @@
             "InstallationInstructions": "EXTRACT, MOVE LPR TO addon"
 		},
         {
+            "Name": "Geonosis: Freight Dock",
+            "Folder": "GE7",
+            "Author": "Locutus",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/geonosis-freight-dock",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/37/36903/thumb_620x2000/Geonosis_-_Freight_Dock_0.png",
+            "InstallationInstructions": "EXTRACT, MOVE GE7 TO addon"
+		},
+        {
+            "Name": "Honoghr: Crash Site",
+            "Folder": "HON",
+            "Author": "Felipe Gabe",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/honoghr-crash-site",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/104/103732/thumb_620x2000/3256q3U.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE HON TO addon"
+		},
+        {
             "Name": "Hoth: Frozen Valley",
             "Folder": "HFV",
             "Author": "Commander Jaspo",
@@ -81,6 +99,15 @@
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/150/149494/thumb_620x2000/00284663.jpg",
             "InstallationInstructions": "EXTRACT, MOVE HFV TO addon"
 		},
+        {
+            "Name": "Hoth: Infiltration",
+            "Folder": "HTI",
+            "Author": "Jendo7",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/hoth-infiltration-v10",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/30/29469/thumb_620x2000/BattlefrontII_2010-12-30_22-23-0.png",
+            "InstallationInstructions": "EXTRACT, MOVE HTI TO addon"
+        },
         {
             "Name": "Hoth: The Empire Strikes Back",
             "Folder": "ALM",
@@ -98,6 +125,15 @@
             "DownloadUrl": "https://www.moddb.com/mods/filefronts-hidden-gems/downloads/kashyyyk-episode-3",
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/122/121701/thumb_620x2000/20170418210817_1.jpg",
             "InstallationInstructions": "EXTRACT, MOVE YYY TO addon"
+		},        
+        {
+            "Name": "Kessel: Infiltration",
+            "Folder": "KES",
+            "Author": " the1&only_Dasher	",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/kessel-infiltration",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/176/175571/thumb_620x2000/screenshot_0081.png",
+            "InstallationInstructions": "EXTRACT, MOVE KES TO addon"
 		},
         {
             "Name": "Khimera: Battlegrounds (Map pack)",
@@ -159,7 +195,7 @@
             "Author": "Felipe Gabe",
             "Type": "Map",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/kothlis-sea-haven-20",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/96/95953/thumb_620x2000/KTH_2.0_Thumbnail.1.PNG",
+            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704320626/BE1DBD59704B7B5AD8A31CC6D3B8BAC17171D9B7/",
             "InstallationInstructions": "EXTRACT, MOVE KTH TO addon"
 		},
         {
@@ -199,6 +235,15 @@
             "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
 		},
         {
+            "Name": "Sol Map Pack",
+            "Folder": "SOL",
+            "Author": "Marth8880, AQT, THEWULFMAN, Scott_W.Pilgrim",
+            "Type": "Map pack",
+            "DownloadUrl": "https://www.moddb.com/mods/the-mass-effect-mod/downloads/sol-map-pack-r1",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/76/75377/thumb_620x2000/sol-system.png",
+            "InstallationInstructions": "RUN .exe"
+		},
+        {
             "Name": "Suun Ra: Desert City",
             "Folder": "THC",
             "Author": "JazzMaster",
@@ -206,6 +251,33 @@
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/suun-ra-desert-city-v10-sky-to-ground",
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/73/72807/thumb_620x2000/2014-07-30_00014.jpg",
             "InstallationInstructions": "EXTRACT, MOVE THC TO addon"
+		},
+        {
+            "Name": "Tatooine At War",
+            "Folder": "TAW",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/mods/tatooine-at-war/downloads/tatooine-at-war-11-final-version",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/96/95431/thumb_620x2000/Preview.png",
+            "InstallationInstructions": "EXTRACT, MOVE TAW TO addon"
+		},
+        {
+            "Name": "Tatooine: Outpost",
+            "Folder": "TJW",
+            "Author": "Jendo7",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/tatooine-outpost-30",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/40/39604/thumb_620x2000/BattlefrontII_2012-01-17_20-42-1.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE TJW TO addon"
+		},
+        {
+            "Name": "Yavin: Arroyo Pass",
+            "Folder": "ACH",
+            "Author": "T. Simpson",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/yavin-arroyo-pass",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/102/101202/thumb_620x2000/maxresdefault.jpg",
+            "InstallationInstructions": "EXTRACT, MOVE ACH TO addon"
 		}
     ]
 }
