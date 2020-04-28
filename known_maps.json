@@ -5,9 +5,9 @@
             "Folder": "SEN",
             "Author": "Maveritchell",
             "Type": "Map",
-            "DownloadUrl": "https://www.gamefront.com/games/star-wars-battlefront-2/file/battle-of-endor-space",
-            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/89581_2.jpg",
-            "InstallationInstructions": "EXTRACT, MOVE SEN TO addon"
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/battle-of-endor-space1",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/113/112821/thumb_620x2000/screenshot_0006.png",
+            "InstallationInstructions": "RUN .exe"
         },
         {
             "Name": "Christmas In Jinglin' Town",
@@ -59,8 +59,8 @@
             "Folder": "GE2",
             "Author": "elfie",
             "Type": "Map",
-            "DownloadUrl": "https://www.gamefront.com/games/star-wars-battlefront-2/file/episode-2-geonosis",
-            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/92149_1.jpg",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/episode-2-geonosis",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/151/150160/thumb_620x2000/00272329.jpg",
             "InstallationInstructions": "RUN .exe"
 		},
         {
@@ -158,7 +158,7 @@
             "Folder": "KTH",
             "Author": "Felipe Gabe",
             "Type": "Map",
-            "DownloadUrl": "https://drive.google.com/file/d/0B024NjOSHnVsLWhCU0J6MXNrZ3c/view",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/kothlis-sea-haven-20",
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/96/95953/thumb_620x2000/KTH_2.0_Thumbnail.1.PNG",
             "InstallationInstructions": "EXTRACT, MOVE KTH TO addon"
 		},
@@ -176,7 +176,7 @@
             "Folder": "NTH",
             "Author": "Koolaid7g",
             "Type": "Map",
-            "DownloadUrl": "https://www.gamefront.com/games/star-wars-battlefront-2/file/naboo-theed-hangar",
+            "DownloadUrl": "https://www.moddb.com/mods/mod-compilation-2016-by-flare/downloads/naboo-theed-hanger",
             "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/85165_1.jpg",
             "InstallationInstructions": "EXTRACT, MOVE NTH TO addon"
 		},
