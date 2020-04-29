@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -500,13 +501,40 @@ namespace Tauntaun
                         case "MOVE":
                             string folderToMove = words[1];
                             string downloadedFileWoExtension = Path.GetFileNameWithoutExtension(downloadedFile);
-                            string dirToMove = Path.Combine(TempDir, downloadedFileWoExtension);
 
+                            string dirToMove = "";
+
+                            // Sometimes the directory we want to copy is nested inside the dir we have downloaded
+                            // In the cases of map packs with multiple maps, this is especially so
+                            // Here, we check for addme.script files, each of which represents a map and is contained within the dir to copy
+                            string[] fileMatches = Directory.GetFiles(Path.Combine(TempDir, downloadedFileWoExtension), "addme.script", SearchOption.AllDirectories);
+                            
+                            if (fileMatches.Length > 0)
+                            {
+                                foreach (string fileMatch in fileMatches)
+                                {
+                                    // Get dir that addme.script is in
+                                    string dirOfFile = System.IO.Path.GetDirectoryName(fileMatch);
+                                    // Find the deepest subdir
+                                    string lastDir = new Uri(dirOfFile).Segments.Last();
+                                    // If this is the folder we want, take it and break
+                                    if (folderToMove == lastDir)
+                                    {
+                                        dirToMove = dirOfFile;
+                                        break;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                throw new MapInstallException("No map data found.");
+                            }
+                            
                             destination = words[3];
                             // Handle addon shorthand
                             if (destination == "addon")
                             {
-                                destination = settings.AddonLocation;
+                                destination = Path.Combine(settings.AddonLocation, folderToMove);
                             }
 
                             lblInstallStatus.Text = "Moving map...";
