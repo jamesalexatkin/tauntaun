@@ -37,6 +37,8 @@ While a regular Windows install usually places it at:
 
 Tauntaun is developed in C# using Visual Studio 2019. It requires [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) to run.
 
+This tool has been tested on Windows 10 Home.
+
 # 💬 Contributing
 If you wish to contribute, please do so by opening a pull request with a fitting description of your changes.
 
