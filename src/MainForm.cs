@@ -1,6 +1,5 @@
 ﻿using Flurl;
 using HtmlAgilityPack;
-using MaterialSkin;
 using Newtonsoft.Json;
 using SharpCompress.Archives.SevenZip;
 using SharpCompress.Readers;
@@ -28,7 +27,7 @@ namespace Tauntaun
         Settings settings;
         KnownMaps knownMaps;
         MapInstallClient client = new MapInstallClient();
-        const string moddbBaseUrl = "https://www.moddb.com/";
+        const string ModdbBaseUrl = "https://www.moddb.com/";
         //const string gamefrontBaseUrl = "https://www.gamefront.com/";
 
         public MainForm()
@@ -46,7 +45,7 @@ namespace Tauntaun
             else
             {
                 settings = new Settings();
-                writeSettings(settings, SettingsFilename);
+                WriteSettings(settings, SettingsFilename);
             }
 
             // Create map images folder if it doesn't exist
@@ -68,9 +67,9 @@ namespace Tauntaun
                 string jsonString = File.ReadAllText(KnownMapsFilename);
                 knownMaps = JsonConvert.DeserializeObject<KnownMaps>(jsonString);
 
-                string[] subdirs = getDirectoriesJustNames(settings.AddonLocation);
+                string[] subdirs = GetDirectoriesJustNames(settings.AddonLocation);
 
-                refreshInstalledMaps(subdirs);
+                RefreshInstalledMaps(subdirs);
 
                 // Add all known maps to Get Maps ListView
                 foreach (Map m in knownMaps.Maps)
@@ -89,7 +88,7 @@ namespace Tauntaun
                     }
 
                     // Get image
-                    Image mapImage = findMapImage(m);
+                    Image mapImage = FindMapImage(m);
                     imgLstGetMaps.Images.Add(mapImage);
                     lvi.ImageIndex = imgLstGetMaps.Images.Count - 1;
 
@@ -101,14 +100,14 @@ namespace Tauntaun
             }
         }
 
-        private void refreshInstalledMaps(string[] subdirs)
+        private void RefreshInstalledMaps(string[] subdirs)
         {
             lstVwInstalledMaps.Clear();
             installedMaps = new ArrayList();
             // Add installed maps to ListView
             foreach (string subdir in subdirs)
             {
-                Map mapFound = findMapFromFolder(knownMaps.Maps, subdir);
+                Map mapFound = FindMapFromFolder(knownMaps.Maps, subdir);
                 installedMaps.Add(mapFound);
                 ListViewItem lvi = new ListViewItem();
                 if (mapFound != null)
@@ -124,7 +123,7 @@ namespace Tauntaun
                 }
 
                 // Get image
-                Image mapImage = findMapImage(mapFound);
+                Image mapImage = FindMapImage(mapFound);
                 imgLstInstalled.Images.Add(mapImage);
                 lvi.ImageIndex = imgLstInstalled.Images.Count - 1;
 
@@ -135,7 +134,7 @@ namespace Tauntaun
             txtNumMapsInstalled.Text = lstVwInstalledMaps.Items.Count.ToString();
         }
 
-        private Image findMapImage(Map m)
+        private Image FindMapImage(Map m)
         {
             string imagePath = Path.Combine(MapImagesDir, m.Folder + ".png");
             Image mapImage;
@@ -165,7 +164,7 @@ namespace Tauntaun
             return mapImage;
         }
 
-        private string[] getDirectoriesJustNames(string root)
+        private string[] GetDirectoriesJustNames(string root)
         {
             string[] dirs = Directory.GetDirectories(root);
             for (int i = 0; i < dirs.Length; i++)
@@ -176,7 +175,7 @@ namespace Tauntaun
             return dirs;
         }
 
-        private Map findMapFromFolder(List<Map> maps, string subdir)
+        private Map FindMapFromFolder(List<Map> maps, string subdir)
         {
             foreach (Map m in maps)
             {
@@ -189,7 +188,7 @@ namespace Tauntaun
             return new Map("Unrecognised map", subdir, "?", "?", "?", "?", "");
         }
 
-        private void writeSettings(Settings settings, string settingsFilename)
+        private void WriteSettings(Settings settings, string settingsFilename)
         {
             string jsonToOutput = JsonConvert.SerializeObject(settings);
             System.IO.File.WriteAllText(settingsFilename, jsonToOutput);
@@ -200,7 +199,7 @@ namespace Tauntaun
             // Installed maps
             if (tabCtrl.SelectedTab == tabCtrl.TabPages[0])
             {
-                refreshInstalledMaps(getDirectoriesJustNames(settings.AddonLocation));
+                RefreshInstalledMaps(GetDirectoriesJustNames(settings.AddonLocation));
             }
             // Get maps
             else if (tabCtrl.SelectedTab == tabCtrl.TabPages[1])
@@ -258,7 +257,7 @@ namespace Tauntaun
             updatedSettings.AddonLocation = txtSettingsAddon.Text;
             updatedSettings.Theme = cmbTheme.SelectedItem.ToString();
 
-            writeSettings(updatedSettings, SettingsFilename);
+            WriteSettings(updatedSettings, SettingsFilename);
 
             settings = updatedSettings;
 
@@ -273,9 +272,9 @@ namespace Tauntaun
                 // We only display the first item
                 ListViewItem curMapLvi = selectedLvis[0];
                 string mapFolder = curMapLvi.SubItems[1].Text;
-                Map curMap = findMapFromFolder(knownMaps.Maps, mapFolder);
+                Map curMap = FindMapFromFolder(knownMaps.Maps, mapFolder);
 
-                picBoxCurMapInstalled.Image = findMapImage(curMap);
+                picBoxCurMapInstalled.Image = FindMapImage(curMap);
 
                 txtNameCurMapInstalled.Text = curMap.Name;
                 txtAuthorCurMapInstalled.Text = curMap.Author;
@@ -295,22 +294,23 @@ namespace Tauntaun
         private void lstVwGetMaps_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListView.SelectedListViewItemCollection selectedLvis = lstVwGetMaps.SelectedItems;
-            if (selectedLvis.Count > 0) 
+            if (selectedLvis.Count > 0)
             {
                 // We only display the first item
                 ListViewItem curMapLvi = selectedLvis[0];
                 string mapFolder = curMapLvi.SubItems[1].Text;
-                Map curMap = findMapFromFolder(knownMaps.Maps, mapFolder);
+                Map curMap = FindMapFromFolder(knownMaps.Maps, mapFolder);
 
-                picBoxCurMapGet.Image = findMapImage(curMap);
+                picBoxCurMapGet.Image = FindMapImage(curMap);
 
                 txtNameCurMapGet.Text = curMap.Name;
                 txtAuthorCurMapGet.Text = curMap.Author;
                 txtFolderCurMapGet.Text = curMap.Folder;
                 txtTypeCurMapGet.Text = curMap.Type;
                 txtDownloadCurMapGet.Text = curMap.DownloadUrl;
-                
-                if (installedMaps.Contains(curMap)) {
+
+                if (installedMaps.Contains(curMap))
+                {
                     // Enable install button
                     btnInstallMap.Enabled = false;
                 }
@@ -336,13 +336,13 @@ namespace Tauntaun
                     if (!client.IsBusy)
                     {
                         string mapFolder = lvi.SubItems[1].Text;
-                        Map m = findMapFromFolder(knownMaps.Maps, mapFolder);
+                        Map m = FindMapFromFolder(knownMaps.Maps, mapFolder);
                         string downloadUrl = m.DownloadUrl;
-                                              
+
                         // Check if link is to moddb
-                        if (new Regex(moddbBaseUrl + ".*").IsMatch(downloadUrl))
+                        if (new Regex(ModdbBaseUrl + ".*").IsMatch(downloadUrl))
                         {
-                            downloadModdbMap(mapFolder, m, downloadUrl);
+                            DownloadModdbMap(mapFolder, m, downloadUrl);
                         }
                         /*// Check if link is to gamefront
                         else if (new Regex(gamefrontBaseUrl + ".*").Match(downloadUrl).Success)
@@ -381,7 +381,7 @@ namespace Tauntaun
             string downloadPageUrl = Url.Combine(moddbBaseUrl, downloadButton.GetAttributeValue("href", ""));
         }*/
 
-        private void downloadModdbMap(string mapFolder, Map m, string downloadUrl)
+        private void DownloadModdbMap(string mapFolder, Map m, string downloadUrl)
         {
             // Download mod listing page
             string tempMainPagePath = Path.Combine(TempDir, mapFolder + "ModdbMainPage.html");
@@ -392,12 +392,12 @@ namespace Tauntaun
             HtmlAgilityPack.HtmlDocument moddbMainPage = new HtmlAgilityPack.HtmlDocument();
             moddbMainPage.LoadHtml(File.ReadAllText(tempMainPagePath));
             HtmlAgilityPack.HtmlNode downloadButton = moddbMainPage.GetElementbyId("downloadmirrorstoggle");
-            string downloadPageUrl = Url.Combine(moddbBaseUrl, downloadButton.GetAttributeValue("href", ""));
+            string downloadPageUrl = Url.Combine(ModdbBaseUrl, downloadButton.GetAttributeValue("href", ""));
 
             // Download download page
             string tempDownloadPagePath = Path.Combine(TempDir, mapFolder + "DownloadPage.html");
             client.DownloadFile(downloadPageUrl, tempDownloadPagePath);
-            
+
             // Scan for a tags in download page
             HtmlAgilityPack.HtmlDocument moddbDownloadPage = new HtmlAgilityPack.HtmlDocument();
             moddbDownloadPage.LoadHtml(File.ReadAllText(tempDownloadPagePath));
@@ -417,7 +417,7 @@ namespace Tauntaun
                         string fileExtension = match.Groups[2].ToString();
                         string destFile = Path.Combine(TempDir, filename + "." + fileExtension);
 
-                        string realDownloadUrl = Url.Combine(moddbBaseUrl, a.GetAttributeValue("href", ""));
+                        string realDownloadUrl = Url.Combine(ModdbBaseUrl, a.GetAttributeValue("href", ""));
 
                         client.DownloadFileCompleted += client_DownloadFileCompleted;
                         client.DownloadProgressChanged += client_DownloadProgressChanged;
@@ -442,7 +442,7 @@ namespace Tauntaun
         }
 
         private void client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-        {                       
+        {
             Map mapToInstall = client.mapToInstall;
 
             // Install map
@@ -450,17 +450,17 @@ namespace Tauntaun
             try
             {
                 lblInstallStatus.Text = "Finishing install...";
-                parseInstallInstructions(client.downloadedFile, installationInstructions);
+                ParseInstallInstructions(client.downloadedFile, installationInstructions);
             }
             catch (MapInstallException mapInstallEx)
             {
                 MessageBox.Show(mapInstallEx.Message, "Map installation failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
             MessageBox.Show("Finished installing " + mapToInstall.Name + ".");
         }
 
-        private void parseInstallInstructions(string downloadedFile, string installationInstructions)
+        private void ParseInstallInstructions(string downloadedFile, string installationInstructions)
         {
             String[] instructions = installationInstructions.Split(',');
             foreach (string instruction in instructions)
@@ -483,11 +483,11 @@ namespace Tauntaun
                             {
                                 case ".zip":
                                 case ".rar":
-                                    extractZipOrRarFile(downloadedFile, destination);
+                                    ExtractZipOrRarFile(downloadedFile, destination);
                                     break;
 
                                 case ".7z":
-                                    extractSevenZipFile(downloadedFile, destination);
+                                    ExtractSevenZipFile(downloadedFile, destination);
                                     break;
 
                                 default:
@@ -508,7 +508,7 @@ namespace Tauntaun
                             // In the cases of map packs with multiple maps, this is especially so
                             // Here, we check for addme.script files, each of which represents a map and is contained within the dir to copy
                             string[] fileMatches = Directory.GetFiles(Path.Combine(TempDir, downloadedFileWoExtension), "addme.script", SearchOption.AllDirectories);
-                            
+
                             if (fileMatches.Length > 0)
                             {
                                 foreach (string fileMatch in fileMatches)
@@ -529,7 +529,7 @@ namespace Tauntaun
                             {
                                 throw new MapInstallException("No map data found.");
                             }
-                            
+
                             destination = words[3];
                             // Handle addon shorthand
                             if (destination == "addon")
@@ -540,14 +540,14 @@ namespace Tauntaun
                             lblInstallStatus.Text = "Moving map...";
                             CopyDirectory(dirToMove, destination, true);
 
-                            Console.WriteLine("Copied " + folderToMove + " to " + destination);                          
+                            Console.WriteLine("Copied " + folderToMove + " to " + destination);
 
                             break;
 
                         case "RUN":
                             string target = words[1];
 
-                            if (target == ".exe") 
+                            if (target == ".exe")
                             {
                                 string fileToRun = "";
 
@@ -567,7 +567,7 @@ namespace Tauntaun
                                     if (foundFiles.Length > 0)
                                     {
                                         fileToRun = foundFiles[0];
-                                    }                                
+                                    }
                                     else
                                     {
                                         throw new MapInstallException("No executable installer found.");
@@ -600,12 +600,35 @@ namespace Tauntaun
             lblInstallStatus.Visible = false;
         }
 
-        private void extractSevenZipFile(string downloadedFile, string destination)
+        private void ExtractZipOrRarFile(string downloadedFile, string destination)
+        {
+            using (Stream stream = File.OpenRead(downloadedFile))
+            using (var reader = ReaderFactory.Open(stream))
+            {
+                while (reader.MoveToNextEntry())
+                {
+                    if (!reader.Entry.IsDirectory)
+                    {
+                        using (var entryStream = reader.OpenEntryStream())
+                        {
+                            string filepath = Path.Combine(destination, reader.Entry.Key);
+                            Directory.CreateDirectory(Path.GetDirectoryName(filepath));
+                            using (FileStream destStream = File.Create(filepath))
+                            {
+                                entryStream.CopyTo(destStream);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ExtractSevenZipFile(string downloadedFile, string destination)
         {
             using (Stream stream = File.OpenRead(downloadedFile))
             using (var archive = SevenZipArchive.Open(stream))
             using (var reader = archive.ExtractAllEntries())
-            {                
+            {
                 while (reader.MoveToNextEntry())
                 {
                     if (!reader.Entry.IsDirectory)
@@ -661,49 +684,19 @@ namespace Tauntaun
                     CopyDirectory(subdir.FullName, temppath, copySubDirs);
                 }
             }
-        }          
-
-        private void extractZipOrRarFile(string downloadedFile, string destination)
-        {
-            using (Stream stream = File.OpenRead(downloadedFile))
-            using (var reader = ReaderFactory.Open(stream))
-            {
-                while (reader.MoveToNextEntry())
-                {
-                    if (!reader.Entry.IsDirectory)
-                    {
-                        using (var entryStream = reader.OpenEntryStream())
-                        {
-                            string filepath = Path.Combine(destination, reader.Entry.Key);
-                            Directory.CreateDirectory(Path.GetDirectoryName(filepath));
-                            using (FileStream destStream = File.Create(filepath))
-                            {
-                                entryStream.CopyTo(destStream);
-                            }
-                        }
-                    }
-                }
-            }
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (client != null)
-            {
-                // We have to delete our client manually when we close the window
-                client.Dispose();
-            }
-        }
+
 
         private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             progBarMapDownload.Value = e.ProgressPercentage;
-            lblInstallStatus.Text = "Downloading... (" + formatBytes(e.BytesReceived) + " of " + formatBytes(e.TotalBytesToReceive) + ")";
+            lblInstallStatus.Text = "Downloading... (" + FormatBytes(e.BytesReceived) + " of " + FormatBytes(e.TotalBytesToReceive) + ")";
         }
 
-        private string formatBytes(long bytes)
+        private string FormatBytes(long bytes)
         {
-            string[] sizes = { "B", "KB", "MB", "GB", "TB" };            
+            string[] sizes = { "B", "KB", "MB", "GB", "TB" };
             int order = 0;
             while (bytes >= 1024 && order < sizes.Length - 1)
             {
@@ -725,7 +718,7 @@ namespace Tauntaun
                 string mapFolder = lvi.SubItems[1].Text;
                 string fullMapFolderPath = settings.AddonLocation + "\\" + mapFolder;
 
-                Map m = findMapFromFolder(knownMaps.Maps, mapFolder);
+                Map m = FindMapFromFolder(knownMaps.Maps, mapFolder);
 
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show("Are you sure wish to uninstall '" + m.Name + "' and delete it from your computer?", "Uninstall map", buttons);
@@ -746,6 +739,13 @@ namespace Tauntaun
             }
         }
 
-        
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (client != null)
+            {
+                // We have to delete our client manually when we close the window
+                client.Dispose();
+            }
+        }
     }
 }
