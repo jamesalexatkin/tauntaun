@@ -421,7 +421,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1327, 677);
+            this.tabPage2.Size = new System.Drawing.Size(1327, 703);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Get maps";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -559,7 +559,7 @@
             this.lstVwGetMaps.LargeImageList = this.imgLstGetMaps;
             this.lstVwGetMaps.Location = new System.Drawing.Point(3, 3);
             this.lstVwGetMaps.Name = "lstVwGetMaps";
-            this.lstVwGetMaps.Size = new System.Drawing.Size(890, 671);
+            this.lstVwGetMaps.Size = new System.Drawing.Size(890, 697);
             this.lstVwGetMaps.TabIndex = 15;
             this.lstVwGetMaps.UseCompatibleStateImageBehavior = false;
             this.lstVwGetMaps.SelectedIndexChanged += new System.EventHandler(this.lstVwGetMaps_SelectedIndexChanged);
@@ -597,7 +597,7 @@
             this.panelInstall.Controls.Add(this.txtNumMapsAvailable);
             this.panelInstall.Location = new System.Drawing.Point(912, 490);
             this.panelInstall.Name = "panelInstall";
-            this.panelInstall.Size = new System.Drawing.Size(182, 184);
+            this.panelInstall.Size = new System.Drawing.Size(409, 184);
             this.panelInstall.TabIndex = 22;
             // 
             // progBarMapDownload
@@ -668,7 +668,7 @@
             this.tabPage3.Controls.Add(this.btnSettingsBrowse);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1327, 677);
+            this.tabPage3.Size = new System.Drawing.Size(1327, 703);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -678,7 +678,7 @@
             this.tabPage4.Controls.Add(this.richTxtAbout);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1327, 677);
+            this.tabPage4.Size = new System.Drawing.Size(1327, 703);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "About";
             this.tabPage4.UseVisualStyleBackColor = true;

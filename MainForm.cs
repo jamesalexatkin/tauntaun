@@ -620,7 +620,7 @@ namespace Tauntaun
             foreach (FileInfo file in files)
             {
                 string temppath = Path.Combine(destDirName, file.Name);
-                // TODO: Make this overwrite a file if it already exists
+                // Overwrite flag is set so file will overwrite an existing file if a conflict occurs
                 file.CopyTo(temppath, true);
             }
 
@@ -670,6 +670,23 @@ namespace Tauntaun
         private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             progBarMapDownload.Value = e.ProgressPercentage;
+            lblInstallStatus.Text = "Downloading... (" + formatBytes(e.BytesReceived) + " of " + formatBytes(e.TotalBytesToReceive) + ")";
+        }
+
+        private string formatBytes(long bytes)
+        {
+            string[] sizes = { "B", "KB", "MB", "GB", "TB" };            
+            int order = 0;
+            while (bytes >= 1024 && order < sizes.Length - 1)
+            {
+                order++;
+                bytes = bytes / 1024;
+            }
+
+            // Adjust the format string to your preferences. For example "{0:0.#}{1}" would
+            // show a single decimal place, and no space.
+            string result = String.Format("{0:0.##} {1}", bytes, sizes[order]);
+            return result;
         }
 
         private void btnUninstallMap_Click(object sender, EventArgs e)

@@ -8,6 +8,8 @@
 
 <h4 align="center">A map manager for Star Wars: Battlefront II (2005) custom maps.</h4>
 
+_(Please note this project is still a work in progress.)_
+
 # 🎨 Features
 * Manage currently installed maps.
 * Download and install new maps.
@@ -17,7 +19,7 @@
 * Supports external installers in EXE format.
 
 # 📥 Installation
-Tauntaun can be installed by grabbing the latest release from the [Releases](https://github.com/jamesalexatkin/tauntaun/releases) page.
+Tauntaun can be installed by grabbing the latest release from the [Releases](https://github.com/jamesalexatkin/tauntaun/releases) page. 
 
 In the `Settings` section of the app you must specify your game's `addon` folder. This is located under `GameData` and, if you don't already have one, you must create it.
 
