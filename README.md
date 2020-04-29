@@ -88,3 +88,7 @@ As another example, the _Khimera: Battlegrounds_ map pack download is a `.exe` f
 
 # 📜 License
 This software is licensed under the [GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.html).
+
+LucasArts, the LucasArts logo, STAR WARS and related properties are trademarks in the United States and/or in other countries of Lucasfilm Ltd. and/or its affiliates. 
+Star Wars Battlefront is a trademark of Lucasfilm Entertainment Company Ltd. 
+© 2004-2009 Lucasfilm Entertainment Company Ltd. or Lucasfilm Ltd. All rights reserved.
