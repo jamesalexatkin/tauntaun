@@ -10,6 +10,8 @@
 
 _(Please note this project is still a work in progress.)_
 
+![Tauntaun 'Get maps' screen](https://i.imgur.com/Di5FmPh.png)
+
 # 🎨 Features
 * Manage currently installed maps.
 * Download and install new maps.
