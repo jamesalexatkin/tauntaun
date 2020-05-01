@@ -27,11 +27,11 @@ In the `Settings` section of the app you must specify your game's `addon` folder
 
 For Steam users it is typically found at:
 
-`C:\Program Files\Steam\steamapps\common\Star Wars Battlefront II\GameData\addon`
+`C:\Program Files (x86)\Steam\steamapps\common\Star Wars Battlefront II\GameData\addon`
 
 While a regular Windows install usually places it at:
 
-`C:\Program Files\Lucas Arts\Star Wars Battlefront II\GameData\addon`
+`C:\Program Files (x86)\Lucas Arts\Star Wars Battlefront II\GameData\addon`
 
 # 💻 Technology
 
