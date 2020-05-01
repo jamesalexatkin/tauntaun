@@ -140,6 +140,7 @@
             "Folder": "KBMP",
             "Author": "YaNkFaN",
             "Type": "Map pack",
+            "ContainsMaps": ["Khimera: Beach", "Khimera: Islands", "Khimera: Jungle", "Khimera: Plains", "Khimera: Streets"],
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://images.gamewatcherstatic.com/screenshot/image/3/95/259513/00315641.jpg",
             "InstallationInstructions": "RUN .exe"
@@ -149,6 +150,7 @@
             "Folder": "BHA",
             "Author": "YaNkFaN",
             "Type": "Map",
+            "PartOfMapPack": "Khimera: Battlegrounds (Map pack)",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/23964095334772827/A5EEFF8A68B8B8B67204702DD514C956741B9F77/",
             "InstallationInstructions": "RUN .exe"
@@ -158,6 +160,7 @@
             "Folder": "FR3",
             "Author": "YaNkFaN",
             "Type": "Map",
+            "PartOfMapPack": "Khimera: Battlegrounds (Map pack)",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704569022/BC893787AAE19BED87E9136B3E9AF2A562BE80A6/",
             "InstallationInstructions": "RUN .exe"
@@ -167,6 +170,7 @@
             "Folder": "KHJ",
             "Author": "YaNkFaN",
             "Type": "Map",
+            "PartOfMapPack": "Khimera: Battlegrounds (Map pack)",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net//ugc/23964095334773557/1B8C0B71534DCF76A235433277B48CDAE1B597F8/",
             "InstallationInstructions": "RUN .exe"
@@ -176,6 +180,7 @@
             "Folder": "KHP",
             "Author": "YaNkFaN",
             "Type": "Map",
+            "PartOfMapPack": "Khimera: Battlegrounds (Map pack)",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704569148/BF039E999492FB3CC00088FB84421189B5AD7636/",
             "InstallationInstructions": "RUN .exe"
@@ -185,6 +190,7 @@
             "Folder": "KHS",
             "Author": "YaNkFaN",
             "Type": "Map",
+            "PartOfMapPack": "Khimera: Battlegrounds (Map pack)",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net//ugc/23964095334774262/A94AA2E01EB26DDB20052713EA0E35AE1E3A01B2/",
             "InstallationInstructions": "RUN .exe"

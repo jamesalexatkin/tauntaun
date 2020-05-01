@@ -6,6 +6,7 @@
         public string Folder { get; set; }
         public string Author { get; set; }
         public string Type { get; set; }
+        public string PartOfMapPack { get; set; }
         public string DownloadUrl { get; set; }
         public string ImageUrl { get; set; }
         public string InstallationInstructions { get; set; }

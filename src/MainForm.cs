@@ -74,25 +74,29 @@ namespace Tauntaun
                 // Add all known maps to Get Maps ListView
                 foreach (Map m in knownMaps.Maps)
                 {
-                    ListViewItem lvi = new ListViewItem();
-                    if (m != null)
+                    // Only consider standalone maps or map packs (not maps that come as part of a map pack)
+                    if (m.PartOfMapPack == null)
                     {
-                        lvi.Text = m.Name;
-                        lvi.SubItems.Add(m.Folder);
-                        lvi.SubItems.Add(m.Author);
-                        lvi.SubItems.Add(m.DownloadUrl);
-                    }
-                    else
-                    {
-                        lvi.Text = "Unrecognised map";
-                    }
+                        ListViewItem lvi = new ListViewItem();
+                        if (m != null)
+                        {
+                            lvi.Text = m.Name;
+                            lvi.SubItems.Add(m.Folder);
+                            lvi.SubItems.Add(m.Author);
+                            lvi.SubItems.Add(m.DownloadUrl);
+                        }
+                        else
+                        {
+                            lvi.Text = "Unrecognised map";
+                        }
 
-                    // Get image
-                    Image mapImage = FindMapImage(m);
-                    imgLstGetMaps.Images.Add(mapImage);
-                    lvi.ImageIndex = imgLstGetMaps.Images.Count - 1;
+                        // Get image
+                        Image mapImage = FindMapImage(m);
+                        imgLstGetMaps.Images.Add(mapImage);
+                        lvi.ImageIndex = imgLstGetMaps.Images.Count - 1;
 
-                    lstVwGetMaps.Items.Add(lvi);
+                        lstVwGetMaps.Items.Add(lvi);
+                    }
                 }
 
                 // Get and display number of maps available
@@ -599,8 +603,12 @@ namespace Tauntaun
                                 }
 
                                 // Now run installer
-                                MessageBox.Show("Installation will continue in external installer.");
+                                MessageBox.Show("Installation will continue in external installer. You may want to copy your 'addon' folder path from the 'Settings' tab.");
                                 Process.Start(fileToRun);
+                            }
+                            else
+                            {
+                                throw new MapInstallException("Unrecognised installer");
                             }
 
                             break;
