@@ -1,4 +1,5 @@
 ﻿{
-	addon_location: "",
-	theme: "light"
+	AddonLocation: "",
+	Theme: "light",
+	FirstTime: "true"
 }

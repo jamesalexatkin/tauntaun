@@ -23,8 +23,8 @@
             "Folder": "SWBFII-CloneWarsKashyyyk_1.4",
             "Author": "Warlord28",
             "Type": "Map",
-            "DownloadUrl": "https://www.gamefront.com/games/star-wars-battlefront-2/file/clone-wars-kashyyyk-1",
-            "ImageUrl": "https://www.gamefront.com/storage/screenshots/84/files2/97810_5.jpg",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/clone-wars-kashyyyk-v14",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/194/193441/thumb_620x2000/CWK1.jpg",
             "InstallationInstructions": "EXTRACT, MOVE SWBFII-CloneWarsKashyyyk_1.4 TO addon"
         },        
         {
@@ -50,8 +50,8 @@
             "Folder": "CMW",
             "Author": "El_Fabricio",
             "Type": "Map",
-            "DownloadUrl": "http://www.mediafire.com/file/t76xr3nx4xtm4gt/Swbf2_-_Coruscant-Modern_Warfare.7z/file",
-            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704320539/EF802A132F1017BC6660C8633141635F776A60FF/",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/coruscant-modern-warfare",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/194/193493/thumb_620x2000/CMW.jpg",
             "InstallationInstructions": "EXTRACT, MOVE CMW TO addon"
 		},
         {
@@ -203,8 +203,8 @@
             "Folder": "MTK",
             "Author": "Bantha55",
             "Type": "Map",
-            "DownloadUrl": "http://www.mediafire.com/file/cdunsbhd9vnp4j7/Bantha55_Naboo_FINAL.rar/file",
-            "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/428193628077275234/A822B3116E79BD04101C8634F35A87BD82C1481D/?imw=1024&imh=575&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/naboo-siege-of-theed",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/194/193498/thumb_620x2000/MTK.jpg",
             "InstallationInstructions": "EXTRACT, MOVE MTK TO addon"
         },      
         {

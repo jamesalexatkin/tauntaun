@@ -41,7 +41,7 @@
             this.lblSettingsTheme = new System.Windows.Forms.Label();
             this.cmbTheme = new System.Windows.Forms.ComboBox();
             this.tabCtrl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageInstalledMaps = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnUninstallMap = new System.Windows.Forms.Button();
             this.panelInfoCurMapInstalled = new System.Windows.Forms.Panel();
@@ -62,7 +62,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imgLstInstalled = new System.Windows.Forms.ImageList(this.components);
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageGetMaps = new System.Windows.Forms.TabPage();
             this.panelCurMapGet = new System.Windows.Forms.Panel();
             this.txtDownloadCurMapGet = new System.Windows.Forms.RichTextBox();
             this.txtTypeCurMapGet = new System.Windows.Forms.TextBox();
@@ -88,19 +88,20 @@
             this.lblMapInstalling = new System.Windows.Forms.Label();
             this.lblMapsAvailable = new System.Windows.Forms.Label();
             this.txtNumMapsAvailable = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPageSettings = new System.Windows.Forms.TabPage();
+            this.txtAddonExplanation = new System.Windows.Forms.RichTextBox();
+            this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.tabCtrl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPageInstalledMaps.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelInfoCurMapInstalled.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMapInstalled)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tabPageGetMaps.SuspendLayout();
             this.panelCurMapGet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMapGet)).BeginInit();
             this.panelInstall.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tabPageSettings.SuspendLayout();
+            this.tabPageAbout.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNumMapsInstalled
@@ -137,12 +138,12 @@
             // 
             this.txtSettingsAddon.Location = new System.Drawing.Point(14, 30);
             this.txtSettingsAddon.Name = "txtSettingsAddon";
-            this.txtSettingsAddon.Size = new System.Drawing.Size(443, 20);
+            this.txtSettingsAddon.Size = new System.Drawing.Size(510, 20);
             this.txtSettingsAddon.TabIndex = 16;
             // 
             // btnSettingsBrowse
             // 
-            this.btnSettingsBrowse.Location = new System.Drawing.Point(463, 30);
+            this.btnSettingsBrowse.Location = new System.Drawing.Point(530, 30);
             this.btnSettingsBrowse.Name = "btnSettingsBrowse";
             this.btnSettingsBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnSettingsBrowse.TabIndex = 15;
@@ -206,10 +207,10 @@
             // 
             // tabCtrl
             // 
-            this.tabCtrl.Controls.Add(this.tabPage1);
-            this.tabCtrl.Controls.Add(this.tabPage2);
-            this.tabCtrl.Controls.Add(this.tabPage3);
-            this.tabCtrl.Controls.Add(this.tabPage4);
+            this.tabCtrl.Controls.Add(this.tabPageInstalledMaps);
+            this.tabCtrl.Controls.Add(this.tabPageGetMaps);
+            this.tabCtrl.Controls.Add(this.tabPageSettings);
+            this.tabCtrl.Controls.Add(this.tabPageAbout);
             this.tabCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCtrl.Location = new System.Drawing.Point(0, 0);
             this.tabCtrl.Name = "tabCtrl";
@@ -218,18 +219,18 @@
             this.tabCtrl.TabIndex = 9;
             this.tabCtrl.SelectedIndexChanged += new System.EventHandler(this.tabCtrl_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tabPageInstalledMaps
             // 
-            this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Controls.Add(this.panelInfoCurMapInstalled);
-            this.tabPage1.Controls.Add(this.lstVwInstalledMaps);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1327, 703);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Installed maps";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageInstalledMaps.Controls.Add(this.panel2);
+            this.tabPageInstalledMaps.Controls.Add(this.panelInfoCurMapInstalled);
+            this.tabPageInstalledMaps.Controls.Add(this.lstVwInstalledMaps);
+            this.tabPageInstalledMaps.Location = new System.Drawing.Point(4, 22);
+            this.tabPageInstalledMaps.Name = "tabPageInstalledMaps";
+            this.tabPageInstalledMaps.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageInstalledMaps.Size = new System.Drawing.Size(1327, 703);
+            this.tabPageInstalledMaps.TabIndex = 0;
+            this.tabPageInstalledMaps.Text = "Installed maps";
+            this.tabPageInstalledMaps.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -413,18 +414,18 @@
             this.imgLstInstalled.ImageSize = new System.Drawing.Size(128, 96);
             this.imgLstInstalled.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // tabPage2
+            // tabPageGetMaps
             // 
-            this.tabPage2.Controls.Add(this.panelCurMapGet);
-            this.tabPage2.Controls.Add(this.lstVwGetMaps);
-            this.tabPage2.Controls.Add(this.panelInstall);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1327, 703);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Get maps";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageGetMaps.Controls.Add(this.panelCurMapGet);
+            this.tabPageGetMaps.Controls.Add(this.lstVwGetMaps);
+            this.tabPageGetMaps.Controls.Add(this.panelInstall);
+            this.tabPageGetMaps.Location = new System.Drawing.Point(4, 22);
+            this.tabPageGetMaps.Name = "tabPageGetMaps";
+            this.tabPageGetMaps.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGetMaps.Size = new System.Drawing.Size(1327, 703);
+            this.tabPageGetMaps.TabIndex = 1;
+            this.tabPageGetMaps.Text = "Get maps";
+            this.tabPageGetMaps.UseVisualStyleBackColor = true;
             // 
             // panelCurMapGet
             // 
@@ -658,30 +659,40 @@
             this.txtNumMapsAvailable.TabIndex = 17;
             this.txtNumMapsAvailable.Text = "0";
             // 
-            // tabPage3
+            // tabPageSettings
             // 
-            this.tabPage3.Controls.Add(this.cmbTheme);
-            this.tabPage3.Controls.Add(this.txtSettingsAddon);
-            this.tabPage3.Controls.Add(this.lblSettingsTheme);
-            this.tabPage3.Controls.Add(this.lblSettingsAddon);
-            this.tabPage3.Controls.Add(this.btnSettingsSave);
-            this.tabPage3.Controls.Add(this.btnSettingsBrowse);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1327, 703);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Settings";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPageSettings.Controls.Add(this.txtAddonExplanation);
+            this.tabPageSettings.Controls.Add(this.cmbTheme);
+            this.tabPageSettings.Controls.Add(this.txtSettingsAddon);
+            this.tabPageSettings.Controls.Add(this.lblSettingsTheme);
+            this.tabPageSettings.Controls.Add(this.lblSettingsAddon);
+            this.tabPageSettings.Controls.Add(this.btnSettingsSave);
+            this.tabPageSettings.Controls.Add(this.btnSettingsBrowse);
+            this.tabPageSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSettings.Name = "tabPageSettings";
+            this.tabPageSettings.Size = new System.Drawing.Size(1327, 703);
+            this.tabPageSettings.TabIndex = 2;
+            this.tabPageSettings.Text = "Settings";
+            this.tabPageSettings.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
+            // txtAddonExplanation
             // 
-            this.tabPage4.Controls.Add(this.richTxtAbout);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1327, 703);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "About";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.txtAddonExplanation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAddonExplanation.Location = new System.Drawing.Point(642, 28);
+            this.txtAddonExplanation.Name = "txtAddonExplanation";
+            this.txtAddonExplanation.Size = new System.Drawing.Size(496, 156);
+            this.txtAddonExplanation.TabIndex = 20;
+            this.txtAddonExplanation.Text = resources.GetString("txtAddonExplanation.Text");
+            // 
+            // tabPageAbout
+            // 
+            this.tabPageAbout.Controls.Add(this.richTxtAbout);
+            this.tabPageAbout.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAbout.Name = "tabPageAbout";
+            this.tabPageAbout.Size = new System.Drawing.Size(1327, 703);
+            this.tabPageAbout.TabIndex = 3;
+            this.tabPageAbout.Text = "About";
+            this.tabPageAbout.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -694,21 +705,21 @@
             this.Text = "Tauntaun - SWBFII Map Manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.tabCtrl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tabPageInstalledMaps.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelInfoCurMapInstalled.ResumeLayout(false);
             this.panelInfoCurMapInstalled.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMapInstalled)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.tabPageGetMaps.ResumeLayout(false);
             this.panelCurMapGet.ResumeLayout(false);
             this.panelCurMapGet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCurMapGet)).EndInit();
             this.panelInstall.ResumeLayout(false);
             this.panelInstall.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
+            this.tabPageSettings.ResumeLayout(false);
+            this.tabPageSettings.PerformLayout();
+            this.tabPageAbout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -725,10 +736,10 @@
         private System.Windows.Forms.Label lblSettingsTheme;
         private System.Windows.Forms.Button btnSettingsSave;
         private System.Windows.Forms.TabControl tabCtrl;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPageInstalledMaps;
+        private System.Windows.Forms.TabPage tabPageGetMaps;
+        private System.Windows.Forms.TabPage tabPageSettings;
+        private System.Windows.Forms.TabPage tabPageAbout;
         private System.Windows.Forms.ListView lstVwInstalledMaps;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -774,6 +785,7 @@
         private System.Windows.Forms.Label lblNameCurMapInstalled;
         private System.Windows.Forms.PictureBox picBoxCurMapInstalled;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RichTextBox txtAddonExplanation;
     }
 }
 

@@ -98,6 +98,13 @@ namespace Tauntaun
                 // Get and display number of maps available
                 txtNumMapsAvailable.Text = lstVwGetMaps.Items.Count.ToString();
             }
+
+            // Check if this is the first time the user has opened the app
+            if (settings.FirstTime)
+            {
+                // Move to settings tab
+                tabCtrl.SelectedIndex = 2;
+            }
         }
 
         private void RefreshInstalledMaps(string[] subdirs)
@@ -166,13 +173,22 @@ namespace Tauntaun
 
         private string[] GetDirectoriesJustNames(string root)
         {
-            string[] dirs = Directory.GetDirectories(root);
-            for (int i = 0; i < dirs.Length; i++)
+            try
             {
-                string dirName = new DirectoryInfo(dirs[i]).Name;
-                dirs[i] = dirName;
+                string[] dirs = Directory.GetDirectories(root);
+                for (int i = 0; i < dirs.Length; i++)
+                {
+                    string dirName = new DirectoryInfo(dirs[i]).Name;
+                    dirs[i] = dirName;
+                }
+                return dirs;
             }
-            return dirs;
+            catch (System.IO.DirectoryNotFoundException e)
+            {
+                MessageBox.Show("'addon' folder not found. Please check that the directory exists and amend it in the 'Settings' tab.", "Couldn't find 'addon' folder.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string[] empty = new string[0];
+                return empty;
+            }
         }
 
         private Map FindMapFromFolder(List<Map> maps, string subdir)
@@ -190,6 +206,7 @@ namespace Tauntaun
 
         private void WriteSettings(Settings settings, string settingsFilename)
         {
+            settings.FirstTime = false;
             string jsonToOutput = JsonConvert.SerializeObject(settings);
             System.IO.File.WriteAllText(settingsFilename, jsonToOutput);
         }
@@ -255,13 +272,20 @@ namespace Tauntaun
         {
             Settings updatedSettings = new Settings();
             updatedSettings.AddonLocation = txtSettingsAddon.Text;
-            updatedSettings.Theme = cmbTheme.SelectedItem.ToString();
+            //updatedSettings.Theme = cmbTheme.SelectedItem.ToString();
 
-            WriteSettings(updatedSettings, SettingsFilename);
+            if (Directory.Exists(updatedSettings.AddonLocation))
+            {
+                WriteSettings(updatedSettings, SettingsFilename);
 
-            settings = updatedSettings;
+                settings = updatedSettings;
 
-            MessageBox.Show("Settings saved!");
+                MessageBox.Show("Settings saved!");
+            }
+            else
+            {
+                MessageBox.Show("'addon' folder not found. Please check that the directory exists.", "Couldn't find 'addon' folder.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lstVwInstalledMaps_SelectedIndexChanged(object sender, EventArgs e)
