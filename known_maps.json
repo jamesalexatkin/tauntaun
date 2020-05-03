@@ -1,14 +1,35 @@
 {
-    "Maps": [    
+    "Maps": [
         {
-            "Name": "Battle of Endor (Space)",
-            "Folder": "SEN",
-            "Author": "Maveritchell",
+            "Name": "Attack on Coruscant",
+            "Folder": "AOC",
+            "Author": "El_Fabricio",
             "Type": "Map",
-            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/battle-of-endor-space1",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/113/112821/thumb_620x2000/screenshot_0006.png",
-            "InstallationInstructions": "RUN .exe"
-        },
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
+        {
+            "Name": "Battle of Endor",
+            "Folder": "BOE",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
+        {
+            "Name": "Bespin: Orbital Attack",
+            "Folder": "BOA",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
         {
             "Name": "Christmas In Jinglin' Town",
             "Folder": "XMS",
@@ -55,6 +76,16 @@
             "InstallationInstructions": "EXTRACT, MOVE CMW TO addon"
 		},
         {
+            "Name": "Dagobah: Orbital Fights",
+            "Folder": "DOF",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
+        {
             "Name": "Episode 2 Geonosis",
             "Folder": "GE2",
             "Author": "elfie",
@@ -62,6 +93,15 @@
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/episode-2-geonosis",
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/151/150160/thumb_620x2000/00272329.jpg",
             "InstallationInstructions": "RUN .exe"
+		},        
+        {
+            "Name": "Geonosis: Freight Dock",
+            "Folder": "GE7",
+            "Author": "Locutus",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/geonosis-freight-dock",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/37/36903/thumb_620x2000/Geonosis_-_Freight_Dock_0.png",
+            "InstallationInstructions": "EXTRACT, MOVE GE7 TO addon"
 		},
         {
             "Name": "Geonosis: Landing at Point Rain",
@@ -73,13 +113,14 @@
             "InstallationInstructions": "EXTRACT, MOVE LPR TO addon"
 		},
         {
-            "Name": "Geonosis: Freight Dock",
-            "Folder": "GE7",
-            "Author": "Locutus",
+            "Name": "Geonosis: Last Defence",
+            "Folder": "GLD",
+            "Author": "El_Fabricio",
             "Type": "Map",
-            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/geonosis-freight-dock",
-            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/37/36903/thumb_620x2000/Geonosis_-_Freight_Dock_0.png",
-            "InstallationInstructions": "EXTRACT, MOVE GE7 TO addon"
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
 		},
         {
             "Name": "Honoghr: Crash Site",
@@ -125,7 +166,17 @@
             "DownloadUrl": "https://www.moddb.com/mods/filefronts-hidden-gems/downloads/kashyyyk-episode-3",
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/122/121701/thumb_620x2000/20170418210817_1.jpg",
             "InstallationInstructions": "EXTRACT, MOVE YYY TO addon"
-		},        
+		},
+        {
+            "Name": "Kashyyyk: Orbital Strike",
+            "Folder": "KOS",
+            "Author": "El_Fabricio",
+            "Type": "Map pack",
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
         {
             "Name": "Kessel: Infiltration",
             "Folder": "KES",
@@ -139,8 +190,8 @@
             "Name": "Khimera: Battlegrounds (Map pack)",
             "Folder": "KBMP",
             "Author": "YaNkFaN",
-            "Type": "Map pack",
-            "ContainsMaps": ["Khimera: Beach", "Khimera: Islands", "Khimera: Jungle", "Khimera: Plains", "Khimera: Streets"],
+            "Type": "Map",
+            "ContainsMaps": ["BHA", "FR3", "KHJ", "KHP", "KHS"],
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://images.gamewatcherstatic.com/screenshot/image/3/95/259513/00315641.jpg",
             "InstallationInstructions": "RUN .exe"
@@ -150,7 +201,7 @@
             "Folder": "BHA",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "PartOfMapPack": "Khimera: Battlegrounds (Map pack)",
+            "PartOfMapPack": "KBMP",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/23964095334772827/A5EEFF8A68B8B8B67204702DD514C956741B9F77/",
             "InstallationInstructions": "RUN .exe"
@@ -160,7 +211,7 @@
             "Folder": "FR3",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "PartOfMapPack": "Khimera: Battlegrounds (Map pack)",
+            "PartOfMapPack": "KBMP",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704569022/BC893787AAE19BED87E9136B3E9AF2A562BE80A6/",
             "InstallationInstructions": "RUN .exe"
@@ -170,7 +221,7 @@
             "Folder": "KHJ",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "PartOfMapPack": "Khimera: Battlegrounds (Map pack)",
+            "PartOfMapPack": "KBMP",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net//ugc/23964095334773557/1B8C0B71534DCF76A235433277B48CDAE1B597F8/",
             "InstallationInstructions": "RUN .exe"
@@ -180,7 +231,7 @@
             "Folder": "KHP",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "PartOfMapPack": "Khimera: Battlegrounds (Map pack)",
+            "PartOfMapPack": "KBMP",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704569148/BF039E999492FB3CC00088FB84421189B5AD7636/",
             "InstallationInstructions": "RUN .exe"
@@ -190,7 +241,7 @@
             "Folder": "KHS",
             "Author": "YaNkFaN",
             "Type": "Map",
-            "PartOfMapPack": "Khimera: Battlegrounds (Map pack)",
+            "PartOfMapPack": "KBMP",
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/khimera-battlegrounds",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net//ugc/23964095334774262/A94AA2E01EB26DDB20052713EA0E35AE1E3A01B2/",
             "InstallationInstructions": "RUN .exe"
@@ -203,6 +254,26 @@
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/kothlis-sea-haven-20",
             "ImageUrl": "https://steamuserimages-a.akamaihd.net/ugc/25115948704320626/BE1DBD59704B7B5AD8A31CC6D3B8BAC17171D9B7/",
             "InstallationInstructions": "EXTRACT, MOVE KTH TO addon"
+		},
+        {
+            "Name": "Mustafar: Last Attack",
+            "Folder": "MLA",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
+        {
+            "Name": "Naboo: Last Defense",
+            "Folder": "NLD",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
 		},
         {
             "Name": "Naboo: Siege of Theed",
@@ -223,6 +294,16 @@
             "InstallationInstructions": "EXTRACT, MOVE NTH TO addon"
 		},
         {
+            "Name": "Rhen Var: Orbital Strike",
+            "Folder": "ROS",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
+        {
             "Name": "Rhen Var: Temple",
             "Folder": "RVT",
             "Author": "Commander-Sev",
@@ -236,6 +317,7 @@
             "Folder": "STG14",
             "Author": "El_Fabricio",
             "Type": "Map pack",
+            "ContainsMaps": ["AOC", "BOA", "BOE", "DOF", "GLD", "KHS", "MLA", "NLD", "ROS", "TOA", "USW", "YOS"],
             "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/173/172126/thumb_620x2000/skyground.jpg",
             "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
@@ -249,6 +331,15 @@
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/76/75377/thumb_620x2000/sol-system.png",
             "InstallationInstructions": "RUN .exe"
 		},
+        {
+            "Name": "Space Battle of Endor",
+            "Folder": "SEN",
+            "Author": "Maveritchell",
+            "Type": "Map",
+            "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/battle-of-endor-space1",
+            "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/113/112821/thumb_620x2000/screenshot_0006.png",
+            "InstallationInstructions": "RUN .exe"
+        },
         {
             "Name": "Suun Ra: Desert City",
             "Folder": "THC",
@@ -268,6 +359,16 @@
             "InstallationInstructions": "EXTRACT, MOVE TAW TO addon"
 		},
         {
+            "Name": "Tatooine: Orbital Attack",
+            "Folder": "TOA",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
+        {
             "Name": "Tatooine: Outpost",
             "Folder": "TJW",
             "Author": "Jendo7",
@@ -277,6 +378,16 @@
             "InstallationInstructions": "EXTRACT, MOVE TJW TO addon"
 		},
         {
+            "Name": "Umbara: Shadow World",
+            "Folder": "USW",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
+        {
             "Name": "Yavin: Arroyo Pass",
             "Folder": "ACH",
             "Author": "T. Simpson",
@@ -284,6 +395,16 @@
             "DownloadUrl": "https://www.moddb.com/games/star-wars-battlefront-ii/addons/yavin-arroyo-pass",
             "ImageUrl": "https://media.moddb.com/cache/images/downloads/1/102/101202/thumb_620x2000/maxresdefault.jpg",
             "InstallationInstructions": "EXTRACT, MOVE ACH TO addon"
-		}
+		},
+        {
+            "Name": "Yavin 4: Orbital Strike",
+            "Folder": "YOS",
+            "Author": "El_Fabricio",
+            "Type": "Map",
+            "PartOfMapPack": "STG14",
+            "DownloadUrl": "https://www.moddb.com/mods/mikes-battlefront-2-mods-maps-collection/downloads/sky-to-ground-map-packs",
+            "ImageUrl": "",
+            "InstallationInstructions": "EXTRACT, MOVE BOA TO addon, MOVE USW TO addon, MOVE GLD TO addon, MOVE YOS TO addon, MOVE DOF TO addon, MOVE BOE TO addon, MOVE MLA TO addon, MOVE KOS TO addon, MOVE AOC TO addon, MOVE TOA TO addon, MOVE ROS TO addon, MOVE NLD TO addon"
+		},
     ]
 }

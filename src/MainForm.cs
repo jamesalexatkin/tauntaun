@@ -187,8 +187,9 @@ namespace Tauntaun
                 }
                 return dirs;
             }
-            catch (System.IO.DirectoryNotFoundException e)
+            catch (Exception e)
             {
+                Console.WriteLine(e.StackTrace);
                 MessageBox.Show("'addon' folder not found. Please check that the directory exists and amend it in the 'Settings' tab.", "Couldn't find 'addon' folder.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 string[] empty = new string[0];
                 return empty;
