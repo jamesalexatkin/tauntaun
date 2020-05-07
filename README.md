@@ -8,8 +8,6 @@
 
 <h4 align="center">A map manager for Star Wars: Battlefront II (2005) custom maps.</h4>
 
-_(Please note this project is still a work in progress.)_
-
 ![Tauntaun 'Get maps' screen](https://i.imgur.com/Di5FmPh.png)
 
 # 🎨 Features
